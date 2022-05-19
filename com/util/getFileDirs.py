@@ -7,24 +7,22 @@
 import os
 
 # 基本路径
-dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # 测试案例路径
-DATADIR = os.path.join(dir, 'datas')
+DATA = os.path.join(dir, 'data')
 # 配置文件
-CONFDIR = os.path.join(dir, 'configs\\config.ini')
-# 浏览器驱动文件
-BROWSERDRIVER = os.path.join(dir, 'drivers')
-# 截图文件
-SCREENSHOTS = os.path.join(dir, 'results\\screenpicture')
+CONFDIR = os.path.join(dir, 'config\\APIframework.ini')
+# 接口json文件
+APIJSON = os.path.join(dir, 'api\\json')
+# 接口yaml文件
+APIYAML = os.path.join(dir, 'api\\yaml')
 # 报告文件
-REPORT = os.path.join(dir, 'results\\reports')
+REPORT = os.path.join(dir, 'reports')
 # 测试文件
-TESTS = os.path.join(dir, 'tests\\')
-# 业务文件路径
-SCRIPTS = os.path.join(dir, 'scripts')
+TESTCASES = os.path.join(dir, 'testCases\\')
 # 日志文件
 LOGS = os.path.join(dir, 'logs')
-print(LOGS)
+print(CONFDIR)
 
 if __name__ == "__main__":
     pass
