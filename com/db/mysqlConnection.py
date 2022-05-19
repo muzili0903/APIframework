@@ -10,7 +10,7 @@ import logging
 
 class MySqlConnect(object):
     def __init__(self, host='localhost', user='root', password='muzili', database='ApiTool', port=3306, charset='utf8'):
-        logging.debug("connect mysql>>> host={host}, port={port}, user={user}, password={password}, "
+        logging.debug("connect mysql: host={host}, port={port}, user={user}, password={password}, "
                       "database={database}, charset={charset}".format(host=host, port=port, user=user,
                                                                       password=password, database=database,
                                                                       charset=charset))
