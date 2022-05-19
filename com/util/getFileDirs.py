@@ -26,4 +26,5 @@ TESTCASES = os.path.join(dir, 'testCases\\')
 LOGS = os.path.join(dir, 'logs')
 
 if __name__ == "__main__":
+    print(LOGS)
     pass

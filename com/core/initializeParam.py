@@ -8,12 +8,12 @@ import random
 import re
 import logging
 
-from com.core import reqSend
+from com.util import userFunc
 
 
 def replace_uservar(case, data):
     """
-    替换报文中的用户参数值 ${变量名}
+    替换请求报文中的用户参数值 ${变量名}
     :param case: 用例报文
     :param data: 用例数据
     :return:
@@ -33,7 +33,7 @@ def replace_uservar(case, data):
 
 def replace_func(case):
     """
-    替换报文中的函数变量值 $(函数名)
+    替换请求报文中的函数变量值 $(函数名)
     :param case:
     :return:
     """
@@ -44,31 +44,37 @@ def replace_func(case):
     try:
         for i in range(len(res)):
             funcName = res[i].split('(')[1].split(')')[0]
-            func = eval('reqSend.' + funcName + '()')
+            func = eval('userFunc.' + funcName + '()')
             case = case.replace(res[i], func, 1)
-    except AttributeError as e:
+    except AttributeError:
         logging.error("获取不到函数>>>{}".format(funcName))
     return case
 
 
-def lizi():
-    s = "sfasdfa$(t)rere$(t)fdsa$(t)fasdfa$(t)"
-    if re.search('\$', s).group():
-        res = re.findall('\$\(.*?\)', s)
-    else:
-        print("d")
-    print(res)
-    for i in range(len(res)):
-        func = eval('reqSend.' + res[i].split('(')[1].split(')')[0] + '()')
-        s = s.replace(res[i], func, 1)
-    return s
-
-
 def replace_resp(case, resp_data):
     """
-    替换报文中的响应报文参数值 $Resp{变量名}
+    从其它接口的响应报文中替换请求报文中的参数值 $Resp{变量名}
     :param case:
     :param resp_data:
+    :return:
+    """
+    pass
+
+
+def replace_req(case, req_data):
+    """
+    从其它接口的请求报文中替换请求报文中的参数值 $Req{变量名}
+    :param case:
+    :param req_data:
+    :return:
+    """
+    pass
+
+
+def replace_db(case):
+    """
+    从其它接口的请求报文中替换请求报文中的参数值 $Req{变量名}
+    :param case:
     :return:
     """
     pass
