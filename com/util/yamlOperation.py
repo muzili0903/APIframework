@@ -9,18 +9,22 @@ import os
 import logging
 
 
-def read_yaml(file):
+def read_yaml(file, is_str=True):
     """
     读取yaml文件内容
     :param file:
-    :return:
+    :param is_str: 为False时返回dict
+    :return: 默认返回str
     """
     if not os.path.exists(file):
         logging.error("文件不存在, 获取数据失败>>>{}".format(file))
         return None
     with open(file=file, encoding='utf-8') as f:
         content = yaml.load(f, yaml.FullLoader)
-    return content
+    if is_str:
+        return str(content)
+    else:
+        return content
 
 
 def write_yaml(file, obj):

@@ -3,7 +3,7 @@ appKey: '123456'
 data:
   invoiceAmt: 610.0
   immediateInvoice: 1
-  payTaxpayerName: muzili
+  payTaxpayerName: ${payTaxpayerName}
   invoiceHead: 1
   bizId: DZFP2022051811024063
   invoiceType: 3
@@ -14,7 +14,7 @@ data:
   - standards: MT-TZBKC01
     taxRate: 0.13
     taxUnitPrice: 180.0
-    businessNo: DZFP202205181102408
+    businessNo: ${businessNo}
     goodCount: 1
     goodUnit: 台
     bizDetailId: PFMX77650099145
@@ -24,7 +24,7 @@ data:
   - standards: MP-SJ20W101
     taxRate: 0.13
     taxUnitPrice: 430.0
-    businessNo: DZFP202205181102408
+    businessNo: DZFP${businessNo}
     goodCount: 1
     goodUnit: 台
     bizDetailId: PFMX80524428533
