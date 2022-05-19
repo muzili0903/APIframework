@@ -12,6 +12,8 @@ dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(dir, 'data')
 # 配置文件
 CONFDIR = os.path.join(dir, 'config\\APIframework.ini')
+# 接口API文件
+API = os.path.join(dir, 'api')
 # 接口json文件
 APIJSON = os.path.join(dir, 'api\\json')
 # 接口yaml文件
@@ -22,7 +24,6 @@ REPORT = os.path.join(dir, 'reports')
 TESTCASES = os.path.join(dir, 'testCases\\')
 # 日志文件
 LOGS = os.path.join(dir, 'logs')
-print(CONFDIR)
 
 if __name__ == "__main__":
     pass

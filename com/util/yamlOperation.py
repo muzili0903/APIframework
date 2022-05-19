@@ -37,21 +37,10 @@ def write_yaml(file, obj):
 
 
 if __name__ == "__main__":
-    apiData = {
-        "page": 1,
-        "msg": "地址",
-        "data": [{
-            "id": 1,
-            "name": "学校"
-        }, {
-            "id": 2,
-            "name": "公寓"
-        }, {
-            "id": 3,
-            "name": "流动人口社区"
-        }]
-    }
-    write_yaml(r"E:\project\APIframework\config\test1.yaml", apiData)
-    data = read_yaml(r"E:\project\APIframework\config\test1.yaml")
-    print(data)
-    pass
+    from com.util.getFileDirs import APIJSON, APIYAML
+    import json
+    file = APIJSON + '\\api.json'
+    with open(file=file, mode="r", encoding="utf-8") as f:
+        content = json.load(f)
+    fileName = APIYAML + '\\api.yaml'
+    write_yaml(fileName, content)
