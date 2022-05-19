@@ -18,7 +18,7 @@ def replace_uservar(case, data):
     :param data: 用例数据
     :return:
     """
-    if re.search('\$\{.*?\}', case).group():
+    if re.search('\$\{.*?\}', case) is not None:
         res = re.findall('\$\{.*?\}', case)
     else:
         return case
@@ -37,7 +37,18 @@ def replace_func(case):
     :param case:
     :return:
     """
-    pass
+    if re.search('\$\(.*?\)', case) is not None:
+        res = re.findall('\$\(.*?\)', case)
+    else:
+        return case
+    try:
+        for i in range(len(res)):
+            funcName = res[i].split('(')[1].split(')')[0]
+            func = eval('reqSend.' + funcName + '()')
+            case = case.replace(res[i], func, 1)
+    except AttributeError as e:
+        logging.error("获取不到函数>>>{}".format(funcName))
+    return case
 
 
 def lizi():
@@ -67,9 +78,10 @@ if __name__ == "__main__":
     from com.util.yamlOperation import read_yaml
     from com.util.getFileDirs import APIYAML
 
-    file = APIYAML + '\\api.yaml'
+    file = APIYAML + '\\test.yaml'
     case = read_yaml(file)
     d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
     case = replace_uservar(case, d)
+    case = replace_func(case)
     print(case)
     pass
