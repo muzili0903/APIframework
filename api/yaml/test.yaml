@@ -1,2 +1,2 @@
-appId: $(test)
+appId: $(fdate)$(ftime)
 appKey: '123456'

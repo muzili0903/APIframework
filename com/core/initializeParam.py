@@ -73,7 +73,7 @@ def replace_req(case, req_data):
 
 def replace_db(case):
     """
-    从其它接口的请求报文中替换请求报文中的参数值 $Req{变量名}
+    从其它接口的请求报文中替换请求报文中的参数值 $DB{变量名}
     :param case:
     :return:
     """
