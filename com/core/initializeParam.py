@@ -43,11 +43,16 @@ def replace_func(case):
         return case
     try:
         for i in range(len(res)):
-            funcName = res[i].split('(')[1].split(')')[0]
-            func = eval('userFunc.' + funcName + '()')
+            func_param = res[i].split('(', 1)[1].split(')', 1)[0]
+            if "::" in func_param:
+                funcName, param = func_param.split("::")
+                func = funcName + '(' + param + ')'
+            else:
+                func = func_param + '()'
+            func = eval('userFunc.' + func)
             case = case.replace(res[i], func, 1)
     except AttributeError:
-        logging.error("获取不到函数>>>{}".format(funcName))
+        logging.error("获取不到函数>>>{}".format(func))
     return case
 
 
@@ -87,7 +92,23 @@ if __name__ == "__main__":
     file = APIYAML + '\\test.yaml'
     case = read_yaml(file)
     d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
-    case = replace_uservar(case, d)
+    # case = replace_uservar(case, d)
     case = replace_func(case)
     print(case)
+    # case = "afafa$(fdate)asdf$(fnum::5, 2)aaaa$(fnum::n=5,length=10)nbbb"
+    # if re.search('\$\(.*?\)', case) is not None:
+    #     res = re.findall('\$\(.*?\)', case)
+    #     print(res)
+    # else:
+    #     print("case:", case)
+    # for i in range(len(res)):
+    #     func_param = res[i].split('(', 1)[1].split(')', 1)[0]
+    #     if "::" in func_param:
+    #         funcName, param = func_param.split("::")
+    #         func = funcName + '(' + param + ')'
+    #     else:
+    #         func = func_param + '()'
+    #     func = eval('userFunc.' + func)
+    #     case = case.replace(res[i], func, 1)
+    #     print(case)
     pass

@@ -1,2 +1,2 @@
-appId: $(fdate)$(ftime)
+appId: $(fnum1::length=6)
 appKey: '123456'
