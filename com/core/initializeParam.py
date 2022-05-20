@@ -44,10 +44,10 @@ def replace_func(case):
     try:
         for i in range(len(res)):
             func_param = res[i].split('(', 1)[1].split(')', 1)[0]
-            if "::" in func_param:
+            if "::" in func_param:  # 带参函数
                 funcName, param = func_param.split("::")
                 func = funcName + '(' + param + ')'
-            else:
+            else:  # 不带参函数
                 func = func_param + '()'
             func = eval('userFunc.' + func)
             case = case.replace(res[i], func, 1)

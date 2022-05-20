@@ -1,0 +1,10 @@
+接口参数化：
+1、用户参数化：${变量名}
+    报文：{"name": ${name}}  变量名name的值:muzili  参数化结果：{"name": ${muzili}}
+2、系统函数参数化：$(函数名)
+    报文：{"date": $(fDATE))}  调用系统fdate函数返回当前日期  参数化结果：{"date": 2022-05-20}}
+    目前系统函数有：
+    1.fDATE：返回系统当前日期，格式：yyyy-mm-dd
+    2.fdate：返回系统当前日期，格式：yyyymmdd
+    3.fTIME：返回系统当前时间，格式：HH:MM:SS
+    4.ftime：返回系统当前时间，格式：HHMMSS
