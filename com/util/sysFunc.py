@@ -1,7 +1,7 @@
 """
 @Time ： 2022/5/19 19:46
 @Auth ： muzili
-@File ： userFunc.py
+@File ： sysFunc.py
 @IDE  ： PyCharm
 """
 import random

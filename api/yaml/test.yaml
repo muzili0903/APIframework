@@ -1,2 +1,2 @@
-appId: $(fnum1::length=6)
-appKey: '123456'
+appId: $(fnum::length=6)
+appKey: $(unum::2)
