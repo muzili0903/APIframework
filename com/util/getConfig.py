@@ -156,5 +156,7 @@ class Config(object):
 
 if __name__ == "__main__":
     config = Config()
-    print(config.get_config('base', 'url'))
-    print(config.get_config('base', 'url'))
+    print(config.get_config('MySql', 'host'))
+    print(config.get_sections())
+    print(config.get_items('project'))
+    print(config.get_config_int('MySql', 'port'))

@@ -9,7 +9,7 @@ import os
 # 基本路径
 dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # 测试案例路径
-DATA = os.path.join(dir, 'data')
+CASE = os.path.join(dir, 'case')
 # 配置文件
 CONFDIR = os.path.join(dir, 'config\\APIframework.ini')
 # 接口API文件

@@ -46,5 +46,5 @@ if __name__ == "__main__":
     file = APIJSON + '\\api.json'
     with open(file=file, mode="r", encoding="utf-8") as f:
         content = json.load(f)
-    fileName = APIYAML + '\\api.yaml'
+    fileName = APIYAML + '\\test.yaml'
     write_yaml(fileName, content)

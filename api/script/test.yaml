@@ -1,0 +1,25 @@
+request_header:
+  method: POST
+  Content-Type: application/x-www-form-urlencoded
+  path: /api/register/getAdultCurbactList
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36
+  Connection: keep-alive
+  timeout: 10
+request_body:
+- summary: getAdultCurbactList
+  describe: test_getAdultCurbactList
+  parameter:
+    params:
+      unitCode: '3202112002'
+      first: 0
+      pym: ''
+      pageSize: 10
+      page: 0
+  check_body:
+    check_1:
+      check_type: check_json
+      expected_code: 200
+      expected_result: getAdultCurbactList_response.json
+    check_2:
+      check_type: check_db
+

@@ -6,7 +6,7 @@
 """
 import pytest
 
-from com.core.initializeParam import replace_uservar, replace_func
+from com.core.replaceData import replace_user_func, replace_func
 from com.util import logOperation
 
 if __name__ == "__main__":
@@ -18,6 +18,6 @@ if __name__ == "__main__":
     file = APIYAML + '\\test.yaml'
     case = read_yaml(file)
     d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
-    case = replace_uservar(case, d)
+    case = replace_user_func(case)
     case = replace_func(case)
     print(case)
