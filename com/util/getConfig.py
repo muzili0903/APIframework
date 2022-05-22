@@ -10,11 +10,12 @@ from com.util.getFileDirs import CONFDIR
 
 
 class Config(object):
+
     config_dic = {}
 
-    def __init__(self):
+    def __init__(self, con=CONFDIR):
         self.cf = configparser.ConfigParser()
-        self.cf.read(CONFDIR, encoding='utf8')
+        self.cf.read(con, encoding='utf8')
 
     def get_config(self, section, item) -> str:
         """
@@ -155,8 +156,7 @@ class Config(object):
 
 
 if __name__ == "__main__":
-    config = Config()
-    print(config.get_config('MySql', 'host'))
-    print(config.get_sections())
-    print(config.get_items('project'))
-    print(config.get_config_int('MySql', 'port'))
+    config = Config(r'E:\project\APIframework\api\data\test.ini')
+    da = ['test', 'test1', 'test2']
+    for d in da:
+        print(config.get_items(d))

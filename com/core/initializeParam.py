@@ -6,9 +6,11 @@
 """
 import logging
 
+from com.util.getFileDirs import APISCENE
 from com.util.getConfig import Config
 from com.util.yamlOperation import read_yaml
 from com.util.fileOperation import get_all_file, get_file_name
+from com.util.caseOperation import get_scene
 
 
 def ini_params(test_info, test_data):
@@ -27,9 +29,6 @@ def ini_package():
 
 
 if __name__ == "__main__":
-    file = r"E:\project\APIframework\api\yaml"
-    p = get_all_file(file)
-    print(p)
-    print(get_file_name(p[0]))
     # case = ini_params(file)
     # print(case)
+    pass

@@ -6,6 +6,7 @@
 @IDE  ： PyCharm
 """
 import os
+import logging
 
 
 def get_all_file(path):
@@ -15,10 +16,13 @@ def get_all_file(path):
     :return:
     """
     files_path = []
-    files = os.listdir(path)
-    for f in files:
-        f_path = os.path.join(path, f)
-        files_path.append(f_path)
+    try:
+        files = os.listdir(path)
+        for f in files:
+            f_path = os.path.join(path, f)
+            files_path.append(f_path)
+    except FileNotFoundError:
+        logging.error("找不到指定的文件路径>>>{}".format(path))
     return files_path
 
 

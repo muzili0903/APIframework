@@ -8,8 +8,6 @@ import os
 
 # 基本路径
 dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-# 测试案例路径
-CASE = os.path.join(dir, 'case')
 # 配置文件
 CONFDIR = os.path.join(dir, 'config\\APIframework.ini')
 # 接口API文件
@@ -18,6 +16,12 @@ API = os.path.join(dir, 'api')
 APIJSON = os.path.join(dir, 'api\\json')
 # 接口yaml文件
 APIYAML = os.path.join(dir, 'api\\yaml')
+# 接口参数化文件
+APIDATA = os.path.join(dir, 'api\\data')
+# 接口场景文件
+APISCENE = os.path.join(dir, 'api\\scene')
+# 接口脚本文件
+APISCRIPT = os.path.join(dir, 'api\\script')
 # 报告文件
 REPORT = os.path.join(dir, 'reports')
 # 测试文件
@@ -26,5 +30,5 @@ TESTCASES = os.path.join(dir, 'testCases\\')
 LOGS = os.path.join(dir, 'logs')
 
 if __name__ == "__main__":
-    print(LOGS)
+    print(CASE)
     pass

@@ -4,10 +4,11 @@
 @File ： glo.py
 @IDE  ： PyCharm
 """
+import logging
 
 
 class GolStatic(object):
-    # 存放案例执行临时变量
+    # 存放接口执行的请求报文与响应报文
     __file_temp = dict()
     # 存放案例变量
     __case_temp = dict()
@@ -31,17 +32,16 @@ class GolStatic(object):
     @classmethod
     def get_file_temp(cls, filename, key):
         """
-        获得一个全局变量,不存在则返回None
+        获得一个全局变量,不存在则返回 None
         :param filename: 文件名
         :param key: 变量名
-        :param def_value:
         :return:
         """
         value = None
         try:
             value = cls.__file_temp[filename][key]
         except KeyError:
-            pass
+            logging.error("变量值不存在，获取失败>>>{}".format(key))
         return value
 
     @classmethod
