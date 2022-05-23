@@ -29,11 +29,13 @@ def get_scene(path):
         scene_api = dict()
         for name in scene_name:
             scene_api_name = scene_file.get_items(name)
-            scene_api_script = api_to_script(scene_api_name)
-            scene_api_data = get_case_data(scene_file_name, scene_api_name)
+            scene_api_script = api_to_script(scene_file_name, scene_api_name)
+            # scene_api_data = get_case_data(scene_file_name, scene_api_name)
             # print(scene_api_data)
+            # print(scene_api_name)
             scene_api.update({name: scene_api_script})
         scene.append({scene_file_name: scene_api})
+    print(scene)
     return scene
 
 
@@ -49,14 +51,14 @@ def get_script(file):
         try:
             request_header = yaml_content.__getitem__('request_header')
             request_body = yaml_content.__getitem__('request_body')
-            return request_header, request_body
+            return {'script': {"request_header": request_header, "request_body":request_body}}
         except Exception as e:
             logging.error("script脚本格式有误>>>{}".format(file))
             logging.error("获取接口脚本文件内容>>>{}".format(e))
     return None
 
 
-def api_to_script(scene_api_name):
+def api_to_script(scene_file_name, scene_api_name):
     """
     替换接口名对应的接口script脚本
     :param scene_api_name: 场景下的接口名
@@ -66,24 +68,26 @@ def api_to_script(scene_api_name):
     for api_name in scene_api_name:
         api_name_list = list(api_name)
         api_name_list[1] = get_script(api_name[1])
-        temp.append({api_name[1]: tuple(api_name_list)})
+        # print("api_name_list:", api_name_list)
+        # print("api_name_list:", {api_name_list[0]: api_name_list[1]})
+        api_data = get_case_data(scene_file_name, api_name[1])
+        # temp.append({api_name[1]: tuple(api_name_list)})
+        temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}, 'data': api_data})
     return temp
 
 
-def get_case_data(scene_file, scene_api_name):
+def get_case_data(scene_file, api_name):
     """
     获取用户自定义参数化变量值
     :param scene_file:
-    :param scene_api_name:
+    :param api_name:
     :return:
     """
-    temp = list()
+    # temp = list()
     path = APIDATA + '\\' + scene_file
     scene_file_data = Config(path)
-    print('scene_api_name:', scene_api_name)
-    for api_name in scene_api_name:
-        print('api_name[1]:', api_name[1])
-        print(scene_file_data.get_items(api_name[1]))
+    # temp.append({scene_api_name: scene_file_data.get_items(scene_api_name)})
+    return dict(scene_file_data.get_items(api_name))
 
 
 if __name__ == "__main__":

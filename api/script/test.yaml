@@ -4,7 +4,7 @@ request_header:
   Connection: keep-alive
   timeout: 10
 request_body:
-- summary: getAdultCurbactList
+  summary: getAdultCurbactList
   describe: test_getAdultCurbactList
   parameter:
     params:

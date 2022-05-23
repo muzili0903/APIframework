@@ -1,4 +1,4 @@
 request_header:
   method: ${method}
 request_body:
-- summary: getAdultCurbactList
+  summary: getAdultCurbactList
