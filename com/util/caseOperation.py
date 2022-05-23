@@ -51,7 +51,7 @@ def get_script(file):
         try:
             request_header = yaml_content.__getitem__('request_header')
             request_body = yaml_content.__getitem__('request_body')
-            return {'script': {"request_header": request_header, "request_body":request_body}}
+            return {'script': {"request_header": request_header, "request_body": request_body}}
         except Exception as e:
             logging.error("script脚本格式有误>>>{}".format(file))
             logging.error("获取接口脚本文件内容>>>{}".format(e))

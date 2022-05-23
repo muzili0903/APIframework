@@ -9,12 +9,21 @@ import configparser
 from com.util.getFileDirs import CONFDIR
 
 
-class Config(object):
+class MyConfigParser(configparser.ConfigParser):
 
+    def __init__(self, defaults=None):
+        configparser.ConfigParser.__init__(self, defaults=defaults)
+
+    # 重新optionxform方法，父类optionxform方法默认返回字符串转小写
+    def optionxform(self, optionstr):
+        return optionstr
+
+
+class Config(object):
     config_dic = {}
 
     def __init__(self, con=CONFDIR):
-        self.cf = configparser.ConfigParser()
+        self.cf = MyConfigParser()
         self.cf.read(con, encoding='utf8')
 
     def get_config(self, section, item) -> str:
@@ -156,7 +165,7 @@ class Config(object):
 
 
 if __name__ == "__main__":
-    config = Config(r'E:\project\APIframework\api\data\test.ini')
+    config = Config(r'E:\project\APIframework\api\data\test1.ini')
     da = ['test', 'test1', 'test2']
     for d in da:
         print(config.get_items(d))
