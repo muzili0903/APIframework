@@ -1,2 +1,2 @@
 appId: $(fnum::length=6)
-appKey: $(unum::2)
+timeout: ${appKey}

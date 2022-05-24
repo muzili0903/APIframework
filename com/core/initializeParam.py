@@ -6,6 +6,7 @@
 """
 import logging
 
+from com.core.replaceData import replace_user_var
 from com.util.getFileDirs import APISCENE
 from com.util.getConfig import Config
 from com.util.yamlOperation import read_yaml
@@ -27,13 +28,11 @@ def ini_request_headers(request_headers: dict, test_data: dict):
     connection = request_headers.get('Connection') or con.get('Connection')
     timeout = request_headers.get('timeout') or con.get('timeout')
     token = request_headers.get('token') or con.get('token')
-    print(method)
-    print(content_type)
-    print(user_agent)
-    print(connection)
-    print(timeout)
-    print(token)
-    pass
+    path = request_headers.get('path') or con.get('path')
+    header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
+               'timeout': int(timeout), 'token': token, 'path': path}
+    header = eval(replace_user_var(str(header), test_data))
+    request_headers.update(header)
 
 
 def ini_params(test_info, test_data):
@@ -52,7 +51,19 @@ def ini_package():
 
 
 if __name__ == "__main__":
-    ini_request_headers({"Method": "GET", "User-Agent": "Mozilla"}, {"name": "muzili"})
+    headers = {"Method": "GET", "User-Agent": "${name}"}
+    ini_request_headers(headers, {"name": "muzili"})
     # case = ini_params(file)
-    # print(case)
+    # print(headers)
+    from com.util.getFileDirs import APIYAML, APIDATA
+
+    file = APIYAML + '\\test.yaml'
+    case = read_yaml(file)
+    file = APIDATA + '\\test.ini'
+    c = Config(file)
+    print(case)
+    data = dict(c.get_items('test'))
+    print(data)
+    ini_request_headers(eval(case), data)
+    print(case)
     pass

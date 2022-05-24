@@ -11,7 +11,7 @@ from com.util import sysFunc
 from api import userFunc
 
 
-def replace_user_var(case, data):
+def replace_user_var(case, data: dict):
     """
     替换请求报文中的用户参数值 ${变量名}
     :param case: 用例报文
