@@ -5,8 +5,9 @@
 @file    :initializeParam.py
 """
 import logging
+import re
 
-from com.core.replaceData import replace_user_var
+from com.core import replaceData
 from com.util.getFileDirs import APISCENE
 from com.util.getConfig import Config
 from com.util.yamlOperation import read_yaml
@@ -14,7 +15,7 @@ from com.util.fileOperation import get_all_file, get_file_name
 from com.util.caseOperation import get_scene
 
 
-def ini_request_headers(request_headers: dict, test_data: dict):
+def ini_request_headers(request_headers: dict, test_data: dict) -> dict:
     """
     请求头处理
     :param request_headers:
@@ -29,20 +30,37 @@ def ini_request_headers(request_headers: dict, test_data: dict):
     timeout = request_headers.get('timeout') or con.get('timeout')
     token = request_headers.get('token') or con.get('token')
     path = request_headers.get('path') or con.get('path')
-    header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
-               'timeout': int(timeout), 'token': token, 'path': path}
-    header = eval(replace_user_var(str(header), test_data))
-    request_headers.update(header)
+    logging.info("request_headers处理前>>>{}".format(request_headers))
+    try:
+        header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
+                  'timeout': int(timeout), 'token': token, 'path': path}
+        header = eval(replaceData.replace_user_var(str(header), test_data))
+        request_headers.update(header)
+    except Exception as e:
+        logging.error("request_headers处理失败>>>{}".format(e))
+    logging.info("request_headers处理后>>>{}".format(request_headers))
+    return request_headers
 
 
-def ini_params(test_info, test_data):
+def ini_params(test_info: dict, test_data: dict) -> dict:
     """
     初始化报文
     :param test_info：测试报文
     :param test_data: 测试数据
     :return:
     """
-    pass
+    logging.info("body处理前>>>{}".format(test_info))
+    # 用户自定义参数化
+    if re.search('\$\{.*?\}', str(test_info)) is not None:
+        test_info = eval(replaceData.replace_user_var(str(test_info), test_data))
+    # 系统函数参数化
+    if re.search('\$\(f.*?\)', str(test_info)) is not None:
+        test_info = eval(replaceData.replace_func(str(test_info)))
+    # 用户自定义函数参数化
+    if re.search('\$\(u.*?\)', str(test_info)) is not None:
+        test_info = eval(replaceData.replace_user_func(str(test_info)))
+    logging.info("body处理后>>>{}".format(test_info))
+    return test_info
 
 
 def ini_package():
@@ -51,19 +69,21 @@ def ini_package():
 
 
 if __name__ == "__main__":
-    headers = {"Method": "GET", "User-Agent": "${name}"}
-    ini_request_headers(headers, {"name": "muzili"})
-    # case = ini_params(file)
-    # print(headers)
-    from com.util.getFileDirs import APIYAML, APIDATA
-
-    file = APIYAML + '\\test.yaml'
-    case = read_yaml(file)
-    file = APIDATA + '\\test.ini'
-    c = Config(file)
-    print(case)
-    data = dict(c.get_items('test'))
-    print(data)
-    ini_request_headers(eval(case), data)
-    print(case)
+    headers = {"Method": "GET", "User-Agent": "${name}", "appId": "$(fnum::length=6)",
+               "appKey": "$(unum::2)"}
+    # # ini_request_headers(headers, {"name": "muzili"})
+    # # print(headers)
+    # from com.util.getFileDirs import APIYAML, APIDATA
+    #
+    # file = APIYAML + '\\test.yaml'
+    # case = read_yaml(file)
+    # file = APIDATA + '\\test.ini'
+    # c = Config(file)
+    # # print(case)
+    # data = dict(c.get_items('test'))
+    # # print("data:", data)
+    # case = ini_request_headers(eval(case), data)
+    # print(case)
+    test_info = ini_params(headers, {"name": "muzili"})
+    print(test_info)
     pass
