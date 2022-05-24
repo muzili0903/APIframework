@@ -68,11 +68,14 @@ def api_to_script(scene_file_name, scene_api_name):
     for api_name in scene_api_name:
         api_name_list = list(api_name)
         api_name_list[1] = get_script(api_name[1])
+        print(type(api_name_list[1]))
         # print("api_name_list:", api_name_list)
         # print("api_name_list:", {api_name_list[0]: api_name_list[1]})
         api_data = get_case_data(scene_file_name, api_name[1])
+        api_name_list[1].update({'data': api_data})
         # temp.append({api_name[1]: tuple(api_name_list)})
-        temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}, 'data': api_data})
+        # temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}, 'data': api_data})
+        temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}})
     return temp
 
 

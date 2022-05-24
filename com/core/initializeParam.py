@@ -60,11 +60,22 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     if re.search('\$\(u.*?\)', str(test_info)) is not None:
         test_info = eval(replaceData.replace_user_func(str(test_info)))
     logging.info("body处理后>>>{}".format(test_info))
+    # 从请求报文获取参数值
+    if False:
+        replaceData.replace_req()
+    # 从响应报文获取参数值
+    if False:
+        replaceData.replace_resp()
+    # 从数据库获取参数值
+    if False:
+        replaceData.replace_db()
     return test_info
 
 
-def ini_package():
+def ini_package(script, data):
     # 组装报文
+    print(script)
+    print(data)
     pass
 
 
@@ -84,6 +95,22 @@ if __name__ == "__main__":
     # # print("data:", data)
     # case = ini_request_headers(eval(case), data)
     # print(case)
-    test_info = ini_params(headers, {"name": "muzili"})
-    print(test_info)
+    # test_info = ini_params(headers, {"name": "muzili"})
+    # print(test_info)
+    test = {
+        'script': {
+            'request_header': {
+                'method': '${method}'
+            },
+            'request_body': {
+                'summary': 'getAdultCurbactList',
+                'test': 'get_test'
+            }
+        },
+        'data': {
+            'appKey': 'test2',
+            'AppKey11': 'Test211'
+        }
+    }
+    ini_package(test.get('script'), test.get('data'))
     pass
