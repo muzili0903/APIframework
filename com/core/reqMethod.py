@@ -6,6 +6,9 @@
 """
 import requests
 import logging
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def post(url, data, content_type, headers=None, timeout=30, cookies=None):
@@ -34,9 +37,9 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None):
                                  verify=False)
     try:
         if response.status_code != 200:
-            return response.status_code, response.text
+            return {'response_code': response.status_code, 'response_body': response.text}
         else:
-            return response.status_code, response.json()
+            return {'response_code': response.status_code, 'response_body': response.json()}
     except Exception as e:
         logging.error("post请求异常>>>{}".format(e))
 
@@ -58,7 +61,7 @@ def get(url, params, headers=None, timeout=30, cookies=None):
     if response.status_code == 301:
         response = requests.get(url=response.headers['location'], verify=False)
     try:
-        return response.status_code, response.json()
+        return {'response_code': response.status_code, 'response_body': response.json()}
     except Exception as e:
         logging.error("get请求异常>>>{}".format(e))
 

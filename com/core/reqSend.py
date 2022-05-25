@@ -27,13 +27,56 @@ def requestSend(case: dict, **kwargs):
     elif case.get('method').lower() == 'get':
         res = reqMethod.get(url=case.get('url'), params=case.get('data'), headers=case.get('headers'),
                             timeout=case.get('timeout'))
+    return res
 
 
 if __name__ == "__main__":
-    case = {'url': 'http://www.baidu.com/invoice_sit/api/register/getAdultCurbactList', 'method': 'GET',
-            'data': {'summary': 'getAdultCurbactList', 'test': 'get_test'},
-            'headers': {'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+    case = {'url': 'https://fenqitest.midea.com/invoice_sit/invoice/trans/blue', 'method': 'POST',
+            'data': {
+                "appId": "IBCP",
+                "appKey": "123456",
+                "data": {
+                    "invoiceAmt": 610.0,
+                    "immediateInvoice": 1,
+                    "payTaxpayerName": "muzili",
+                    "invoiceHead": 1,
+                    "bizId": "DZFP2022052513300771",
+                    "invoiceType": 3,
+                    "remarks": "票面备注：客户名称：muzili, bizId=DZFP2022052513300771",
+                    "taxpayerCode": "440002999999441",
+                    "businessNo": "202205251330079",
+                    "detailList": [
+                        {
+                            "standards": "MT-TZBKC01",
+                            "taxRate": 0.13,
+                            "taxUnitPrice": 180.00,
+                            "businessNo": "DZFP202205251330077",
+                            "goodCount": 1,
+                            "goodUnit": "台",
+                            "bizDetailId": "PFMX36613273604",
+                            "amtContainTax": 180.00,
+                            "taxCode": "1080422",
+                            "goodsName": "Micca 炊具"
+                        },
+                        {
+                            "standards": "MP-SJ20W101",
+                            "taxRate": 0.13,
+                            "taxUnitPrice": 430.00000000,
+                            "businessNo": "DZFP202205251330077",
+                            "goodCount": 1,
+                            "goodUnit": "台",
+                            "bizDetailId": "PFMX75766112740",
+                            "amtContainTax": 430.00,
+                            "taxCode": "107060112",
+                            "goodsName": "Midea/美的 餐饮具"
+                        }
+                    ]
+                }
+            },
+            'headers': {'Content-Type': 'application/json',
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36',
-                        'Connection': 'keep-alive', 'token': 'None'}, 'timeout': 10,
-            'content_type': 'application/x-www-form-urlencoded;charset=UTF-8'}
-    requestSend(case)
+                        'Connection': 'keep-alive', 'token': 'None'},
+            'timeout': 10,
+            'content_type': 'application/json'}
+    reponse_body = {'response_code': 200, 'response_body': {'code': '00000', 'msg': '操作成功'}}
+    print(requestSend(case))
