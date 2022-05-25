@@ -136,5 +136,5 @@ if __name__ == "__main__":
             'method': 'GET'
         }
     }
-    ini_package(test.get('script'), test.get('data'))
+    print(ini_package(test.get('script'), test.get('data')))
     pass
