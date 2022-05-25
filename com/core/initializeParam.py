@@ -15,21 +15,25 @@ from com.util.fileOperation import get_all_file, get_file_name
 from com.util.caseOperation import get_scene
 
 
-def ini_request_headers(request_headers: dict, test_data: dict) -> dict:
+def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
     """
     请求头处理
     :param request_headers:
     :param test_data
     :return:
     """
-    con = dict(Config().get_items('request_headers'))
-    method = request_headers.get('Method') or con.get('Method')
-    content_type = request_headers.get('Content-Type') or con.get('Content-Type')
-    user_agent = request_headers.get('User-Agent') or con.get('User-Agent')
-    connection = request_headers.get('Connection') or con.get('Connection')
-    timeout = request_headers.get('timeout') or con.get('timeout')
-    token = request_headers.get('token') or con.get('token')
-    path = request_headers.get('path') or con.get('path')
+    try:
+        default_headers = dict(con.get_items('request_headers'))
+    except Exception as e:
+        logging.error("配置文件request_headers不存在>>>{}".format(default_headers))
+        logging.error("报错信息>>>{}".format(e))
+    method = request_headers.get('Method') or default_headers.get('Method')
+    content_type = request_headers.get('Content-Type') or default_headers.get('Content-Type')
+    user_agent = request_headers.get('User-Agent') or default_headers.get('User-Agent')
+    connection = request_headers.get('Connection') or default_headers.get('Connection')
+    timeout = request_headers.get('timeout') or default_headers.get('timeout')
+    token = request_headers.get('token') or default_headers.get('token')
+    path = request_headers.get('path') or default_headers.get('path')
     logging.info("request_headers处理前>>>{}".format(request_headers))
     try:
         header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
@@ -72,11 +76,29 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     return test_info
 
 
-def ini_package(script, data):
-    # 组装报文
-    print(script)
-    print(data)
-    pass
+def ini_package(script: dict, data: dict) -> dict:
+    """
+    组装报文
+    :param script: 脚本文件内容
+    :param data: 脚本文件对应的数据
+    :return:
+    """
+    con = Config()
+    header = ini_request_headers(script.get('request_header'), data, con)
+    body = ini_params(script.get('request_body'), data)
+    path = header.pop('path')
+    timeout = header.pop('timeout')
+    method = header.pop('Method')
+    content_type = header.get('Content-Type')
+    # cookies = header.pop('cookies')
+    try:
+        project = dict(con.get_items('project'))
+        url = project.get('base_url') + project.get('env') + path
+    except Exception as e:
+        logging.error("配置文件project不存在>>>{}".format(con))
+        logging.error("报错信息>>>{}".format(e))
+    return {"url": url, "method": method, "data": body, "headers": header, "timeout": timeout,
+            "content_type": content_type}
 
 
 if __name__ == "__main__":
@@ -100,7 +122,8 @@ if __name__ == "__main__":
     test = {
         'script': {
             'request_header': {
-                'method': '${method}'
+                'path': '/api/register/getAdultCurbactList',
+                'Method': '${method}'
             },
             'request_body': {
                 'summary': 'getAdultCurbactList',
@@ -109,7 +132,8 @@ if __name__ == "__main__":
         },
         'data': {
             'appKey': 'test2',
-            'AppKey11': 'Test211'
+            'AppKey11': 'Test211',
+            'method': 'GET'
         }
     }
     ini_package(test.get('script'), test.get('data'))
