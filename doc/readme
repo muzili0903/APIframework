@@ -16,6 +16,35 @@
     调用示例：
     函数带参数报文：{"num": $(unum::length=5))}  调用用户自定义unum函数返回随机整数  参数化结果：{"num": 47897}}
 
+关于数据校验：
+    校验类型
+        1、响应报文与预期结果(json文件校验) check_json
+        2、响应报文与预期结果(部分字段校验) check_part
+        3、响应报文与数据库校验 check_db
+    校验方式 check_type
+        1、全匹配 perfect_match or ==
+        2、部分匹配 partial_match or in
+    示例：
+        check_json:
+            check_type: perfect_match
+            expected_code: 200
+            expected_result: test_response.json
+        check_db:
+            check_type: perfect_match
+            check_sql: select * from test where id = 1
+            check_var:
+                name, num
+            expected_result:
+                name: muzili
+                num: 666
+        check_part:
+            check_type: partial_match
+            expected_result:
+                name: muzili
+                num: 666
+                age: 18
+
+
 关于接口脚本与接口数据
 1、目录与描述：
     1.1、\APIframework\api\data：存放用户参数化数据，文件名必须保持与场景目录下的文件名一致
