@@ -29,7 +29,7 @@ def check_list(response_body: list, expect_body: list) -> bool:
             if isinstance(value, dict):
                 result = check_resp(response_body.remove(value), value)
             elif isinstance(value, list):
-                result = check_list(expect_body.remove(value), value)
+                result = check_list(response_body.remove(value), value)
             else:
                 if value in response_body:
                     response_body.remove(value)
@@ -75,6 +75,7 @@ def check_resp(response_body: dict, expect_body: dict) -> bool:
     else:
         logging.info("JSON校验内容非dict格式：{}".format(expect_body))
         return resp
+    return resp
 
 
 def check_db(response_body: dict, expect_body: dict) -> bool:
@@ -82,7 +83,8 @@ def check_db(response_body: dict, expect_body: dict) -> bool:
 
 
 if __name__ == "__main__":
-    test = [1, 2, 3]
-    print(test.remove(4))
-    print(test)
+    # test {'test': {"test": 1}} {'test': [1]]}}
+    test = {'test': {"test": 1}}
+    test1 = {'test': {"test": 1}}
+    print(check_resp(test, test1))
     pass
