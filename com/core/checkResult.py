@@ -4,6 +4,8 @@
 @time    :2022/5/26 8:30
 @file    :checkResult.py
 """
+import logging
+
 from com.core import checkData
 
 
@@ -17,7 +19,16 @@ def check_res(response_body: dict, expect_body: dict):
     result = list()
     for key, value in expect_body.items():
         if key.lower() == 'check_json':
-            result.append(checkData.check_resp(response_body, value))
+            # expected_code: 200
+            if value.get('expected_code') != response_body.get('response_code'):
+                result.append(False)
+                logging.info("请求状态码校验不通过: 预期{} 实际{}".format(value.get('expected_code'),
+                                                            response_body.get('response_code')))
+                break
+            else:
+                logging.info("接口响应结果：{}".format(response_body.get('response_body')))
+                logging.info("预期结果：{}".format(value.get('expected_result')))
+                result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))
         elif key.lower() == 'check_db':
             result.append(checkData.check_db(response_body, value))
         elif key.lower() == 'check_part':
