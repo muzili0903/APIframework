@@ -27,16 +27,20 @@ def check_res(response_body: dict, expect_body: dict):
                                                             response_body.get('response_code')))
                 break
             # 预期结果json文件格式全匹配
-            elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':
-                logging.info("预期结果：{}".format(value.get('expected_result')))
-                result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))
-            # 预期结果json文件格式部分匹配
-            elif value.get('check_type') == 'partial_match' or value.get('check_type') == 'in':
-                pass
-            else:
+            # elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':
+            #     logging.info("预期结果：{}".format(value.get('expected_result')))
+            #     result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))
+            # # 预期结果json文件格式部分匹配
+            # elif value.get('check_type') == 'partial_match' or value.get('check_type') == 'in':
+            #     pass
+            elif value.get('check_type') not in ['perfect_match', '==', 'partial_match', 'in']:
                 result.append(False)
                 logging.info("预期结果校验方式不存在{}".format(value.get('check_type')))
                 break
+            else:
+                logging.info("预期结果：{}".format(value.get('expected_result')))
+                result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),
+                              value.get('check_type')))
         elif key.lower() == 'check_db':
             result.append(checkData.check_db(response_body, value))
         elif key.lower() == 'check_part':
@@ -54,7 +58,7 @@ def check_res(response_body: dict, expect_body: dict):
 if __name__ == "__main__":
     expect_body = {
         'check_json': {
-            'check_type': 'perfect_match',
+            'check_type': 'partial_match',
             'expected_code': '200',
             'expected_result': {'code': '00000', 'msg': '操作成功'}},
         'check_2': {'check_type': 'check_db'}}
