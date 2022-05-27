@@ -69,6 +69,7 @@ def check_resp(response_body: dict, expect_body: dict) -> bool:
                     resp = check_resp(value, response_body.get(key))
                 elif not isinstance(value, type(response_body.get(key))):
                     logging.info("JSON格式校验，关键字{}预期结果{}与响应结果{}类型不符".format(key, value, response_body.get(key)))
+                    return resp
                 else:
                     if isinstance(value, list):
                         resp = check_list(response_body.get(key), value)
@@ -89,5 +90,7 @@ if __name__ == "__main__":
     # test {'test': {"test": 1}} {'test': [1]]}}
     test = {'test': [{"test1": 2}, {"test": [3, 1, "2"]}]}
     test1 = {'test': [{"test1": 2}, {"test": [1, "2", 3]}]}
-    print(check_resp(test, test1))
+    test2 = {'test1': 1, 'test2': 2}
+    test3 = {'test1': 1, 'test2': 2}
+    print(check_resp(test2, test3))
     pass
