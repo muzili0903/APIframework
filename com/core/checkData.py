@@ -16,8 +16,8 @@ def check_req(response_body: dict, expect_body: dict):
 def check_list(response_body: list, expect_body: list) -> bool:
     """
     校验列表字段值
-    :param response_body:
-    :param expect_body:
+    :param response_body: 响应结果
+    :param expect_body: 预期结果
     :return:
     """
     result = True
@@ -25,11 +25,15 @@ def check_list(response_body: list, expect_body: list) -> bool:
         result = False
         return result
     try:
-        for value in expect_body:
+        for index, value in enumerate(expect_body):
             if isinstance(value, dict):
-                result = check_resp(response_body.remove(value), value)
+                result = check_resp(response_body[index], value)
+                response_body.remove(value)
+                expect_body.remove(value)
             elif isinstance(value, list):
-                result = check_list(response_body.remove(value), value)
+                result = check_list(response_body[index], value)
+                response_body.remove(value)
+                expect_body.remove(value)
             else:
                 if value in response_body:
                     response_body.remove(value)
@@ -55,7 +59,6 @@ def check_resp(response_body: dict, expect_body: dict) -> bool:
     expected_result: test_response.json
     """
     resp = False
-    # 格式校验
     if isinstance(expect_body, dict):
         for key, value in expect_body.items():
             if key not in response_body:
@@ -84,7 +87,7 @@ def check_db(response_body: dict, expect_body: dict) -> bool:
 
 if __name__ == "__main__":
     # test {'test': {"test": 1}} {'test': [1]]}}
-    test = {'test': {"test": 1}}
-    test1 = {'test': {"test": 1}}
+    test = {'test': [{"test1": 2}, {"test": [3, 1, "2"]}]}
+    test1 = {'test': [{"test1": 2}, {"test": [1, "2", 3]}]}
     print(check_resp(test, test1))
     pass

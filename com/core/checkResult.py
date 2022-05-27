@@ -25,7 +25,8 @@ def check_res(response_body: dict, expect_body: dict):
                 logging.info("请求状态码校验不通过: 预期{} 实际{}".format(value.get('expected_code'),
                                                             response_body.get('response_code')))
                 break
-            else:
+            # 预期结果json文件格式全匹配
+            elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':
                 logging.info("接口响应结果：{}".format(response_body.get('response_body')))
                 logging.info("预期结果：{}".format(value.get('expected_result')))
                 result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))
