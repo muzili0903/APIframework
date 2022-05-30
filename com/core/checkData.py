@@ -13,6 +13,32 @@ def check_req(response_body: dict, expect_body: dict):
     pass
 
 
+def check_value(respone_value, expect_value):
+    """
+    校验值
+    :param respone_value:
+    :param expect_value:
+    :return:
+    """
+    try:
+        if isinstance(expect_value, str):
+            if expect_value != str(respone_value):
+                return False
+        elif isinstance(expect_value, int):
+            if expect_value != int(respone_value):
+                return False
+        elif isinstance(expect_value, float):
+            if expect_value != float(respone_value):
+                return False
+        else:
+            if expect_value != respone_value:
+                return False
+    except Exception as e:
+        logging.info("值校验不一致{}".format(respone_value))
+        logging.info("值校验报错{}".format(e))
+        return False
+
+
 def check_list(response_body: list, expect_body: list, check_type) -> bool:
     """
     校验列表字段值
@@ -27,21 +53,22 @@ def check_list(response_body: list, expect_body: list, check_type) -> bool:
             return False
     try:
         for index, value in enumerate(expect_body):
+            print(index, value)
             if isinstance(value, dict):
-                # result = check_resp(response_body[index], value, check_type)
                 result.append(check_resp(response_body[index], value, check_type))
-                response_body.remove(value)
-                expect_body.remove(value)
+                # response_body.remove(value)
+                # expect_body.remove(value)
             elif isinstance(value, list):
-                # result = check_list(response_body[index], value, check_type)
                 result.append(check_list(response_body[index], value, check_type))
-                response_body.remove(value)
-                expect_body.remove(value)
+                # 这两行代码是否需要删除？
+                # response_body.remove(value)
+                # expect_body.remove(value)
             else:
-                if str(value) == str(response_body[index]):
-                    pass
-                else:
-                    return False
+                result.append(check_value(response_body[index], value))
+                # if str(value) == str(response_body[index]):
+                #     pass
+                # else:
+                #     return False
                 # if isinstance(value, str):
                 #     if str(value) == str(response_body[index]):
                 #         result = True
@@ -103,10 +130,7 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
                         # resp = check_list(response_body.get(key), value, check_type)
                         result.append(check_list(response_body.get(key), value, check_type))
                     else:
-                        if str(value) == str(response_body.get(key)):
-                            pass
-                        else:
-                            return False
+                        result.append(check_value(response_body.get(key), value))
     else:
         logging.info("JSON校验内容非dict格式：{}".format(expect_body))
         return False
@@ -122,11 +146,12 @@ def check_db(response_body: dict, expect_body: dict) -> bool:
 
 if __name__ == "__main__":
     # test {'test': {"test": 1}} {'test': [1]]}}
-    test = {'test': [{"test1": 2}, {"test": [3]}]}
-    test1 = {'test': [{"test1": 2}, {"test": [33]}]}
-    test2 = {'test1': 123, 'test2': "22"}
-    test3 = {'test1': 1233, 'test2': "22"}
+    test = {'test': [{"test1": 2}, {"test": [33, 11]}]}
+    test1 = {'test': [{"test1": 2}, {"test": [33, 11]}]}
+    test2 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1, 2]], 'test2': "221"}
+    test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1]], 'test2': "221"}
+    # print(check_resp(test, test1, 'partial_match'))
+    print(check_resp(test2, test3, 'perfect_match'))
     # bug 待解决
-    print(check_resp(test, test1, 'partial_match'))
-    # print(check_resp(test2, test3, 'partial_match'))
+    # print(check_list([{"test1": 2}, [1, 22]], [{"test1": 2}, [1, 22]], 'perfect_match'))
     pass
