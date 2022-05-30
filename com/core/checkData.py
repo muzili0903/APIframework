@@ -9,10 +9,6 @@ import logging
 from com.core import replaceData
 
 
-def check_req(response_body: dict, expect_body: dict):
-    pass
-
-
 def check_value(respone_value, expect_value):
     """
     校验值
@@ -138,6 +134,10 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
         return True
     else:
         return False
+
+
+def check_req(response_body: dict, expect_body: dict):
+    pass
 
 
 def check_db(response_body: dict, expect_body: dict) -> bool:

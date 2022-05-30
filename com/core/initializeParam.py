@@ -63,7 +63,6 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     # 用户自定义函数参数化
     if re.search('\$\(u.*?\)', str(test_info)) is not None:
         test_info = eval(replaceData.replace_user_func(str(test_info)))
-    logging.info("body处理后>>>{}".format(test_info))
     # 从请求报文获取参数值
     if False:
         replaceData.replace_req()
@@ -73,6 +72,7 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     # 从数据库获取参数值
     if False:
         replaceData.replace_db()
+    logging.info("body处理后>>>{}".format(test_info))
     return test_info
 
 

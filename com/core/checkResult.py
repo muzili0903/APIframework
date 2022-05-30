@@ -7,6 +7,9 @@
 import logging
 
 from com.core import checkData
+from com.core.initializeParam import ini_params
+from com.util.getFileDirs import APIJSON
+from com.util.jsonOperation import read_json
 
 
 def check_res(response_body: dict, expect_body: dict):
@@ -38,9 +41,16 @@ def check_res(response_body: dict, expect_body: dict):
                 logging.info("预期结果校验方式不存在{}".format(value.get('check_type')))
                 break
             else:
-                logging.info("预期结果：{}".format(value.get('expected_result')))
-                result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),
-                              value.get('check_type')))
+                path = APIJSON + '\\' + value.get('expected_result')
+                expect_result = read_json(path, is_str=False)
+                # TODO
+                # ini_params
+                # logging.info("预期结果：{}".format(value.get('expected_result')))
+                logging.info("预期结果：{}".format(expect_result))
+                # result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),
+                #                                    value.get('check_type')))
+                result.append(
+                    checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))
         elif key.lower() == 'check_db':
             result.append(checkData.check_db(response_body, value))
         elif key.lower() == 'check_part':
@@ -60,7 +70,7 @@ if __name__ == "__main__":
         'check_json': {
             'check_type': 'partial_match',
             'expected_code': '200',
-            'expected_result': {'code': '00000', 'msg': '操作成功'}},
+            'expected_result': 'test.json'},
         'check_2': {'check_type': 'check_db'}}
     reponse_body = {'response_code': 200, 'response_body': {'code': '00000', 'msg': '操作成功'}}
     print(check_res(reponse_body, expect_body))
