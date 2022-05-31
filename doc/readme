@@ -1,7 +1,16 @@
+关于接口脚本与接口数据
+1、目录与描述：
+    1.1、\APIframework\api\data：存放用户参数化数据，文件名必须保持与场景目录下的文件名一致
+    1.2、\APIframework\api\json：存放接口报文体json格式文件和接口预期结果json格式文件（注意：预期结果文件以 _response.json 结尾）
+    1.3、\APIframework\api\yaml：存放接口报文体yaml格式文件
+    1.4、\APIframework\api\scene：存放接口关联或单接口的场景文件
+    1.5、\APIframework\api\script：存放接口脚本
+
 关于参数化：
-1、用户参数化：${变量名}
+1、用户参数化：${变量名} （已实现）
+    示例
     报文：{"name": ${name}}  变量名name的值:muzili  参数化结果：{"name": "muzili"}
-2、系统函数参数化：$(f函数名)
+2、系统函数参数化：$(f函数名) （已实现）
     2.1、函数不带参数报文：{"date": $(fDATE))}  调用系统fDATE函数返回当前日期  参数化结果：{"date": 2022-05-20}}
     2.2、函数带参数报文：{"num": $(fnum::3))}  调用系统fnum函数返回随机整数  参数化结果：{"num": 456}}
     2.3、函数带参数报文：{"num": $(fnum::length=5))}  调用系统fnum函数返回随机整数  参数化结果：{"num": 47897}}
@@ -11,10 +20,20 @@
     3.fTIME：返回系统当前时间，格式：HH:MM:SS
     4.ftime：返回系统当前时间，格式：HHMMSS
     5.fnum(length=1)：生成随机整数，默认长度为1。可传长度，如上面例子
-3、用户自定义函数参数化：$(u函数名)
+3、用户自定义函数参数化：$(u函数名) （已实现）
     自定义函数写在\APIframework\api\userFunc.py下，命名规则以u开头
-    调用示例：
+    示例：
     函数带参数报文：{"num": $(unum::length=5))}  调用用户自定义unum函数返回随机整数  参数化结果：{"num": 47897}}
+4、通过请求报文参数化：$Req{变量名} （待实现）
+    示例：
+    函数带参数报文：{"biz": $Req{biz}}  定义接口请求报文中的某个字段值  参数化结果：{"biz": 20220531}}
+5、通过响应报文参数化：$Resp{变量名} （待实现）
+    示例：
+    函数带参数报文：{"biz": $Resp{biz}}  定义接口响应报文中的某个字段值  参数化结果：{"biz": 20220531}}
+6、通过数据库参数化 $DB{变量名} （待实现）
+    示例
+    函数带参数报文：{"biz": $DB{biz}}  定义接口响应报文中的某个字段值  参数化结果：{"biz": 20220531}}
+
 
 关于数据校验：
     校验类型
@@ -25,11 +44,11 @@
         1、全匹配 perfect_match or ==
         2、部分匹配 partial_match or in
     示例：
-        check_json:
+        check_json:（已实现）
             check_type: perfect_match
             expected_code: 200
             expected_result: test_response.json
-        check_db:
+        check_db:（待实现）
             check_type: perfect_match
             check_sql: select * from test where id = 1
             check_var:
@@ -37,19 +56,11 @@
             expected_result:
                 name: muzili
                 num: 666
-        check_part:
+        check_part:（待实现）
             check_type: partial_match
             expected_result:
                 name: muzili
                 num: 666
                 age: 18
 
-
-关于接口脚本与接口数据
-1、目录与描述：
-    1.1、\APIframework\api\data：存放用户参数化数据，文件名必须保持与场景目录下的文件名一致
-    1.2、\APIframework\api\json：存放接口报文体json格式文件
-    1.3、\APIframework\api\yaml：存放接口报文体yaml格式文件
-    1.4、\APIframework\api\scene：存放接口关联或单接口的场景文件
-    1.5、\APIframework\api\script：存放接口脚本
 

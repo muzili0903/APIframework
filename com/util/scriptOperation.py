@@ -11,6 +11,18 @@ from com.util.caseOperation import get_scene
 from com.util.getFileDirs import APISCENE
 
 
+def write_pytest_header():
+    pass
+
+
+def write_pytest_content():
+    pass
+
+
+def write_pytest_tail():
+    pass
+
+
 def write_scene_script(path):
     """
     文件路径
