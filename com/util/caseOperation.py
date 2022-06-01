@@ -75,7 +75,10 @@ def api_to_script(scene_file_name, scene_api_name):
         api_name_list[1].update({'data': api_data})
         # temp.append({api_name[1]: tuple(api_name_list)})
         # temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}, 'data': api_data})
+        # {接口名: {步骤: 接口脚本内容}}
         temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}})
+        # todo
+        # temp.append({api_name_list[0]: api_name_list[1]})
     return temp
 
 

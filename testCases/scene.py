@@ -6,33 +6,47 @@
 """
 import logging
 
+import allure
 import pytest
-from com.util.caseOperation import get_scene
-from com.util.getFileDirs import APISCENE
 
-# scene_all_list = get_scene(APISCENE)
-# for scene_list in scene_all_list:
-#     for key_scene, scene in scene_list.items():
-#         for key, value in scene.items():
-#             print(key_scene.split('.')[0] + key.capitalize())
-#             print(key, value)
-#             print(key, type(value))
+from com.core.checkResult import check_res
+from com.core.initializeParam import ini_package
+from com.core.reqSend import requestSend
+
+test_case = [{'test': {'step_1': {'script': {
+    'request_header': {'method': '${method}', 'path': '/api/register/getAdultCurbactList', 'connection': 'keep-alive',
+                       'timeout': 10},
+    'request_body': {'summary': 'getAdultCurbactList', 'describe': 'test_getAdultCurbactList', 'parameter': {
+        'params': {'unitCode': '3202112002', 'first': 0, 'pym': '', 'pageSize': 10, 'page': 0}}, 'check_body': {
+        'check_1': {'check_type': 'check_json', 'expected_code': 200,
+                    'expected_result': 'getAdultCurbactList_response.json'}, 'check_2': {'check_type': 'check_db'}}}},
+                                  'data': {'appKey': 'test1'}}}}, {'test2': {'step_2': {
+    'script': {'request_header': {'method': '${method}'},
+               'request_body': {'summary': 'getAdultCurbactList', 'test': 'get_test'}},
+    'data': {'appKey': 'test2', 'AppKey11': 'Test211'}}}}]
 
 
-def write_scene_script(path):
-    scene_all_list = get_scene(path)
-    for scene_list in scene_all_list:
-        for key_scene, scene in scene_list.items():
-            for key, value in scene.items():
-                scene_file_name = key_scene.split('.')[0] + key.capitalize()
-                yield [scene_file_name, value]
+# test_step = list()
+# for case in test_case:
+#     for key, value in case.items():
+#         test_step.append(key)
+# print(test_step)
+#
+
+@pytest.mark.parametrize("test_case", test_case)
+# @allure.story("test_findParam")
+def test_findParam(test_case):
+    # api_name = list(test_case.keys())[0]
+    api_content = list(test_case.values())[0]
+    # api_step = list(api_content.keys())[0]
+    api_step_content = list(api_content.values())[0]
+    test_info = api_step_content['script']
+    test_data = api_step_content['data']
+    api_info = ini_package(test_info, test_data)
+    result = requestSend(api_info)
+    check_res(result, test_case['data'])
+    pass
 
 
 if __name__ == "__main__":
-    scene_script = write_scene_script(APISCENE)
-    while True:
-        try:
-            print(scene_script.__next__())
-        except StopIteration:
-            break
     pass

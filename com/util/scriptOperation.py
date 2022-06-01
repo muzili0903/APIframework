@@ -42,8 +42,7 @@ def write_script():
     while True:
         try:
             script_file_name, contents = scene_script.__next__()
-            for content in contents:
-                print(content)
+            print(contents)
         except StopIteration:
             break
 
