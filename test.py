@@ -7,3 +7,6 @@
 te = {'12': {'1222':12}}
 print(list(te.keys())[0])
 print(list(te.values()))
+
+if __name__=="__main__":
+    pass
