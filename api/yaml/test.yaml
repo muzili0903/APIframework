@@ -9,25 +9,25 @@ data:
   invoiceType: 3
   remarks: 票面备注：客户名称：muzili, bizId=DZFP2022051811024063
   taxpayerCode: '440002999999441'
-  businessNo: '202205181102403'
+  businessNo: '$(fdate)$(ftime)'
   detailList:
   - standards: MT-TZBKC01
     taxRate: 0.13
     taxUnitPrice: 180.0
-    businessNo: DZFP202205181102408
+    businessNo: DZFP$(fdate)$(ftime)$(fnum::length=2)
     goodCount: 1
     goodUnit: 台
-    bizDetailId: PFMX77650099145
+    bizDetailId: PFMX$(fnum::length=11)
     amtContainTax: 180.0
     taxCode: '1080422'
     goodsName: Micca 炊具
   - standards: MP-SJ20W101
     taxRate: 0.13
     taxUnitPrice: 430.0
-    businessNo: DZFP202205181102408
+    businessNo: DZFP$(fdate)$(ftime)$(fnum::length=2)
     goodCount: 1
     goodUnit: 台
-    bizDetailId: PFMX80524428533
+    bizDetailId: PFMX$(fnum::length=11)
     amtContainTax: 430.0
     taxCode: '107060112'
     goodsName: Midea/美的 餐饮具
