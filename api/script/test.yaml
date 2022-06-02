@@ -1,15 +1,13 @@
 request_header:
-  method: ${method}
-  path: /api/register/getAdultCurbactList
+  method: post
+  path: /invoice/trans/blue
   connection: keep-alive
   timeout: 10
 request_body:
   parameter: test.yaml
   check_body:
-    check_1:
-      check_type: check_json
+    check_json:
+      check_type: perfect_match
       expected_code: 200
-      expected_result: getAdultCurbactList_response.json
-    check_2:
-      check_type: check_db
+      expected_result: test_response.json
 

@@ -1,7 +1,0 @@
-request_header:
-  method: ${method}
-request_body:
-  parameter: test2.yaml
-  check_body:
-    check_1:
-      check_type: check_json

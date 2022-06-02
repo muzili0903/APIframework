@@ -43,7 +43,7 @@ def write_yaml(file, obj):
 if __name__ == "__main__":
     from com.util.getFileDirs import APIJSON, APIYAML
     import json
-    file = APIJSON + '\\api.json'
+    file = APIJSON + '\\test.json'
     with open(file=file, mode="r", encoding="utf-8") as f:
         content = json.load(f)
     fileName = APIYAML + '\\test.yaml'

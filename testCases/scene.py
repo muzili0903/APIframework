@@ -14,12 +14,22 @@ from com.core.initializeParam import ini_package
 from com.core.reqSend import requestSend
 
 test_case = [{'test': {'step_1': {'script': {
-    'request_header': {'path': '/api/register/getAdultCurbactList', 'connection': 'keep-alive',
-                       'timeout': 10},
-    'request_body': {'appId': '$(fnum::length=6)', 'appKey': '$(unum::2)', 'token': '${token}'}, 'check_body': {
-        'check_1': {'check_type': 'check_json', 'expected_code': 200,
-                    'expected_result': 'getAdultCurbactList_response.json'}, 'check_2': {'check_type': 'check_db'}}},
-                                  'data': {'appKey': 'test1', 'token': '123'}}}}]
+    'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10},
+    'request_body': {'appId': '${appId}', 'appKey': '${appKey}',
+                     'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1,
+                              'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3,
+                              'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063',
+                              'taxpayerCode': '440002999999441', 'businessNo': '202205181102403', 'detailList': [
+                             {'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0,
+                              'businessNo': 'DZFP202205181102408', 'goodCount': 1, 'goodUnit': '台',
+                              'bizDetailId': 'PFMX77650099145', 'amtContainTax': 180.0, 'taxCode': '1080422',
+                              'goodsName': 'Micca 炊具'},
+                             {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0,
+                              'businessNo': 'DZFP202205181102408', 'goodCount': 1, 'goodUnit': '台',
+                              'bizDetailId': 'PFMX80524428533', 'amtContainTax': 430.0, 'taxCode': '107060112',
+                              'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {
+        'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}},
+                                  'data': {'appId': 'IBCP', 'appKey': '123456'}}}}]
 
 
 # test_step = list()
@@ -44,10 +54,12 @@ def test_findParam(test_case):
     print('test_data:', test_data)
     print('expect_data:', expect_data)
     print('api_info:', api_info)
-    # result = requestSend(api_info)
-    # check_res(result, expect_data)
+    result = requestSend(api_info)
+    print('result:', result)
+    print(check_res(result, expect_data))
     pass
 
 
 if __name__ == "__main__":
+    pytest.main(['-v', './scene.py'])
     pass
