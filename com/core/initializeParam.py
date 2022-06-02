@@ -126,7 +126,7 @@ if __name__ == "__main__":
                 'Method': '${method}'
             },
             'request_body': {
-                'summary': 'getAdultCurbactList',
+                'parameter': 'getAdultCurbactList',
                 'test': 'get_test'
             }
         },

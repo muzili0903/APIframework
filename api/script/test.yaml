@@ -4,15 +4,7 @@ request_header:
   connection: keep-alive
   timeout: 10
 request_body:
-  summary: getAdultCurbactList
-  describe: test_getAdultCurbactList
-  parameter:
-    params:
-      unitCode: '3202112002'
-      first: 0
-      pym: ''
-      pageSize: 10
-      page: 0
+  parameter: test.yaml
   check_body:
     check_1:
       check_type: check_json

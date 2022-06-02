@@ -1,4 +1,7 @@
 request_header:
   method: ${method}
 request_body:
-  summary: getAdultCurbactList
+  parameter: test1.yaml
+  check_body:
+    check_1:
+      check_type: check_json

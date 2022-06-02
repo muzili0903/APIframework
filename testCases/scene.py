@@ -14,16 +14,12 @@ from com.core.initializeParam import ini_package
 from com.core.reqSend import requestSend
 
 test_case = [{'test': {'step_1': {'script': {
-    'request_header': {'method': '${method}', 'path': '/api/register/getAdultCurbactList', 'connection': 'keep-alive',
+    'request_header': {'path': '/api/register/getAdultCurbactList', 'connection': 'keep-alive',
                        'timeout': 10},
-    'request_body': {'summary': 'getAdultCurbactList', 'describe': 'test_getAdultCurbactList', 'parameter': {
-        'params': {'unitCode': '3202112002', 'first': 0, 'pym': '', 'pageSize': 10, 'page': 0}}, 'check_body': {
+    'request_body': {'appId': '$(fnum::length=6)', 'appKey': '$(unum::2)', 'token': '${token}'}, 'check_body': {
         'check_1': {'check_type': 'check_json', 'expected_code': 200,
-                    'expected_result': 'getAdultCurbactList_response.json'}, 'check_2': {'check_type': 'check_db'}}}},
-                                  'data': {'appKey': 'test1'}}}}, {'test2': {'step_2': {
-    'script': {'request_header': {'method': '${method}'},
-               'request_body': {'summary': 'getAdultCurbactList', 'test': 'get_test'}},
-    'data': {'appKey': 'test2', 'AppKey11': 'Test211'}}}}]
+                    'expected_result': 'getAdultCurbactList_response.json'}, 'check_2': {'check_type': 'check_db'}}},
+                                  'data': {'appKey': 'test1', 'token': '123'}}}}]
 
 
 # test_step = list()
@@ -42,9 +38,14 @@ def test_findParam(test_case):
     api_step_content = list(api_content.values())[0]
     test_info = api_step_content['script']
     test_data = api_step_content['data']
+    expect_data = test_info.pop('check_body')
     api_info = ini_package(test_info, test_data)
-    result = requestSend(api_info)
-    check_res(result, test_case['data'])
+    print('test_info:', test_info)
+    print('test_data:', test_data)
+    print('expect_data:', expect_data)
+    print('api_info:', api_info)
+    # result = requestSend(api_info)
+    # check_res(result, expect_data)
     pass
 
 

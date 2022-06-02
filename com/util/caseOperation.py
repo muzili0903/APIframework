@@ -7,7 +7,7 @@
 """
 import logging
 
-from com.util.getFileDirs import APISCENE, APISCRIPT, APIDATA
+from com.util.getFileDirs import APISCENE, APISCRIPT, APIDATA, APIYAML
 from com.util.fileOperation import get_all_file, get_file_name
 from com.util.yamlOperation import read_yaml
 from com.util.getConfig import Config
@@ -50,8 +50,16 @@ def get_script(file):
     if yaml_content is not None:
         try:
             request_header = yaml_content.__getitem__('request_header')
-            request_body = yaml_content.__getitem__('request_body')
-            return {'script': {"request_header": request_header, "request_body": request_body}}
+            # 修改request_body从yaml目录下获取
+            content = yaml_content.__getitem__('request_body')
+            file_name = content.__getitem__('parameter')
+            if '.yaml' in file_name:
+                file_path = APIYAML + '\\' + file_name
+            else:
+                file_path = APIYAML + '\\' + file_name + '.yaml'
+            request_body = read_yaml(file_path, is_str=False)
+            check_body = content.pop('check_body')
+            return {'script': {"request_header": request_header, "request_body": request_body, "check_body": check_body}}
         except Exception as e:
             logging.error("script脚本格式有误>>>{}".format(file))
             logging.error("获取接口脚本文件内容>>>{}".format(e))
@@ -77,8 +85,6 @@ def api_to_script(scene_file_name, scene_api_name):
         # temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}, 'data': api_data})
         # {接口名: {步骤: 接口脚本内容}}
         temp.append({api_name[1]: {api_name_list[0]: api_name_list[1]}})
-        # todo
-        # temp.append({api_name_list[0]: api_name_list[1]})
     return temp
 
 
@@ -97,5 +103,5 @@ def get_case_data(scene_file, api_name):
 
 
 if __name__ == "__main__":
-    get_scene(APISCENE)
+    print(get_scene(APISCENE))
     pass
