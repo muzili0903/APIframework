@@ -32,13 +32,6 @@ test_case = [{'test': {'step_1': {'script': {
     'data': {'appId': 'IBCP', 'appKey': '123456'}}}}]
 
 
-# test_step = list()
-# for case in test_case:
-#     for key, value in case.items():
-#         test_step.append(key)
-# print(test_step)
-#
-
 @pytest.mark.parametrize("test_case", test_case)
 # @allure.story("test_findParam")
 def test_findParam(test_case):
@@ -50,13 +43,7 @@ def test_findParam(test_case):
     test_data = api_step_content['data']
     expect_data = test_info.pop('check_body')
     api_info = ini_package(test_info, test_data)
-    print('test_info:', test_info)
-    print('test_data:', test_data)
-    print('expect_data:', expect_data)
-    print('api_info:', api_info)
     result = requestSend(api_info)
-    print('result:', result)
-    # print(check_res(result, expect_data))
     assert True == check_res(result, expect_data)
     pass
 
