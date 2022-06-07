@@ -27,7 +27,7 @@ def replace_user_var(case, data: dict):
             var = res[i].split('{')[1].split('}')[0]
             case = case.replace(res[i], data[var], 1)
     except KeyError:
-        logging.error("获取不到变量值>>>{}".format(var))
+        logging.error("获取不到变量值: >>>{}".format(var))
     return case
 
 
@@ -52,7 +52,7 @@ def replace_func(case):
             func = eval('sysFunc.' + func)
             case = case.replace(res[index], func, 1)
     except AttributeError:
-        logging.error("获取不到系统函数>>>{}".format(func))
+        logging.error("获取不到系统函数: >>>{}".format(func))
     return case
 
 
@@ -77,7 +77,7 @@ def replace_user_func(case):
             func = eval('userFunc.' + func)
             case = case.replace(res[index], func, 1)
     except AttributeError:
-        logging.error("获取不到自定义函数>>>{}".format(func))
+        logging.error("获取不到自定义函数: >>>{}".format(func))
     return case
 
 

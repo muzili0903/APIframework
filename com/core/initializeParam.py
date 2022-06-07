@@ -25,8 +25,8 @@ def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
     try:
         default_headers = dict(con.get_items('request_headers'))
     except Exception as e:
-        logging.error("配置文件request_headers不存在>>>{}".format(default_headers))
-        logging.error("报错信息>>>{}".format(e))
+        logging.error("配置文件request_headers不存在: >>>{}".format(default_headers))
+        logging.error("报错信息: >>>{}".format(e))
     method = request_headers.get('Method') or default_headers.get('Method')
     content_type = request_headers.get('Content-Type') or default_headers.get('Content-Type')
     user_agent = request_headers.get('User-Agent') or default_headers.get('User-Agent')
@@ -34,15 +34,15 @@ def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
     timeout = request_headers.get('timeout') or default_headers.get('timeout')
     token = request_headers.get('token') or default_headers.get('token')
     path = request_headers.get('path') or default_headers.get('path')
-    logging.info("request_headers处理前>>>{}".format(request_headers))
+    logging.info("request_headers处理前: >>>{}".format(request_headers))
     try:
         header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
                   'timeout': int(timeout), 'token': token, 'path': path}
         header = eval(replaceData.replace_user_var(str(header), test_data))
         request_headers.update(header)
     except Exception as e:
-        logging.error("request_headers处理失败>>>{}".format(e))
-    logging.info("request_headers处理后>>>{}".format(request_headers))
+        logging.error("request_headers处理失败: >>>{}".format(e))
+    logging.info("request_headers处理后: >>>{}".format(request_headers))
     return request_headers
 
 

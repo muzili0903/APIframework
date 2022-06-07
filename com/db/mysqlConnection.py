@@ -10,7 +10,7 @@ import logging
 
 class MySqlConnect(object):
     def __init__(self, host='localhost', user='root', password='muzili', database='ApiTool', port=3306, charset='utf8'):
-        logging.debug("connect mysql>>> host={host}, port={port}, user={user}, password={password}, "
+        logging.debug("connect mysql: >>> host={host}, port={port}, user={user}, password={password}, "
                       "database={database}, charset={charset}".format(host=host, port=port, user=user,
                                                                       password=password, database=database,
                                                                       charset=charset))
@@ -18,13 +18,13 @@ class MySqlConnect(object):
             self.db = pymysql.Connect(host=host, port=port, user=user, password=password,
                                       database=database, charset=charset)
         except Exception as e:
-            logging.error("MySQL连接异常>>>{}".format(e))
+            logging.error("MySQL连接异常: >>>{}".format(e))
 
     def __del__(self):
         try:
             self.db.close()
         except Exception as e:
-            logging.error("MySQL关闭异常>>>{}".format(e))
+            logging.error("MySQL关闭异常: >>>{}".format(e))
 
     def execute(self, sql):
         """
@@ -41,7 +41,7 @@ class MySqlConnect(object):
             cur.close()
         except Exception as e:
             self.db.rollback()
-            logging.error("MySQL执行异常>>>{}".format(e))
+            logging.error("MySQL执行异常: >>>{}".format(e))
 
     def query(self, sql, is_dict=False):
         """
@@ -62,7 +62,7 @@ class MySqlConnect(object):
             cur.close()
             return data
         except Exception as e:
-            logging.error("MySQL执行异常>>>{}".format(e))
+            logging.error("MySQL执行异常: >>>{}".format(e))
 
 
 if __name__ == "__main__":

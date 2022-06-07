@@ -61,8 +61,8 @@ def get_script(file):
             check_body = content.pop('check_body')
             return {'script': {"request_header": request_header, "request_body": request_body, "check_body": check_body}}
         except Exception as e:
-            logging.error("script脚本格式有误>>>{}".format(file))
-            logging.error("获取接口脚本文件内容>>>{}".format(e))
+            logging.error("script脚本格式有误: >>>{}".format(file))
+            logging.error("获取接口脚本文件内容: >>>{}".format(e))
     return None
 
 
@@ -102,8 +102,8 @@ def get_case_data(scene_file, api_name):
     try:
         return dict(scene_file_data.get_items(api_name))
     except Exception as e:
-        logging.error("场景文件对应的数据文件不存在>>>{}".format(scene_file))
-        logging.error("获取接口脚本文件内容>>>{}".format(e))
+        logging.error("场景文件对应的数据文件不存在: >>>{}".format(scene_file))
+        logging.error("获取接口脚本文件内容: >>>{}".format(e))
         return None
 
 

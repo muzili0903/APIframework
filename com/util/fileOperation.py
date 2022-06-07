@@ -22,7 +22,7 @@ def get_all_file(path):
             f_path = os.path.join(path, f)
             files_path.append(f_path)
     except FileNotFoundError:
-        logging.error("找不到指定的文件路径>>>{}".format(path))
+        logging.error("找不到指定的文件路径: >>>{}".format(path))
     return files_path
 
 

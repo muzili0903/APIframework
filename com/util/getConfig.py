@@ -4,6 +4,7 @@
 @File ： getConfig.py
 @IDE  ： PyCharm
 """
+import logging
 import configparser
 
 from com.util.getFileDirs import CONFDIR
@@ -101,6 +102,7 @@ class Config(object):
         try:
             value = self.cf.options(section)
         except configparser.NoSectionError:
+            logging.error("section不存在: >>>{}".format(section))
             return value
         return value
 
@@ -113,6 +115,7 @@ class Config(object):
         try:
             value = self.cf.items(section)
         except configparser.NoSectionError:
+            logging.error("section不存在: >>>{}".format(section))
             return value
         return value
 
@@ -125,7 +128,7 @@ class Config(object):
             self.cf.add_section(section)
             self.cf.write(open(CONFDIR, "w"))
         except FileNotFoundError:
-            print("No such file or directory: %s" % CONFDIR)
+            logging.error("No such file or directory: >>>{}".format(CONFDIR))
 
     def set_config(self, section, option, value):
         """
@@ -138,7 +141,8 @@ class Config(object):
             self.cf.set(section, option, value)
             self.cf.write(open(CONFDIR, "w"))
         except configparser.NoSectionError:
-            print("No section: %s" % section)
+            logging.error("section不存在: >>>{}".format(section))
+            # print("No section: %s" % section)
 
     def remove_section(self, section):
         """
@@ -149,7 +153,8 @@ class Config(object):
             self.cf.remove_section(section)
             self.cf.write(open(CONFDIR, "w"))
         except FileNotFoundError:
-            print("No such file or directory: %s" % CONFDIR)
+            logging.error("No such file or directory: >>>{}".format(CONFDIR))
+            # print("No such file or directory: %s" % CONFDIR)
 
     def remove_option(self, section, option):
         """
@@ -161,7 +166,8 @@ class Config(object):
             self.cf.remove_option(section, option)
             self.cf.write(open(CONFDIR, "w"))
         except configparser.NoSectionError:
-            print("No section: %s" % section)
+            logging.error("section不存在: >>>{}".format(section))
+            # print("No section: %s" % section)
 
 
 if __name__ == "__main__":

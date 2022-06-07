@@ -46,7 +46,7 @@ def check_res(response_body: dict, expect_body: dict):
                 # TODO
                 # ini_params
                 # logging.info("预期结果：{}".format(value.get('expected_result')))
-                logging.info("预期结果>>>：{}".format(expect_result))
+                logging.info("预期结果: >>>{}".format(expect_result))
                 # result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),
                 #                                    value.get('check_type')))
                 result.append(

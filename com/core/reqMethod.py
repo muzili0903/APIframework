@@ -41,7 +41,7 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None):
         else:
             return {'response_code': response.status_code, 'response_body': response.json()}
     except Exception as e:
-        logging.error("post请求异常>>>{}".format(e))
+        logging.error("post请求异常: >>>{}".format(e))
 
 
 def get(url, params, headers=None, timeout=30, cookies=None):
@@ -63,7 +63,7 @@ def get(url, params, headers=None, timeout=30, cookies=None):
     try:
         return {'response_code': response.status_code, 'response_body': response.json()}
     except Exception as e:
-        logging.error("get请求异常>>>{}".format(e))
+        logging.error("get请求异常: >>>{}".format(e))
 
 
 if __name__ == "__main__":

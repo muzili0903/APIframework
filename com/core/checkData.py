@@ -88,7 +88,7 @@ def check_list(response_body: list, expect_body: list, check_type) -> bool:
                 else:
                     pass
     except Exception as e:
-        logging.info("JSON格式校验，预期结果：>>>{}与响应结果：>>>{}值不一致".format(expect_body, response_body))
+        logging.info("JSON格式校验, 预期结果：>>>{}与响应结果：>>>{}值不一致".format(expect_body, response_body))
         logging.info("值校验报错：>>>{}".format(e))
         return False
     if False not in result:
@@ -112,14 +112,14 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
     if isinstance(expect_body, dict):
         for key, value in expect_body.items():
             if key not in response_body:
-                logging.info("JSON格式校验，关键字：>>>{}不在响应结果：>>>{}中".format(key, response_body))
+                logging.info("JSON格式校验, 关键字: >>>{}不在响应结果：>>>{}中".format(key, response_body))
                 return False
             else:
                 if isinstance(value, dict) and isinstance(response_body.get(key), dict):
                     # resp = check_resp(value, response_body.get(key), check_type)
                     result.append(check_resp(value, response_body.get(key), check_type))
                 elif not isinstance(value, type(response_body.get(key))):
-                    logging.info("JSON格式校验，关键字：>>>{}预期结果：>>>{}与响应结果：>>>{}类型不符".format(key, value, response_body.get(key)))
+                    logging.info("JSON格式校验, 关键字：>>>{}预期结果：>>>{}与响应结果：>>>{}类型不符".format(key, value, response_body.get(key)))
                     return False
                 else:
                     if isinstance(value, list):
@@ -128,7 +128,7 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
                     else:
                         result.append(check_value(response_body.get(key), value))
     else:
-        logging.info("JSON校验内容非dict格式：>>>{}".format(expect_body))
+        logging.info("JSON校验内容非dict格式: >>>{}".format(expect_body))
         return False
     if False not in result:
         return True

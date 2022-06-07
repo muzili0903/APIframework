@@ -17,7 +17,7 @@ def read_json(file, is_str=True):
     :return: 默认返回str
     """
     if not os.path.exists(file):
-        logging.error("文件不存在, 获取数据失败>>>{}".format(file))
+        logging.error("文件不存在, 获取数据失败: >>>{}".format(file))
         return None
     with open(file=file, encoding='utf-8') as f:
         content = json.load(f)
