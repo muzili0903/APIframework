@@ -56,16 +56,17 @@ def test_{}(test_case):
         f_write.writelines(content)
 
 
-def write_pytest_tail(path):
+def write_pytest_tail(path, file_name):
     """
     写pytest文件尾部
     :param path: pytest文件保存的路径
+    :param file_name:
     :return:
     """
     with open(path, "a+", encoding='utf-8') as f_write:
         f_write.writelines("""\n\n""")
         f_write.writelines("""if __name__ == '__main__':\n""")
-        f_write.writelines("    pass\n")
+        f_write.writelines("    pytest.main(['-v', './{}'])\n".format(file_name))
 
 
 def write_scene_script(path):
@@ -88,10 +89,10 @@ def write_script():
     while True:
         try:
             script_file_name, function_name, contents = scene_script.__next__()
-            test_file_name = TESTCASES + script_file_name
+            test_file_name = TESTCASES + script_file_name + '.py'
             write_pytest_header(test_file_name)
             write_pytest_content(test_file_name, function_name, contents)
-            write_pytest_tail(test_file_name)
+            write_pytest_tail(test_file_name, script_file_name)
         except StopIteration:
             break
 
