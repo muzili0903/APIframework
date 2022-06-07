@@ -19,14 +19,14 @@ def check_res(response_body: dict, expect_body: dict):
     :param expect_body: 预期结果
     :return:
     """
-    logging.info("接口响应结果：{}".format(response_body.get('response_body')))
+    logging.info("接口响应结果：>>>{}".format(response_body.get('response_body')))
     result = list()
     for key, value in expect_body.items():
         if key.lower() == 'check_json':
             # expected_code: 200
             if int(value.get('expected_code')) != int(response_body.get('response_code')):
                 result.append(False)
-                logging.info("请求状态码校验不通过: 预期{} 实际{}".format(value.get('expected_code'),
+                logging.info("请求状态码校验不通过: 预期>>>{} 实际>>>{}".format(value.get('expected_code'),
                                                             response_body.get('response_code')))
                 break
             # 预期结果json文件格式全匹配
@@ -38,7 +38,7 @@ def check_res(response_body: dict, expect_body: dict):
             #     pass
             elif value.get('check_type') not in ['perfect_match', '==', 'partial_match', 'in']:
                 result.append(False)
-                logging.info("预期结果校验方式不存在{}".format(value.get('check_type')))
+                logging.info("预期结果校验方式不存在>>>{}".format(value.get('check_type')))
                 break
             else:
                 path = APIJSON + '\\' + value.get('expected_result')
@@ -46,7 +46,7 @@ def check_res(response_body: dict, expect_body: dict):
                 # TODO
                 # ini_params
                 # logging.info("预期结果：{}".format(value.get('expected_result')))
-                logging.info("预期结果：{}".format(expect_result))
+                logging.info("预期结果>>>：{}".format(expect_result))
                 # result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),
                 #                                    value.get('check_type')))
                 result.append(
