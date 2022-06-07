@@ -11,13 +11,22 @@ from com.util import logOperation
 
 if __name__ == "__main__":
     from com.util.yamlOperation import read_yaml
-    from com.util.getFileDirs import APIYAML, LOGS
+    from com.util.getFileDirs import APIYAML, LOGS, TESTCASES
+    from com.util.scriptOperation import write_script
 
     logOperation.MyLogs(LOGS)
 
-    file = APIYAML + '\\test.yaml'
-    case = read_yaml(file)
-    d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
-    case = replace_user_func(case)
-    case = replace_func(case)
-    print(case)
+    write_script()
+
+    # 定义运行参数
+    args_list = ['-vs', TESTCASES,
+                 # '-n', str(RC['process']),
+                 # '--reruns', str(RC['reruns']),
+                 # '--maxfail', str(RC['maxfail']),
+                 # '--alluredir', REPORT_DIR + '/xml',
+                 '--clean-alluredir',
+                 '--disable-warnings']
+    # 判断是否开启用例匹配
+    # if RC['pattern']:
+    #     args_list += ['-k ' + str(RC['pattern'])]
+    test_result = pytest.main(args_list)

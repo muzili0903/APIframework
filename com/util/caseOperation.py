@@ -99,7 +99,12 @@ def get_case_data(scene_file, api_name):
     path = APIDATA + '\\' + scene_file
     scene_file_data = Config(path)
     # temp.append({scene_api_name: scene_file_data.get_items(scene_api_name)})
-    return dict(scene_file_data.get_items(api_name))
+    try:
+        return dict(scene_file_data.get_items(api_name))
+    except Exception as e:
+        logging.error("场景文件对应的数据文件不存在>>>{}".format(scene_file))
+        logging.error("获取接口脚本文件内容>>>{}".format(e))
+        return None
 
 
 if __name__ == "__main__":
