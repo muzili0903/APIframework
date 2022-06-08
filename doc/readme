@@ -52,7 +52,7 @@
                 expected_result: test_response.json # 检查预期结果，字段名固定为：expected_result
 
 关于系统配置文件APIframework.ini
-    [MySql] # mysql数据库相关参数
+    [MySql] # mysql数据库相关参数, 字段名固定
     host = 127.0.0.1
     port = 3306
     user = muzili
@@ -60,11 +60,11 @@
     database = test
     charset = utf8
 
-    [project] # 项目相关参数 接口请求地址 = base_url + env + script脚本中的path
+    [project] # 项目相关参数 接口请求地址 = base_url + env + script脚本中的path, 字段名固定
     base_url = https://fenqitest.midea.com
     env = /invoice_sit
 
-    [request_headers] # 请求头默认参数
+    [request_headers] # 请求头默认参数, 字段名固定
     Method = POST
     Content-Type = application/json
     User-Agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36
@@ -90,12 +90,20 @@
     自定义函数写在\APIframework\api\userFunc.py下，命名规则以u开头
     示例：
     函数带参数报文：{"num": $(unum::length=5)}  调用用户自定义unum函数返回随机整数  参数化结果：{"num": 47897}
-4、通过请求报文参数化：$Req{变量名} （待实现）
+4、通过请求报文参数化：$Req{接口名.变量名} 变量名为：jsonpath表达式（已实现）
     示例：
-    函数带参数报文：{"biz": $Req{biz}}  定义接口请求报文中的某个字段值  参数化结果：{"biz": 20220531}
-5、通过响应报文参数化：$Resp{接口名.变量名} （待实现）
+    test接口的请求报文：{"biz": 20220531, data: [{"name": "muzili"}, {"name": "rosy"}]}
+    函数带参数报文：{"biz": $Req{test.biz}}  定义接口请求报文中的某个字段值  参数化结果：{"biz": 20220531}
+    函数带参数报文：{"name": $Req{test.data[0].name}}    参数化结果：{"name": "muzili"}
+    函数带参数报文：{"name": $Req{test.data[1].name}}    参数化结果：{"name": "rosy"}
+    函数带参数报文：{"name": $Req{test.data[2].name}}  获取不到值  参数化结果：{"name": ""}
+5、通过响应报文参数化：$Resp{接口名.变量名} 变量名为：jsonpath表达式（已实现）
     示例：
+    test接口的响应报文：{"biz": 20220531, data: [{"name": "muzili"}, {"name": "rosy"}]}
     函数带参数报文：{"biz": $Resp{test.biz}}  定义接口响应报文中的某个字段值  参数化结果：{"biz": 20220531}
+    函数带参数报文：{"name": $Resp{test.data[0].name}}    参数化结果：{"name": "muzili"}
+    函数带参数报文：{"name": $Resp{test.data[1].name}}    参数化结果：{"name": "rosy"}
+    函数带参数报文：{"name": $Resp{test.data[2].name}}  获取不到值  参数化结果：{"name": ""}
 6、通过数据库参数化 $DB{变量名} （待实现）
     示例
     函数带参数报文：{"biz": $DB{biz}}  定义接口响应报文中的某个字段值  参数化结果：{"biz": 20220531}

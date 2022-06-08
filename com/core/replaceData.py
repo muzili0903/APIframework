@@ -110,18 +110,39 @@ def replace_resp(case):
     except KeyError:
         logging.error("获取不到响应报文字段值: >>>{}".format(var))
     except ValueError:
-        logging.error("获取不到变量名: >>>{}".format(var))
+        logging.error("jsonpath表达式有误: >>>{}".format(var))
     return case
 
 
-def replace_req(case, req_data):
+def replace_req(case):
     """
-    从其它接口的请求报文中替换请求报文中的参数值 $Req{变量名}
+    从其它接口的请求报文中替换请求报文中的参数值 $Req{接口名.变量名}
     :param case:
-    :param req_data:
     :return:
     """
-    pass
+    if re.search('\$Req\{.*?\}', case) is not None:
+        res = re.findall('\$Req\{.*?\}', case)
+    else:
+        return case
+    # 测试专用
+    # GolStatic.set_file_temp('test', 'request_body',
+    #                         {'businessNo': '123456', 'j': [{'businessNo': '1111'}, {'businessNo': '2222'}]})
+    try:
+        for index in range(len(res)):
+            var = res[index].split('{')[1].split('}')[0]
+            filename, var_name = var.split('.', 1)
+            request_body = GolStatic.get_file_temp(filename=filename, key='request_body')
+            value = jsonpath(request_body, var_name)
+            if value:
+                case = case.replace(res[index], value[0], 1)
+            else:
+                case = case.replace(res[index], '', 1)
+                logging.error("获取不到请求报文字段值: >>>{}".format(var_name))
+    except KeyError:
+        logging.error("获取不到请求报文字段值: >>>{}".format(var))
+    except ValueError:
+        logging.error("jsonpath表达式有误: >>>{}".format(var))
+    return case
 
 
 def replace_db(case):
@@ -160,6 +181,7 @@ if __name__ == "__main__":
     #     func = eval('userFunc.' + func)
     #     case = case.replace(res[i], func, 1)
     #     print(case)
-    case = '{"payTaxpayerName": "${muzili}", "payTaxpayerName": "${muzili}", "businessNo": "$Resp{test.jj[0].businessNo}"}'
+    case = '{"businessNo": "$Req{test.j[1].businessNo}", "payTaxpayerName": "${muzili}", "businessNo": "$Req{test.businessNo}"}'
     data = {"muzili": '12'}
-    print(replace_resp(case))
+    # print(replace_resp(case))
+    print(replace_req(case))
