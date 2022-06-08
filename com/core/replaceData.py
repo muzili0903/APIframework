@@ -7,8 +7,10 @@
 import re
 import logging
 
+from jsonpath import jsonpath
 from com.util import sysFunc
 from api import userFunc
+from com.util.glo import GolStatic
 
 
 def replace_user_var(case, data: dict):
@@ -23,9 +25,9 @@ def replace_user_var(case, data: dict):
     else:
         return case
     try:
-        for i in range(len(res)):
-            var = res[i].split('{')[1].split('}')[0]
-            case = case.replace(res[i], data[var], 1)
+        for index in range(len(res)):
+            var = res[index].split('{')[1].split('}')[0]
+            case = case.replace(res[index], str(data[var]), 1)
     except KeyError:
         logging.error("获取不到变量值: >>>{}".format(var))
     return case
@@ -91,7 +93,24 @@ def replace_resp(case):
         res = re.findall('\$Resp\{.*?\}', case)
     else:
         return case
-    print(res)
+    # 测试专用
+    # GolStatic.set_file_temp('test', 'response_body',
+    #                         {'businessNo': '123456', 'j': [{'businessNo': '1111'}, {'businessNo': '2222'}]})
+    try:
+        for index in range(len(res)):
+            var = res[index].split('{')[1].split('}')[0]
+            filename, var_name = var.split('.', 1)
+            response_body = GolStatic.get_file_temp(filename=filename, key='response_body')
+            value = jsonpath(response_body, var_name)
+            if value:
+                case = case.replace(res[index], value[0], 1)
+            else:
+                case = case.replace(res[index], '', 1)
+                logging.error("获取不到响应报文字段值: >>>{}".format(var_name))
+    except KeyError:
+        logging.error("获取不到响应报文字段值: >>>{}".format(var))
+    except ValueError:
+        logging.error("获取不到变量名: >>>{}".format(var))
     return case
 
 
@@ -141,5 +160,6 @@ if __name__ == "__main__":
     #     func = eval('userFunc.' + func)
     #     case = case.replace(res[i], func, 1)
     #     print(case)
-    case = '{"payTaxpayerName": "muzili", "businessNo": "$Resp{businessNo}"}'
-    replace_resp(case)
+    case = '{"payTaxpayerName": "${muzili}", "payTaxpayerName": "${muzili}", "businessNo": "$Resp{test.jj[0].businessNo}"}'
+    data = {"muzili": '12'}
+    print(replace_resp(case))

@@ -127,7 +127,7 @@ if __name__ == "__main__":
             },
             'request_body': {
                 'parameter': 'getAdultCurbactList',
-                'test': '$Resp{test}'
+                'test': '$Resp{test.te}'
             }
         },
         'data': {
