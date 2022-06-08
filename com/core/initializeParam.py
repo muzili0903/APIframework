@@ -67,8 +67,8 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     if False:
         replaceData.replace_req()
     # 从响应报文获取参数值
-    if False:
-        replaceData.replace_resp()
+    if re.search('\$Resp\{.*?\}', str(test_info)) is not None:
+        test_info = eval(replaceData.replace_resp(str(test_info)))
     # 从数据库获取参数值
     if False:
         replaceData.replace_db()
@@ -102,7 +102,7 @@ def ini_package(script: dict, data: dict) -> dict:
 
 
 if __name__ == "__main__":
-    headers = {"Method": "GET", "User-Agent": "${name}", "appId": "$(fnum::length=6)",
+    headers = {"Method": "GET", "User-Agent": "$Resp{name}", "appId": "$(fnum::length=6)",
                "appKey": "$(unum::2)"}
     # # ini_request_headers(headers, {"name": "muzili"})
     # # print(headers)
@@ -127,7 +127,7 @@ if __name__ == "__main__":
             },
             'request_body': {
                 'parameter': 'getAdultCurbactList',
-                'test': 'get_test'
+                'test': '$Resp{test}'
             }
         },
         'data': {
@@ -136,5 +136,5 @@ if __name__ == "__main__":
             'method': 'GET'
         }
     }
-    print(ini_package(test.get('script'), test.get('data')))
+    ini_package(test.get('script'), test.get('data'))
     pass

@@ -81,14 +81,18 @@ def replace_user_func(case):
     return case
 
 
-def replace_resp(case, resp_data):
+def replace_resp(case):
     """
-    从其它接口的响应报文中替换请求报文中的参数值 $Resp{变量名}
+    从其它接口的响应报文中替换请求报文中的参数值 $Resp{接口名.变量名}
     :param case:
-    :param resp_data:
     :return:
     """
-    pass
+    if re.search('\$Resp\{.*?\}', case) is not None:
+        res = re.findall('\$Resp\{.*?\}', case)
+    else:
+        return case
+    print(res)
+    return case
 
 
 def replace_req(case, req_data):
@@ -114,13 +118,13 @@ if __name__ == "__main__":
     from com.util.yamlOperation import read_yaml
     from com.util.getFileDirs import APIYAML
 
-    file = APIYAML + '\\test.yaml'
-    case = read_yaml(file)
-    d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
+    # file = APIYAML + '\\test.yaml'
+    # case = read_yaml(file)
+    # d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
     # case = replace_uservar(case, d)
-    case = replace_func(case)
-    case = replace_user_func(case)
-    print(case)
+    # case = replace_func(case)
+    # case = replace_user_func(case)
+    # print(case)
     # case = "afafa$(unum)asdf$(fnum::5)aaaa$(fnum::length=10)nbbb"
     # if re.search('\$\(u.*?\)', case) is not None:
     #     res = re.findall('\$\(u.*?\)', case)
@@ -137,3 +141,5 @@ if __name__ == "__main__":
     #     func = eval('userFunc.' + func)
     #     case = case.replace(res[i], func, 1)
     #     print(case)
+    case = '{"payTaxpayerName": "muzili", "businessNo": "$Resp{businessNo}"}'
+    replace_resp(case)

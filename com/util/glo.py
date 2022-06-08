@@ -1,24 +1,25 @@
+# -*- coding: UTF-8 -*-
 """
-@Time £º 2022/5/19 20:25
-@Auth £º muzili
-@File £º glo.py
-@IDE  £º PyCharm
+@Time ï¼š 2022/5/19 20:25
+@Auth ï¼š muzili
+@File ï¼š glo.py
+@IDE  ï¼š PyCharm
 """
 import logging
 
 
 class GolStatic(object):
-    # ´æ·Å½Ó¿ÚÖ´ĞĞµÄÇëÇó±¨ÎÄÓëÏìÓ¦±¨ÎÄ
+    # å­˜æ”¾æ¥å£æ‰§è¡Œçš„è¯·æ±‚æŠ¥æ–‡ä¸å“åº”æŠ¥æ–‡
     __file_temp = dict()
-    # ´æ·Å°¸Àı±äÁ¿
+    # å­˜æ”¾æ¡ˆä¾‹å˜é‡
     __case_temp = dict()
-    # ´æ·Å½Å±¾µÄ±äÁ¿
+    # å­˜æ”¾è„šæœ¬çš„å˜é‡
     __script_temp = dict()
 
     @classmethod
     def set_file_temp(cls, filename, key, value):
         """
-        ÉèÖÃÒ»¸öÈ«¾Ö±äÁ¿
+        è®¾ç½®ä¸€ä¸ªå…¨å±€å˜é‡
         :param filename:
         :param key:
         :param value:
@@ -32,22 +33,22 @@ class GolStatic(object):
     @classmethod
     def get_file_temp(cls, filename, key):
         """
-        »ñµÃÒ»¸öÈ«¾Ö±äÁ¿,²»´æÔÚÔò·µ»Ø None
-        :param filename: ÎÄ¼şÃû
-        :param key: ±äÁ¿Ãû
+        è·å¾—ä¸€ä¸ªå…¨å±€å˜é‡,ä¸å­˜åœ¨åˆ™è¿”å› None
+        :param filename: æ–‡ä»¶å
+        :param key: å˜é‡å
         :return:
         """
         value = None
         try:
             value = cls.__file_temp[filename][key]
         except KeyError:
-            logging.error("±äÁ¿Öµ²»´æÔÚ£¬»ñÈ¡Ê§°Ü>>>{}".format(key))
+            logging.error("å˜é‡å€¼ä¸å­˜åœ¨ï¼Œè·å–å¤±è´¥ï¼š>>>{}".format(key))
         return value
 
     @classmethod
     def get_case_temp(cls, filename):
         """
-        »ñÈ¡°¸ÀıÎÄ¼şµÄ±äÁ¿
+        è·å–æ¡ˆä¾‹æ–‡ä»¶çš„å˜é‡
         :param filename:
         :return:
         """
@@ -60,7 +61,7 @@ class GolStatic(object):
     @classmethod
     def set_case_temp(cls, filename, value):
         """
-        ´æ·Å°¸ÀıÎÄ¼şµÄ±äÁ¿
+        å­˜æ”¾æ¡ˆä¾‹æ–‡ä»¶çš„å˜é‡
         :param filename:
         :param value:
         :return:
@@ -73,7 +74,7 @@ class GolStatic(object):
     @classmethod
     def get_script_temp(cls, filename):
         """
-        »ñÈ¡½Å±¾ÎÄ¼şµÄ±äÁ¿
+        è·å–è„šæœ¬æ–‡ä»¶çš„å˜é‡
         :param filename:
         :return:
         """
@@ -86,7 +87,7 @@ class GolStatic(object):
     @classmethod
     def get_this_script_temp(cls, filename):
         """
-        »ñÈ¡Ö¸¶¨½Å±¾µÄ±äÁ¿
+        è·å–æŒ‡å®šè„šæœ¬çš„å˜é‡
         :param filename:
         :return:
         """
@@ -103,7 +104,7 @@ class GolStatic(object):
     @classmethod
     def set_script_temp(cls, filename, value):
         """
-        ´æ·Å½Å±¾ÎÄ¼şµÄ±äÁ¿
+        å­˜æ”¾è„šæœ¬æ–‡ä»¶çš„å˜é‡
         :param filename:
         :param value:
         :return:
