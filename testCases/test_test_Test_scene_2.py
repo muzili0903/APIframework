@@ -24,7 +24,7 @@ def test_test_scene_2(test_case):
     expect_data = test_info.pop('check_body')
     api_info = ini_package(test_info, test_data)
     result = requestSend(api_name, api_info)
-    # assert True == check_res(result, expect_data)
+    assert True == check_res(result, expect_data)
     
 
 if __name__ == '__main__':

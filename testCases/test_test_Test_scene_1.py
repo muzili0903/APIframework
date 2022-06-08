@@ -15,7 +15,7 @@ test_case = [{'test': {'step_1': {'script': {'request_header': {'method': 'post'
 @pytest.mark.parametrize("test_case", test_case)
 # @allure.story("test_test_scene_1")
 def test_test_scene_1(test_case):
-    # api_name = list(test_case.keys())[0]
+    api_name = list(test_case.keys())[0]
     api_content = list(test_case.values())[0]
     # api_step = list(api_content.keys())[0]
     api_step_content = list(api_content.values())[0]
@@ -23,7 +23,7 @@ def test_test_scene_1(test_case):
     test_data = api_step_content['data']
     expect_data = test_info.pop('check_body')
     api_info = ini_package(test_info, test_data)
-    result = requestSend(api_info)
+    result = requestSend(api_name, api_info)
     assert True == check_res(result, expect_data)
     
 
