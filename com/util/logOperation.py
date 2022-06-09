@@ -26,11 +26,11 @@ class MyLogs(object):
         logger.handlers = []
 
         # 第二步，创建一个handler，用于写入debug日志文件
-        fh = logging.FileHandler(logfile, mode='a+')
+        fh = logging.FileHandler(logfile, mode='a+', encoding='utf-8')
         fh.setLevel(logging.DEBUG)
 
         # 第三步，创建一个handler，用于写入error日志文件
-        fh_err = logging.FileHandler(logfile_err, mode='a+')
+        fh_err = logging.FileHandler(logfile_err, mode='a+', encoding='utf-8')
         fh_err.setLevel(logging.ERROR)
 
         # 第四步，再创建一个handler，用于输出info日志到控制台

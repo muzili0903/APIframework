@@ -38,7 +38,7 @@ def write_pytest_content(path, function_name, test_case):
     content = """
 \n
 @pytest.mark.parametrize("test_case", test_case)
-# @allure.story("test_{function_name}")
+@allure.story("test_{function_name}")
 def test_{function_name}(test_case):
     api_name = list(test_case.keys())[0]
     api_content = list(test_case.values())[0]

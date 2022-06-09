@@ -13,7 +13,7 @@ test_case = [{'test': {'step_1': {'script': {'request_header': {'method': 'post'
 
 
 @pytest.mark.parametrize("test_case", test_case)
-# @allure.story("test_test_scene_2")
+@allure.story("test_test_scene_2")
 def test_test_scene_2(test_case):
     api_name = list(test_case.keys())[0]
     api_content = list(test_case.values())[0]
