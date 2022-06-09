@@ -1,0 +1,81 @@
+{
+  "uid" : "cbe49b1c6861a3da",
+  "name" : "test_test_scene_1[test_case1]",
+  "fullName" : "testCases.test_test_Test_scene_1#test_test_scene_1",
+  "historyId" : "7df61a84075a06511f446354177dd193",
+  "time" : {
+    "start" : 1654783831684,
+    "stop" : 1654783831684,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "KeyError: 'check_body'",
+  "statusTrace" : "test_case = {'test': {'step_2': {'data': {'appId': 'IBCP', 'appKey': '123456'}, 'script': {'request_body': {'appId': '${appId}', '...; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'connection': 'keep-alive', ...}}}}}\n\n    @pytest.mark.parametrize(\"test_case\", test_case)\n    @allure.story(\"test_test_scene_1\")\n    def test_test_scene_1(test_case):\n        api_name = list(test_case.keys())[0]\n        api_content = list(test_case.values())[0]\n        api_step = list(api_content.keys())[0]\n        api_step_content = list(api_content.values())[0]\n        test_info = api_step_content['script']\n        test_data = api_step_content['data']\n>       expect_data = test_info.pop('check_body')\nE       KeyError: 'check_body'\n\ntestCases\\test_test_Test_scene_1.py:24: KeyError",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "KeyError: 'check_body'",
+    "statusTrace" : "test_case = {'test': {'step_2': {'data': {'appId': 'IBCP', 'appKey': '123456'}, 'script': {'request_body': {'appId': '${appId}', '...; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'connection': 'keep-alive', ...}}}}}\n\n    @pytest.mark.parametrize(\"test_case\", test_case)\n    @allure.story(\"test_test_scene_1\")\n    def test_test_scene_1(test_case):\n        api_name = list(test_case.keys())[0]\n        api_content = list(test_case.values())[0]\n        api_step = list(api_content.keys())[0]\n        api_step_content = list(api_content.values())[0]\n        test_info = api_step_content['script']\n        test_data = api_step_content['data']\n>       expect_data = test_info.pop('check_body')\nE       KeyError: 'check_body'\n\ntestCases\\test_test_Test_scene_1.py:24: KeyError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "dced2e961309db27",
+      "name" : "log",
+      "source" : "dced2e961309db27.txt",
+      "type" : "text/plain",
+      "size" : 4021
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases"
+  }, {
+    "name" : "suite",
+    "value" : "test_test_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-TT5JR8LD"
+  }, {
+    "name" : "thread",
+    "value" : "11496-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.test_test_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'test': {'step_2': {'script': {'request_header': {'method': 'post', 'connection': 'keep-alive', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "cbe49b1c6861a3da.json",
+  "parameterValues" : [ "{'test': {'step_2': {'script': {'request_header': {'method': 'post', 'connection': 'keep-alive', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
+}

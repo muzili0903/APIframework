@@ -27,6 +27,7 @@ if __name__ == "__main__":
     # 定义运行参数
     args_list = ['-vs', TESTCASES,
                  '--reruns', con.get_config('pytest', 'reruns'),
+                 '--reruns-delay', con.get_config('pytest', 'delay'),
                  '--maxfail', con.get_config('pytest', 'maxfail'),
                  '--alluredir', REPORT + '/xml',
                  '--clean-alluredir',

@@ -1,4 +1,4 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Jun 09 21:08:40 CST 2022","Thu Jun 09 21:08:40 CST 2022","15","testCases","test_test_Test_scene_2","","","","test_test_scene_2[test_case0]",""
-"passed","Thu Jun 09 21:08:40 CST 2022","Thu Jun 09 21:08:40 CST 2022","16","testCases","test_test_Test_scene_1","","","","test_test_scene_1[test_case0]",""
-"passed","Thu Jun 09 21:08:40 CST 2022","Thu Jun 09 21:08:40 CST 2022","31","testCases","test_test_Test_scene_1","","","","test_test_scene_1[test_case1]",""
+"broken","Thu Jun 09 22:10:41 CST 2022","Thu Jun 09 22:10:41 CST 2022","0","testCases","test_test_Test_scene_1","","","","test_test_scene_1[test_case1]",""
+"broken","Thu Jun 09 22:10:26 CST 2022","Thu Jun 09 22:10:26 CST 2022","0","testCases","test_test_Test_scene_1","","","","test_test_scene_1[test_case0]",""
+"broken","Thu Jun 09 22:10:56 CST 2022","Thu Jun 09 22:10:56 CST 2022","0","testCases","test_test_Test_scene_2","","","","test_test_scene_2[test_case0]",""
