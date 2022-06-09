@@ -64,8 +64,8 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     if re.search('\$\(u.*?\)', str(test_info)) is not None:
         test_info = eval(replaceData.replace_user_func(str(test_info)))
     # 从请求报文获取参数值
-    if False:
-        replaceData.replace_req()
+    if re.search('\$Req\{.*?\}', str(test_info)) is not None:
+        test_info = eval(replaceData.replace_req(str(test_info)))
     # 从响应报文获取参数值
     if re.search('\$Resp\{.*?\}', str(test_info)) is not None:
         test_info = eval(replaceData.replace_resp(str(test_info)))

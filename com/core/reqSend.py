@@ -13,9 +13,10 @@ from com.util.glo import GolStatic
 
 
 # TODO
-def requestSend(api_name, case: dict):
+def requestSend(api_step, api_name, case: dict):
     """
     发送请求
+    :param api_step: 请求步骤
     :param api_name: 接口名称
     :param case:
     :return:
@@ -24,6 +25,11 @@ def requestSend(api_name, case: dict):
     logging.info("请求方法：>>>{}".format(case.get('method')))
     logging.info("请求头：>>>{}".format(case.get('headers')))
     logging.info("请求体：>>>{}".format(case.get('data')))
+    with allure.step("请求步骤: {api_step}, 接口名: {api_name}".format(api_step=api_step, api_name=api_name)):
+        allure.attach(name="请求方法", body=str(case.get('method')))
+        allure.attach(name="请求地址", body=str(case.get('url')))
+        allure.attach(name="请求头", body=str(case.get('headers')))
+        allure.attach(name="请求参数", body=str(case.get('data')))
     res = None
     # 存下接口的请求报文
     GolStatic.set_file_temp(filename=api_name, key='request_body', value=case.get('data'))
@@ -31,20 +37,10 @@ def requestSend(api_name, case: dict):
         # res = reqMethod.post(url=case.get('url'), data=case.get('data'), content_type=case.get('content_type'),
         #                      headers=case.get('headers'), timeout=case.get('timeout'))
         # 测试临时挡板
-        with allure.step("post请求接口"):
-            allure.attach(name="请求接口", body=str(api_name))
-            allure.attach(name="请求地址", body=str(case.get('url')))
-            allure.attach(name="请求头", body=str(case.get('headers')))
-            allure.attach(name="请求参数", body=str(case.get('data')))
         res = {'response_code': 200, 'response_body': {'code': '00000', 'msg': '操作成功'}}
     elif case.get('method').lower() == 'get':
         res = reqMethod.get(url=case.get('url'), params=case.get('data'), headers=case.get('headers'),
                             timeout=case.get('timeout'))
-        with allure.step("get请求接口"):
-            allure.attach(name="请求接口", body=str(api_name))
-            allure.attach(name="请求地址", body=str(case.get('url')))
-            allure.attach(name="请求头", body=str(case.get('headers')))
-            allure.attach(name="请求参数", body=str(case.get('data')))
     # 存下接口的响应报文
     if res is not None:
         GolStatic.set_file_temp(filename=api_name, key='response_body', value=res.get('response_body'))

@@ -42,13 +42,13 @@ def write_pytest_content(path, function_name, test_case):
 def test_{function_name}(test_case):
     api_name = list(test_case.keys())[0]
     api_content = list(test_case.values())[0]
-    # api_step = list(api_content.keys())[0]
+    api_step = list(api_content.keys())[0]
     api_step_content = list(api_content.values())[0]
     test_info = api_step_content['script']
     test_data = api_step_content['data']
     expect_data = test_info.pop('check_body')
     api_info = ini_package(test_info, test_data)
-    result = requestSend(api_name, api_info)
+    result = requestSend(api_step, api_name, api_info)
     assert True == check_res(result, expect_data)
     """.format(function_name=function_name)
     with open(path, "a+", encoding='utf-8') as f_write:

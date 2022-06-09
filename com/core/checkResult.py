@@ -6,6 +6,8 @@
 """
 import logging
 
+import allure
+
 from com.core import checkData
 from com.core.initializeParam import ini_params
 from com.util.getFileDirs import APIJSON
@@ -23,11 +25,14 @@ def check_res(response_body: dict, expect_body: dict):
     result = list()
     for key, value in expect_body.items():
         if key.lower() == 'check_json':
+            with allure.step("check_json: code校验"):
+                allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
+                allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))
             # expected_code: 200
             if int(value.get('expected_code')) != int(response_body.get('response_code')):
                 result.append(False)
                 logging.info("请求状态码校验不通过: 预期>>>{} 实际>>>{}".format(value.get('expected_code'),
-                                                            response_body.get('response_code')))
+                                                                  response_body.get('response_code')))
                 break
             # 预期结果json文件格式全匹配
             # elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':
@@ -47,6 +52,10 @@ def check_res(response_body: dict, expect_body: dict):
                 # ini_params
                 # logging.info("预期结果：{}".format(value.get('expected_result')))
                 logging.info("预期结果: >>>{}".format(expect_result))
+                with allure.step("check_json: data校验"):
+                    allure.attach(name='校验方式: ', body=str(value.get('check_type')))
+                    allure.attach(name='预期结果: ', body=str(expect_result))
+                    allure.attach(name='实际结果: ', body=str(response_body.get('response_body')))
                 # result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),
                 #                                    value.get('check_type')))
                 result.append(
