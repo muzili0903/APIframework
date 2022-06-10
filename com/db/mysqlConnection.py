@@ -15,7 +15,7 @@ class MySqlConnect(object):
                                                                       password=password, database=database,
                                                                       charset=charset))
         try:
-            self.db = pymysql.Connect(host=host, port=port, user=user, password=password,
+            self.db = pymysql.Connect(host=host, port=int(port), user=user, password=password,
                                       database=database, charset=charset)
         except Exception as e:
             logging.error("MySQL连接异常: >>>{}".format(e))
@@ -58,7 +58,7 @@ class MySqlConnect(object):
             else:
                 cur = self.db.cursor()
             cur.execute(sql)
-            data = cur.fetchall()
+            data = cur.fetchone()
             cur.close()
             return data
         except Exception as e:
