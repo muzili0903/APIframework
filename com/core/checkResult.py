@@ -79,7 +79,7 @@ if __name__ == "__main__":
         'check_json': {
             'check_type': 'partial_match',
             'expected_code': '200',
-            'expected_result': 'test.json'},
+            'expected_result': 'addInvoiceToConfirm.json'},
         'check_2': {'check_type': 'check_db'}}
     reponse_body = {'response_code': 200, 'response_body': {'code': '00000', 'msg': '操作成功'}}
     print(check_res(reponse_body, expect_body))

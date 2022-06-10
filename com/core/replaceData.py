@@ -213,7 +213,7 @@ if __name__ == "__main__":
     from com.util.yamlOperation import read_yaml
     from com.util.getFileDirs import APIYAML
 
-    # file = APIYAML + '\\test.yaml'
+    # file = APIYAML + '\\addInvoiceToConfirm.yaml'
     # case = read_yaml(file)
     # d = {"payTaxpayerName": "muzili", "businessNo": "123456"}
     # case = replace_uservar(case, d)

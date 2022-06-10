@@ -111,9 +111,9 @@ if __name__ == "__main__":
     # # print(headers)
     # from com.util.getFileDirs import APIYAML, APIDATA
     #
-    # file = APIYAML + '\\test.yaml'
+    # file = APIYAML + '\\addInvoiceToConfirm.yaml'
     # case = read_yaml(file)
-    # file = APIDATA + '\\test.ini'
+    # file = APIDATA + '\\invoice_manage.ini'
     # c = Config(file)
     # # print(case)
     # data = dict(c.get_items('test'))

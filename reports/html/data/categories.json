@@ -4,16 +4,16 @@
   "children" : [ {
     "name" : "Product defects",
     "children" : [ {
-      "name" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
+      "name" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}})",
       "children" : [ {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "a3ac131c6afa883e",
-        "parentUid" : "d623a7a5a5bb41c3f76e4535a06bd795",
+        "uid" : "a74b7bd864cd5d97",
+        "parentUid" : "f96249176f9503dc6cb1dcf5f0ea9270",
         "status" : "failed",
         "time" : {
-          "start" : 1654824161603,
-          "stop" : 1654824161645,
-          "duration" : 42
+          "start" : 1654841010802,
+          "stop" : 1654841010833,
+          "duration" : 31
         },
         "flaky" : false,
         "newFailed" : false,
@@ -21,43 +21,9 @@
         "newBroken" : false,
         "retriesCount" : 3,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'test': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
-      }, {
-        "name" : "test_test_scene_1[test_case1]",
-        "uid" : "1eaeecd61c00cbfa",
-        "parentUid" : "d623a7a5a5bb41c3f76e4535a06bd795",
-        "status" : "failed",
-        "time" : {
-          "start" : 1654824176860,
-          "stop" : 1654824176883,
-          "duration" : 23
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 3,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'test': {'step_2': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
-      }, {
-        "name" : "test_test_scene_2[test_case0]",
-        "uid" : "d26e4445b8b539dd",
-        "parentUid" : "d623a7a5a5bb41c3f76e4535a06bd795",
-        "status" : "failed",
-        "time" : {
-          "start" : 1654824192044,
-          "stop" : 1654824192072,
-          "duration" : 28
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 3,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'test': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
+        "parameters" : [ "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '0', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili'}}}}" ]
       } ],
-      "uid" : "d623a7a5a5bb41c3f76e4535a06bd795"
+      "uid" : "f96249176f9503dc6cb1dcf5f0ea9270"
     } ],
     "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
   } ]

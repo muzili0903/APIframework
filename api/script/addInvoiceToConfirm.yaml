@@ -1,13 +1,13 @@
 request_header:
   method: post
-  path: /invoice/trans/blue
+  path: /mage/manual/addInvoiceToConfirm
   connection: keep-alive
   timeout: 10
 request_body:
-  parameter: test.yaml
+  parameter: addInvoiceToConfirm.yaml
   check_body:
     check_json:
       check_type: perfect_match
       expected_code: 200
-      expected_result: test_response.json
+      expected_result: addInvoiceToConfirm_response.json
 

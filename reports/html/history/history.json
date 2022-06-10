@@ -1,5 +1,5 @@
 {
-  "7df61a84075a06511f446354177dd193" : {
+  "841be38a4332b6035dbdc04eaddb162c" : {
     "statistic" : {
       "failed" : 1,
       "broken" : 0,
@@ -9,53 +9,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "1eaeecd61c00cbfa",
+      "uid" : "a74b7bd864cd5d97",
       "status" : "failed",
-      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
+      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}})",
       "time" : {
-        "start" : 1654824176860,
-        "stop" : 1654824176883,
-        "duration" : 23
-      }
-    } ]
-  },
-  "49edd47344532425a071b7242b1004c8" : {
-    "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 0,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "a3ac131c6afa883e",
-      "status" : "failed",
-      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
-      "time" : {
-        "start" : 1654824161603,
-        "stop" : 1654824161645,
-        "duration" : 42
-      }
-    } ]
-  },
-  "f2a152589f4b3c09c1ea3af7bfedff7a" : {
-    "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 0,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "d26e4445b8b539dd",
-      "status" : "failed",
-      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
-      "time" : {
-        "start" : 1654824192044,
-        "stop" : 1654824192072,
-        "duration" : 28
+        "start" : 1654841010802,
+        "stop" : 1654841010833,
+        "duration" : 31
       }
     } ]
   }

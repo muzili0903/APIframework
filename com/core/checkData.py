@@ -105,7 +105,7 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
     :param check_type:
     :return:
     check_type: perfect_match
-    expected_result: test_response.json
+    expected_result: addInvoiceToConfirm_response.json
     """
     result = list()
     # resp = False

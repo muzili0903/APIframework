@@ -24,7 +24,7 @@ test_case = [{'test': {'step_1': {'script': {
                               'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台',
                               'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112',
                               'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {
-        'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}},
+        'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}},
     'data': {'appId': 'IBCP', 'appKey': '123456'}}}}, {'test': {'step_2': {'script': {
     'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10},
     'request_body': {'appId': '${appId}', 'appKey': '${appKey}',
@@ -40,7 +40,7 @@ test_case = [{'test': {'step_1': {'script': {
                               'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台',
                               'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112',
                               'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {
-        'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}},
+        'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}},
     'data': {
         'appId': 'IBCP',
         'appKey': '123456'}}}}]
