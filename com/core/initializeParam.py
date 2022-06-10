@@ -9,11 +9,11 @@ import re
 from copy import deepcopy
 
 from com.core import replaceData
-from com.util.getFileDirs import APISCENE
+# from com.util.getFileDirs import APISCENE
 from com.util.getConfig import Config
-from com.util.yamlOperation import read_yaml
-from com.util.fileOperation import get_all_file, get_file_name
-from com.util.caseOperation import get_scene
+# from com.util.yamlOperation import read_yaml
+# from com.util.fileOperation import get_all_file, get_file_name
+# from com.util.caseOperation import get_scene
 
 
 def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
@@ -71,8 +71,8 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     if re.search('\$Resp\{.*?\}', str(test_info)) is not None:
         test_info = eval(replaceData.replace_resp(str(test_info)))
     # 从数据库获取参数值
-    if False:
-        replaceData.replace_db()
+    if re.search('\$DB\{.*?\}', str(test_info)) is not None:
+        test_info = eval(replaceData.replace_db(str(test_info), test_data))
     logging.info("body处理后>>>{}".format(test_info))
     return test_info
 
@@ -130,14 +130,17 @@ if __name__ == "__main__":
             },
             'request_body': {
                 'parameter': 'getAdultCurbactList',
-                'test': '$Resp{test.te}'
+                'test': '$DB{process_n1ame}'
             }
         },
         'data': {
             'appKey': 'test2',
             'AppKey11': 'Test211',
-            'method': 'GET'
+            'method': 'GET',
+            'sql' : '''[
+        "select process_name, process_type_id from t_flowable_ent_process_template WHERE process_name = '删除业务类型111' limit 1",
+        "select process_name, process_type_id from t_flowable_ent_process_template WHERE process_name = '删除业务类型' limit 1"]'''
         }
     }
-    ini_package(test.get('script'), test.get('data'))
+    print(ini_package(test.get('script'), test.get('data')))
     pass
