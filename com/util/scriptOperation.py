@@ -46,7 +46,7 @@ def test_{function_name}(test_case):
     api_step_content = list(api_content.values())[0]
     test_info = api_step_content['script']
     test_data = api_step_content['data']
-    expect_data = test_info.pop('check_body')
+    expect_data = test_info.get('check_body')
     api_info = ini_package(test_info, test_data)
     result = requestSend(api_step, api_name, api_info)
     assert True == check_res(result, expect_data)

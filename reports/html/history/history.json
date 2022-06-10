@@ -1,58 +1,61 @@
 {
   "7df61a84075a06511f446354177dd193" : {
     "statistic" : {
-      "failed" : 0,
+      "failed" : 1,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "94dec36b102a9580",
-      "status" : "passed",
+      "uid" : "1eaeecd61c00cbfa",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
       "time" : {
-        "start" : 1654821484340,
-        "stop" : 1654821484364,
-        "duration" : 24
+        "start" : 1654824176860,
+        "stop" : 1654824176883,
+        "duration" : 23
       }
     } ]
   },
   "49edd47344532425a071b7242b1004c8" : {
     "statistic" : {
-      "failed" : 0,
+      "failed" : 1,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "80ab54ef667cef30",
-      "status" : "passed",
+      "uid" : "a3ac131c6afa883e",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
       "time" : {
-        "start" : 1654821484304,
-        "stop" : 1654821484329,
-        "duration" : 25
+        "start" : 1654824161603,
+        "stop" : 1654824161645,
+        "duration" : 42
       }
     } ]
   },
   "f2a152589f4b3c09c1ea3af7bfedff7a" : {
     "statistic" : {
-      "failed" : 0,
+      "failed" : 1,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "280903d4c11b8ce7",
-      "status" : "passed",
+      "uid" : "d26e4445b8b539dd",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '00000', 'msg': '操作成功'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}})",
       "time" : {
-        "start" : 1654821484455,
-        "stop" : 1654821484495,
-        "duration" : 40
+        "start" : 1654824192044,
+        "stop" : 1654824192072,
+        "duration" : 28
       }
     } ]
   }

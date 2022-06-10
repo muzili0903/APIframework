@@ -7,59 +7,59 @@
       "name" : "test_test_Test_scene_1",
       "children" : [ {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "80ab54ef667cef30",
+        "uid" : "a3ac131c6afa883e",
         "parentUid" : "863df07cf51f48dc3a6085b76ff724d0",
-        "status" : "passed",
+        "status" : "failed",
         "time" : {
-          "start" : 1654821484304,
-          "stop" : 1654821484329,
-          "duration" : 25
+          "start" : 1654824161603,
+          "stop" : 1654824161645,
+          "duration" : 42
         },
         "flaky" : false,
         "newFailed" : false,
         "newPassed" : false,
         "newBroken" : false,
-        "retriesCount" : 0,
+        "retriesCount" : 3,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'test': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
+        "parameters" : [ "{'test': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
       }, {
         "name" : "test_test_scene_1[test_case1]",
-        "uid" : "94dec36b102a9580",
+        "uid" : "1eaeecd61c00cbfa",
         "parentUid" : "863df07cf51f48dc3a6085b76ff724d0",
-        "status" : "passed",
+        "status" : "failed",
         "time" : {
-          "start" : 1654821484340,
-          "stop" : 1654821484364,
-          "duration" : 24
+          "start" : 1654824176860,
+          "stop" : 1654824176883,
+          "duration" : 23
         },
         "flaky" : false,
         "newFailed" : false,
         "newPassed" : false,
         "newBroken" : false,
-        "retriesCount" : 0,
+        "retriesCount" : 3,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'test': {'step_2': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
+        "parameters" : [ "{'test': {'step_2': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
       } ],
       "uid" : "863df07cf51f48dc3a6085b76ff724d0"
     }, {
       "name" : "test_test_Test_scene_2",
       "children" : [ {
         "name" : "test_test_scene_2[test_case0]",
-        "uid" : "280903d4c11b8ce7",
+        "uid" : "d26e4445b8b539dd",
         "parentUid" : "c834c3447426ef828cb8e6fc0621f291",
-        "status" : "passed",
+        "status" : "failed",
         "time" : {
-          "start" : 1654821484455,
-          "stop" : 1654821484495,
-          "duration" : 40
+          "start" : 1654824192044,
+          "stop" : 1654824192072,
+          "duration" : 28
         },
         "flaky" : false,
         "newFailed" : false,
         "newPassed" : false,
         "newBroken" : false,
-        "retriesCount" : 0,
+        "retriesCount" : 3,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'test': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
+        "parameters" : [ "{'test': {'step_1': {'script': {'request_header': {'method': 'post', 'path': '/invoice/trans/blue', 'connection': 'keep-alive', 'timeout': 10, 'Method': 'POST', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'Connection': 'keep-alive', 'token': 'None'}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': 'muzili', 'invoiceHead': 1, 'bizId': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：muzili, bizId=DZFP2022051811024063', 'taxpayerCode': '440002999999441', 'businessNo': '$(fdate)$(ftime)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'PFMX$(fnum::length=11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'test_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456'}}}}" ]
       } ],
       "uid" : "c834c3447426ef828cb8e6fc0621f291"
     } ],

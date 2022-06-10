@@ -6,6 +6,7 @@
 """
 import logging
 import re
+from copy import deepcopy
 
 from com.core import replaceData
 from com.util.getFileDirs import APISCENE
@@ -86,10 +87,12 @@ def ini_package(script: dict, data: dict) -> dict:
     con = Config()
     header = ini_request_headers(script.get('request_header'), data, con)
     body = ini_params(script.get('request_body'), data)
-    path = header.pop('path')
-    timeout = header.pop('timeout')
-    method = header.pop('Method')
-    content_type = header.get('Content-Type')
+    # 深拷贝，失败重跑数据不变
+    header_copy = deepcopy(header)
+    path = header_copy.pop('path')
+    timeout = header_copy.pop('timeout')
+    method = header_copy.pop('Method')
+    content_type = header_copy.get('Content-Type')
     # cookies = header.pop('cookies')
     try:
         project = dict(con.get_items('project'))
@@ -97,7 +100,7 @@ def ini_package(script: dict, data: dict) -> dict:
     except Exception as e:
         logging.error("配置文件project不存在>>>{}".format(con))
         logging.error("报错信息>>>{}".format(e))
-    return {"url": url, "method": method, "data": body, "headers": header, "timeout": timeout,
+    return {"url": url, "method": method, "data": body, "headers": header_copy, "timeout": timeout,
             "content_type": content_type}
 
 
