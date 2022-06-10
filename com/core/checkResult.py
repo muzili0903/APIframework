@@ -31,7 +31,7 @@ def check_res(response_body: dict, expect_body: dict):
             # expected_code: 200
             if int(value.get('expected_code')) != int(response_body.get('response_code')):
                 result.append(False)
-                logging.info("请求状态码校验不通过: 预期>>>{} 实际>>>{}".format(value.get('expected_code'),
+                logging.info("请求状态码校验不通过: 预期code>>>{} 实际code>>>{}".format(value.get('expected_code'),
                                                                   response_body.get('response_code')))
                 break
             # 预期结果json文件格式全匹配

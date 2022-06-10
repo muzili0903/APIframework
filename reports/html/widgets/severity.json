@@ -1,10 +1,10 @@
 [ {
-  "uid" : "a74b7bd864cd5d97",
+  "uid" : "70c3ff46c1bc172f",
   "name" : "test_test_scene_1[test_case0]",
   "time" : {
-    "start" : 1654841010802,
-    "stop" : 1654841010833,
-    "duration" : 31
+    "start" : 1654850402554,
+    "stop" : 1654850402719,
+    "duration" : 165
   },
   "status" : "failed",
   "severity" : "normal"

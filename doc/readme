@@ -39,6 +39,8 @@
     文件名命名：接口名.yaml
     文件内容：
     request_header: # 请求头内容，字段名固定为：request_header 字段没填则取配置文件对应的字段以及字段值
+        base_url: https://www.baidu.com # 基础地址，字段名固定为：base_url
+        env: /sit # 测试环境，字段名固定为：env
         Method: post # 请求方法，字段名固定为：Method
         path: /invoice/trans/blue # 请求路径，字段名固定为：path
         Connection: keep-alive # 请求连接方式，字段名固定为：Connection
@@ -64,8 +66,8 @@
     charset = utf8
 
     [project] # 项目相关参数 接口请求地址 = base_url + env + script脚本中的path, 字段名固定
-    base_url = https://fenqitest.midea.com
-    env = /invoice_sit
+    base_url = https://www.baidu.com
+    env = /sit
 
     [request_headers] # 请求头默认参数, 字段名固定
     Method = POST
