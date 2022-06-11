@@ -8,10 +8,12 @@ import requests
 import logging
 import urllib3
 
+from com.util.getConfig import Config
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-def post(url, data, content_type, headers=None, timeout=30, cookies=None):
+def post(url, data, content_type, headers=None, timeout=30, cookies=None, save_cookie=False):
     """
     :param url: 请求地址
     :param data: 请求参数
@@ -19,6 +21,7 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None):
     :param headers: 请求头
     :param timeout:
     :param cookies:
+    :param save_cookie:
     :return:
     """
     if 'application' in content_type:
@@ -39,6 +42,9 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None):
         if response.status_code != 200:
             return {'response_code': response.status_code, 'response_body': response.text}
         else:
+            if save_cookie:
+                con = Config()
+                con.set_config(section='request_headers', option='cookie', value=response.cookies)
             return {'response_code': response.status_code, 'response_body': response.json()}
     except Exception as e:
         logging.error("post请求异常: >>>{}".format(e))

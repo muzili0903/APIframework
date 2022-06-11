@@ -3,6 +3,7 @@ request_header:
   path: /mage/manual/addInvoiceToConfirm
   connection: keep-alive
   timeout: 10
+  save_cookie: true
 request_body:
   parameter: addInvoiceToConfirm.yaml
   check_body:

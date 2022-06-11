@@ -1,21 +1,21 @@
 {
   "841be38a4332b6035dbdc04eaddb162c" : {
     "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 1,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "70c3ff46c1bc172f",
-      "status" : "failed",
-      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': '{\"timestamp\":\"2022-06-10 16:40:02\",\"status\":404,\"error\":\"Not Found\",\"message\":\"\",\"path\":\"/invoice_sit/mage/manual/addInvoiceToConfirm\"}', 'response_code': 404}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}})",
+      "uid" : "ce6f8eb24f1fedc9",
+      "status" : "broken",
+      "statusDetails" : "requests.exceptions.ProxyError: HTTPSConnectionPool(host='efssit.midea.com', port=443): Max retries exceeded with url: /ecr-admin/invoice_api/mage/manual/addInvoiceToConfirm (Caused by ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 503 Service Unavailable',)))",
       "time" : {
-        "start" : 1654850402554,
-        "stop" : 1654850402719,
-        "duration" : 165
+        "start" : 1654931293456,
+        "stop" : 1654931296504,
+        "duration" : 3048
       }
     } ]
   }

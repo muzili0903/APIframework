@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Fri Jun 10 16:40:02 CST 2022","Fri Jun 10 16:40:02 CST 2022","165","testCases","test_invoice_manage_Test_scene_1","","","","test_test_scene_1[test_case0]",""
+"broken","Sat Jun 11 15:08:13 CST 2022","Sat Jun 11 15:08:16 CST 2022","3048","testCases","test_invoice_manage_Test_scene_1","","","","test_test_scene_1[test_case0]",""

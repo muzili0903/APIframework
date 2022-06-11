@@ -34,9 +34,10 @@ def requestSend(api_step, api_name, case: dict):
     # 存下接口的请求报文
     GolStatic.set_file_temp(filename=api_name, key='request_body', value=case.get('data'))
     if case.get('method').lower() == 'post':
-        res = reqMethod.post(url=case.get('url'), data=case.get('data'), content_type=case.get('content_type'),
-                             headers=case.get('headers'), timeout=case.get('timeout'))
         # 测试临时挡板
+        res = reqMethod.post(url=case.get('url'), data=case.get('data'), content_type=case.get('content_type'),
+                             headers=case.get('headers'), timeout=case.get('timeout'),
+                             save_cookie=case.get('save_cookie'))
         # res = {'response_code': 200, 'response_body': {'code': '00000', 'msg': '操作成功'}}
     elif case.get('method').lower() == 'get':
         res = reqMethod.get(url=case.get('url'), params=case.get('data'), headers=case.get('headers'),
