@@ -147,7 +147,8 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
                     # resp = check_resp(value, response_body.get(key), check_type)
                     result.append(check_resp(value, response_body.get(key), check_type))
                 elif not isinstance(value, type(response_body.get(key))):
-                    logging.info("JSON格式校验, 关键字：>>>{}预期结果：>>>{}与响应结果：>>>{}类型不符".format(key, value, response_body.get(key)))
+                    logging.info(
+                        "JSON格式校验, 关键字：>>>{}预期结果：>>>{}与响应结果：>>>{}类型不符".format(key, value, response_body.get(key)))
                     return False
                 else:
                     if isinstance(value, list):
@@ -164,10 +165,6 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
         return False
 
 
-def check_req(response_body: dict, expect_body: dict):
-    pass
-
-
 def check_db(response_body: dict, expect_body: dict) -> bool:
     return True
 
@@ -177,7 +174,7 @@ if __name__ == "__main__":
     test = {'test': [{"test1": 2}, {"test": [33, 11]}]}
     test1 = {'test': [{"test1": 2}, {"test": [33, 11]}]}
     test2 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1, 2]], 'test2': "221"}
-    test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}],'test2': "221"}
+    test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}], 'test2': "221"}
     # print(check_resp(test, test1, 'partial_match'))
     print(check_resp(test2, test3, '=='))
     # bug 待解决

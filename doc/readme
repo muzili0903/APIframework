@@ -139,12 +139,13 @@
             expected_result:
                 name: muzili
                 num: 666
-        check_part:（待实现）
+        check_part:（已实现）
             expected_code: 200
             check_type: partial_match
             expected_result:
                 name: muzili
                 num: 666
                 age: 18
-
+        check_code:（已实现）
+            expected_code: 200
 

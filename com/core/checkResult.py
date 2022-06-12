@@ -65,7 +65,15 @@ def check_res(response_body: dict, expect_body: dict):
                 result.append(
                     checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))
         elif key.lower() == 'check_db':
-            result.append(checkData.check_db(response_body, value))
+            with allure.step("check_db: code校验"):
+                allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
+                allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))
+            if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
+                break
+            elif not checkData.check_type(value.get('check_type')):
+                break
+            else:
+                result.append(checkData.check_db(response_body, value))
         elif key.lower() == 'check_part':
             with allure.step("check_part: code校验"):
                 allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
@@ -83,10 +91,15 @@ def check_res(response_body: dict, expect_body: dict):
                     allure.attach(name='实际结果: ', body=str(response_body.get('response_body')))
                 result.append(
                     checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))
-        elif key.lower() == '':
-            pass
+        elif key.lower() == 'check_code':
+            with allure.step("check_code: code校验"):
+                allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
+                allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))
+            if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
+                result.append(False)
         else:
-            pass
+            logging.error("校验方式有误：>>>{}".format(key))
+            result.append(False)
     if False not in result:
         return True
     else:
