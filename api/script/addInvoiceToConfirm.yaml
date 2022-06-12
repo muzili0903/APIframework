@@ -4,6 +4,7 @@ request_header:
   connection: keep-alive
   timeout: 10
   save_cookie: true
+  sleep_time£º0
 request_body:
   parameter: addInvoiceToConfirm.yaml
   check_body:

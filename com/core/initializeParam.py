@@ -40,6 +40,7 @@ def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
     timeout = request_headers.get('timeout') or default_headers.get('timeout')
     cookie = request_headers.get('cookie') or default_headers.get('cookie')
     save_cookie = request_headers.get('save_cookie') or default_headers.get('save_cookie')
+    sleep_time = request_headers.get('sleep_time') or default_headers.get('sleep_time')
     path = request_headers.get('path') or default_headers.get('path')
     # project 兼容上游与管理台之间的交互
     base_url = request_headers.get('base_url') or default_project.get('base_url')
@@ -48,7 +49,7 @@ def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
     try:
         header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
                   'timeout': int(timeout), 'cookie': cookie, 'save_cookie': save_cookie, 'path': path,
-                  'base_url': base_url, 'env': env}
+                  'base_url': base_url, 'env': env, 'sleep_time': int(sleep_time)}
         header = eval(replaceData.replace_user_var(str(header), test_data))
         request_headers.update(header)
     except Exception as e:
@@ -105,6 +106,7 @@ def ini_package(script: dict, data: dict) -> dict:
     timeout = header_copy.pop('timeout')
     method = header_copy.pop('Method')
     save_cookie = header_copy.pop('save_cookie')
+    sleep_time = header_copy.pop('sleep_time')
     content_type = header_copy.get('Content-Type')
     url = base_url + env + path
     # try:
@@ -114,7 +116,7 @@ def ini_package(script: dict, data: dict) -> dict:
     #     logging.error("配置文件project不存在>>>{}".format(con))
     #     logging.error("报错信息>>>{}".format(e))
     return {"url": url, "method": method, "data": body, "headers": header_copy, "timeout": timeout,
-            "content_type": content_type, "save_cookie": save_cookie}
+            "content_type": content_type, "save_cookie": save_cookie, 'sleep_time': sleep_time}
 
 
 if __name__ == "__main__":

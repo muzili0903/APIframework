@@ -6,12 +6,12 @@
 """
 import logging
 import re
-
+from time import sleep
 import requests
 
-
-res = requests.get(url='http://www.baidu.com')
-print(res.cookies)
+sleep(10)
+print('1')
+sleep(2)
 
 
 if __name__ == "__main__":
