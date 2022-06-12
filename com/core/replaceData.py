@@ -43,8 +43,10 @@ def query_db(sql_list: list):
     for sql in sql_list:
         # if ('where' in sql and 'limit' in sql) or ('WHERE' in sql and 'limit' in sql):
         if 'where' in sql or 'WHERE' in sql:
+            logging.info("正在执行的sql: >>>{}".format(sql))
             result = mysql.query(sql, is_dict=True)
             query_result.append(result)
+            logging.info("sql的结果: >>>{}".format(result))
         else:
             logging.error("请编写含有where条件的sql: >>>{}".format(sql))
     return query_result

@@ -6,6 +6,7 @@
 """
 import requests
 import logging
+import json
 import urllib3
 
 from com.util.getConfig import Config
@@ -24,9 +25,30 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None, save_c
     :param save_cookie:
     :return:
     """
-    if 'application' in content_type:
+    # application/json
+    if 'json' in content_type:
+        data = json.dumps(data)
         response = requests.post(url=url,
                                  json=data,
+                                 headers=headers,
+                                 timeout=timeout,
+                                 cookies=cookies,
+                                 verify=False)
+    # application/x-www-form-urlencoded
+    elif 'x-www-form-urlencoded' in content_type:
+        response = requests.post(url=url,
+                                 data=data,
+                                 headers=headers,
+                                 timeout=timeout,
+                                 cookies=cookies,
+                                 verify=False)
+    # multipart/form-data
+    elif 'form-data' in content_type:
+        with open(data.get('file'), 'rb', encoding='utf8') as fs:
+            content = fs.read()
+        files = {'file': content}
+        response = requests.post(url=url,
+                                 files=files,
                                  headers=headers,
                                  timeout=timeout,
                                  cookies=cookies,
