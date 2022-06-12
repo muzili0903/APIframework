@@ -123,14 +123,15 @@
         2、响应报文与预期结果(部分字段校验) check_part
         3、响应报文与数据库校验 check_db
     校验方式 check_type
-        1、全匹配 perfect_match or ==
-        2、部分匹配 partial_match or in
+        1、全匹配(字段与字段值全匹配) perfect_match or ==
+        2、部分匹配(字段与字段值部分匹配) partial_match or in
     示例:
         check_json:（已实现）
-            check_type: perfect_match
             expected_code: 200
+            check_type: perfect_match
             expected_result: test_response.json
         check_db:（待实现）
+            expected_code: 200
             check_type: perfect_match
             check_sql: select * from test where id = 1
             check_var:
@@ -139,6 +140,7 @@
                 name: muzili
                 num: 666
         check_part:（待实现）
+            expected_code: 200
             check_type: partial_match
             expected_result:
                 name: muzili

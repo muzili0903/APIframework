@@ -9,6 +9,13 @@ import re
 from time import sleep
 import requests
 
+if not False:
+    print(1)
+elif 2 == 2:
+    print(2)
+else:
+    print(3)
+
 sleep(10)
 print('1')
 sleep(2)

@@ -9,6 +9,34 @@ import logging
 from com.core import replaceData
 
 
+def check_code(response_code: int, expect_code: int) -> bool:
+    """
+    校验响应码
+    :param response_code:
+    :param expect_code:
+    :return:
+    """
+    if response_code != expect_code:
+        logging.info("请求状态码校验不通过: 预期code: >>>{} 实际code: >>>{}".format(response_code,
+                                                                      expect_code))
+        return False
+    else:
+        return True
+
+
+def check_type(type: str) -> bool:
+    """
+    检查校验方式
+    :param type:
+    :return:
+    """
+    if type not in ['perfect_match', '==', 'partial_match', 'in']:
+        logging.info("预期结果校验方式不存在: >>>{}".format(type))
+        return False
+    else:
+        return True
+
+
 def check_value(respone_value, expect_value):
     """
     校验值
@@ -40,7 +68,7 @@ def check_list(response_body: list, expect_body: list, check_type) -> bool:
     校验列表字段值
     :param response_body: 响应结果
     :param expect_body: 预期结果
-    :param check_type:
+    :param check_type: 校验值的方式
     :return:
     """
     result = list()
@@ -149,9 +177,9 @@ if __name__ == "__main__":
     test = {'test': [{"test1": 2}, {"test": [33, 11]}]}
     test1 = {'test': [{"test1": 2}, {"test": [33, 11]}]}
     test2 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1, 2]], 'test2': "221"}
-    test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1]], 'test2': "221"}
+    test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}],'test2': "221"}
     # print(check_resp(test, test1, 'partial_match'))
-    print(check_resp(test2, test3, 'perfect_match'))
+    print(check_resp(test2, test3, '=='))
     # bug 待解决
     # print(check_list([{"test1": 2}, [1, 22]], [{"test1": 2}, [1, 22]], 'perfect_match'))
     pass
