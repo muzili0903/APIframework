@@ -43,8 +43,8 @@ def write_yaml(file, obj):
 if __name__ == "__main__":
     from com.util.getFileDirs import APIJSON, APIYAML
     import json
-    file = APIJSON + '\\addInvoiceToConfirm.json'
+    file = APIJSON + '\\login.json'
     with open(file=file, mode="r", encoding="utf-8") as f:
         content = json.load(f)
-    fileName = APIYAML + '\\addInvoiceToConfirm.yaml'
+    fileName = APIYAML + '\\login.yaml'
     write_yaml(fileName, content)

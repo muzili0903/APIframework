@@ -31,8 +31,6 @@ def requestSend(api_step, api_name, case: dict):
         allure.attach(name="请求地址", body=str(case.get('url')))
         allure.attach(name="请求头", body=str(case.get('headers')))
         allure.attach(name="请求参数", body=str(case.get('data')))
-    # 强制等待
-    sleep(case.get('sleep_time'))
     res = None
     # 存下接口的请求报文
     GolStatic.set_file_temp(filename=api_name, key='request_body', value=case.get('data'))
@@ -50,6 +48,8 @@ def requestSend(api_step, api_name, case: dict):
         GolStatic.set_file_temp(filename=api_name, key='response_body', value=res.get('response_body'))
     else:
         GolStatic.set_file_temp(filename=api_name, key='response_body', value=res)
+    # 强制等待
+    sleep(case.get('sleep_time'))
     return res
 
 

@@ -9,13 +9,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "ce6f8eb24f1fedc9",
+      "uid" : "27b457582bc97714",
       "status" : "broken",
-      "statusDetails" : "requests.exceptions.ProxyError: HTTPSConnectionPool(host='efssit.midea.com', port=443): Max retries exceeded with url: /ecr-admin/invoice_api/mage/manual/addInvoiceToConfirm (Caused by ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 503 Service Unavailable',)))",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'get'",
       "time" : {
-        "start" : 1654931293456,
-        "stop" : 1654931296504,
-        "duration" : 3048
+        "start" : 1655099648517,
+        "stop" : 1655099648720,
+        "duration" : 203
       }
     } ]
   }
