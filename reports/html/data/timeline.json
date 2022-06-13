@@ -4,33 +4,16 @@
   "children" : [ {
     "name" : "CN01XIT00000ZON",
     "children" : [ {
-      "name" : "12752-MainThread",
+      "name" : "26300-MainThread",
       "children" : [ {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "d07586244ec679bb",
-        "parentUid" : "7a959996c3c1d300f4cb406f95ffbed6",
+        "uid" : "59427134d8902d2b",
+        "parentUid" : "06eac8a4563d4301ac5a796f49be2011",
         "status" : "broken",
         "time" : {
-          "start" : 1655103357859,
-          "stop" : 1655103358077,
-          "duration" : 218
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 1,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
-      }, {
-        "name" : "test_test_scene_1[test_case0]",
-        "uid" : "d23c817745804276",
-        "parentUid" : "7a959996c3c1d300f4cb406f95ffbed6",
-        "status" : "broken",
-        "time" : {
-          "start" : 1655103356203,
-          "stop" : 1655103356453,
-          "duration" : 250
+          "start" : 1655114551728,
+          "stop" : 1655114552010,
+          "duration" : 282
         },
         "flaky" : false,
         "newFailed" : false,
@@ -38,9 +21,26 @@
         "newBroken" : false,
         "retriesCount" : 0,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case0]",
+        "uid" : "d39049ad3a246408",
+        "parentUid" : "06eac8a4563d4301ac5a796f49be2011",
+        "status" : "broken",
+        "time" : {
+          "start" : 1655114553416,
+          "stop" : 1655114553665,
+          "duration" : 249
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 1,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'SESSION': '28ee399c-8f10-4896-a2fe-eb417438c815'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
       } ],
-      "uid" : "7a959996c3c1d300f4cb406f95ffbed6"
+      "uid" : "06eac8a4563d4301ac5a796f49be2011"
     } ],
     "uid" : "f8b0faf773517d923b353d1ef0c9672e"
   } ]

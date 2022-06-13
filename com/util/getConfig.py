@@ -172,7 +172,6 @@ class Config(object):
 
 
 if __name__ == "__main__":
-    config = Config(r'E:\project\APIframework\api\data\test1.ini')
-    da = ['test', 'test1', 'test2']
-    for d in da:
-        print(config.get_items(d))
+    config = Config(r'E:\APIframework\config\APIframework.ini')
+    config.set_config('request_headers', 'cookie', "{'JSESSIONID': '280D82E8DBEEF5065FB2F7191B33A994'}")
+    config.set_config('request_headers', 'cookie', "{'12': '280D82E8DBEEF5065FB2F7191B33A994'}")

@@ -66,8 +66,9 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None, save_c
         else:
             if save_cookie:
                 con = Config()
-                con.set_config(section='request_headers', option='cookie', value=response.cookies.get_dict())
+                con.set_config(section='request_headers', option='cookie', value=str(response.cookies.get_dict()))
             return {'response_code': response.status_code, 'response_body': response.json()}
+            # return {'response_code': response.status_code, 'response_body': ''}
     except Exception as e:
         logging.error("post请求异常: >>>{}".format(e))
         return None
@@ -93,8 +94,9 @@ def get(url, params, headers=None, timeout=30, cookies=None, save_cookie=False):
     try:
         if save_cookie:
             con = Config()
-            con.set_config(section='request_headers', option='cookie', value=response.cookies.get_dict())
+            con.set_config(section='request_headers', option='cookie', value=str(response.cookies.get_dict()))
         return {'response_code': response.status_code, 'response_body': response.json()}
+        # return {'response_code': response.status_code, 'response_body': ''}
     except Exception as e:
         logging.error("get请求异常: >>>{}".format(e))
         return None

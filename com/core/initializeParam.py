@@ -105,6 +105,7 @@ def ini_package(script: dict, data: dict) -> dict:
     env = header_copy.pop('env')
     timeout = header_copy.pop('timeout')
     method = header_copy.pop('Method')
+    cookies = eval(header_copy.pop('cookie'))
     save_cookie = header_copy.pop('save_cookie')
     sleep_time = header_copy.pop('sleep_time')
     content_type = header_copy.get('Content-Type')
@@ -116,7 +117,7 @@ def ini_package(script: dict, data: dict) -> dict:
     #     logging.error("配置文件project不存在>>>{}".format(con))
     #     logging.error("报错信息>>>{}".format(e))
     return {"url": url, "method": method, "data": body, "headers": header_copy, "timeout": timeout,
-            "content_type": content_type, "save_cookie": save_cookie, 'sleep_time': sleep_time}
+            "content_type": content_type, "cookies": cookies, "save_cookie": save_cookie, 'sleep_time': sleep_time}
 
 
 if __name__ == "__main__":

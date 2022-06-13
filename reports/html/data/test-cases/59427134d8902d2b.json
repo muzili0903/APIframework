@@ -1,12 +1,12 @@
 {
-  "uid" : "d23c817745804276",
+  "uid" : "59427134d8902d2b",
   "name" : "test_test_scene_1[test_case0]",
   "fullName" : "testCases.test_invoice_manage_Test_scene_1#test_test_scene_1",
   "historyId" : "841be38a4332b6035dbdc04eaddb162c",
   "time" : {
-    "start" : 1655103356203,
-    "stop" : 1655103356453,
-    "duration" : 250
+    "start" : 1655114551728,
+    "stop" : 1655114552010,
+    "duration" : 282
   },
   "status" : "broken",
   "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'get'",
@@ -25,47 +25,47 @@
     "steps" : [ {
       "name" : "请求步骤: step_1, 接口名: admin",
       "time" : {
-        "start" : 1655103356203,
-        "stop" : 1655103356218,
-        "duration" : 15
+        "start" : 1655114551728,
+        "stop" : 1655114551744,
+        "duration" : 16
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "a955f5c9e130ddd1",
+        "uid" : "e15060e091d4e229",
         "name" : "请求方法",
-        "source" : "a955f5c9e130ddd1.attach",
+        "source" : "e15060e091d4e229.attach",
         "type" : "text/plain",
         "size" : 3
       }, {
-        "uid" : "2caef1f4925bf0a5",
+        "uid" : "57b6a464bd413913",
         "name" : "请求地址",
-        "source" : "2caef1f4925bf0a5.attach",
+        "source" : "57b6a464bd413913.attach",
         "type" : "text/plain",
-        "size" : 30
+        "size" : 31
       }, {
-        "uid" : "5e1196ab009ec40d",
+        "uid" : "172fc0831910a1c7",
         "name" : "请求头",
-        "source" : "5e1196ab009ec40d.attach",
+        "source" : "172fc0831910a1c7.attach",
         "type" : "text/plain",
-        "size" : 232
+        "size" : 214
       }, {
-        "uid" : "ce0a38c6506544f4",
+        "uid" : "3982a4516f0a065b",
         "name" : "请求参数",
-        "source" : "ce0a38c6506544f4.attach",
+        "source" : "3982a4516f0a065b.attach",
         "type" : "text/plain",
         "size" : 4
       } ],
       "parameters" : [ ],
-      "hasContent" : true,
       "stepsCount" : 0,
+      "hasContent" : true,
       "attachmentsCount" : 4,
       "shouldDisplayMessage" : false
     }, {
       "name" : "check_code: code校验",
       "time" : {
-        "start" : 1655103356453,
-        "stop" : 1655103356453,
+        "start" : 1655114552010,
+        "stop" : 1655114552010,
         "duration" : 0
       },
       "status" : "broken",
@@ -73,28 +73,28 @@
       "statusTrace" : "  File \"E:\\APIframework\\com\\core\\checkResult.py\", line 98, in check_res\n    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "c2acf2ce02f0764d",
+        "uid" : "10a518063700c4c8",
         "name" : "预期响应码: ",
-        "source" : "c2acf2ce02f0764d.attach",
+        "source" : "10a518063700c4c8.attach",
         "type" : "text/plain",
         "size" : 3
       } ],
       "parameters" : [ ],
-      "hasContent" : true,
       "stepsCount" : 0,
+      "hasContent" : true,
       "attachmentsCount" : 1,
       "shouldDisplayMessage" : true
     } ],
     "attachments" : [ {
-      "uid" : "cb14e37b1c34d769",
+      "uid" : "6c2a4643c1419f52",
       "name" : "log",
-      "source" : "cb14e37b1c34d769.txt",
+      "source" : "6c2a4643c1419f52.txt",
       "type" : "text/plain",
-      "size" : 10504
+      "size" : 10457
     } ],
     "parameters" : [ ],
-    "hasContent" : true,
     "stepsCount" : 2,
+    "hasContent" : true,
     "attachmentsCount" : 6,
     "shouldDisplayMessage" : true
   },
@@ -113,7 +113,7 @@
     "value" : "CN01XIT00000ZON"
   }, {
     "name" : "thread",
-    "value" : "12752-MainThread"
+    "value" : "26300-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -129,7 +129,7 @@
   } ],
   "parameters" : [ {
     "name" : "test_case",
-    "value" : "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}"
+    "value" : "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}"
   } ],
   "links" : [ ],
   "hidden" : true,
@@ -138,6 +138,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d23c817745804276.json",
-  "parameterValues" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+  "source" : "59427134d8902d2b.json",
+  "parameterValues" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
 }

@@ -1,9 +1,8 @@
 request_header:
-  method: post
+  Method: post
   path: /mage/manual/addInvoiceToConfirm
-  connection: keep-alive
+  Connection: keep-alive
   timeout: 10
-  save_cookie: true
   sleep_time: 0
 request_body:
   parameter: addInvoiceToConfirm.yaml

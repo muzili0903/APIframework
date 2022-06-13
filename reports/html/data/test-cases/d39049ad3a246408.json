@@ -1,12 +1,12 @@
 {
-  "uid" : "d07586244ec679bb",
+  "uid" : "d39049ad3a246408",
   "name" : "test_test_scene_1[test_case0]",
   "fullName" : "testCases.test_invoice_manage_Test_scene_1#test_test_scene_1",
   "historyId" : "841be38a4332b6035dbdc04eaddb162c",
   "time" : {
-    "start" : 1655103357859,
-    "stop" : 1655103358077,
-    "duration" : 218
+    "start" : 1655114553416,
+    "stop" : 1655114553665,
+    "duration" : 249
   },
   "status" : "broken",
   "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'get'",
@@ -25,47 +25,47 @@
     "steps" : [ {
       "name" : "请求步骤: step_1, 接口名: admin",
       "time" : {
-        "start" : 1655103357859,
-        "stop" : 1655103357874,
-        "duration" : 15
+        "start" : 1655114553416,
+        "stop" : 1655114553416,
+        "duration" : 0
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "f8c6798981a51f30",
+        "uid" : "7395a7093a5531d5",
         "name" : "请求方法",
-        "source" : "f8c6798981a51f30.attach",
+        "source" : "7395a7093a5531d5.attach",
         "type" : "text/plain",
         "size" : 3
       }, {
-        "uid" : "20e814a3e57cdb1d",
+        "uid" : "44c33ae54c2708c7",
         "name" : "请求地址",
-        "source" : "20e814a3e57cdb1d.attach",
+        "source" : "44c33ae54c2708c7.attach",
         "type" : "text/plain",
-        "size" : 30
+        "size" : 31
       }, {
-        "uid" : "d18770529f206370",
+        "uid" : "6d0cb4c4397d4701",
         "name" : "请求头",
-        "source" : "d18770529f206370.attach",
+        "source" : "6d0cb4c4397d4701.attach",
         "type" : "text/plain",
-        "size" : 232
+        "size" : 214
       }, {
-        "uid" : "402ad28f74eedf60",
+        "uid" : "77c74af6f9cf4544",
         "name" : "请求参数",
-        "source" : "402ad28f74eedf60.attach",
+        "source" : "77c74af6f9cf4544.attach",
         "type" : "text/plain",
         "size" : 4
       } ],
       "parameters" : [ ],
-      "hasContent" : true,
       "stepsCount" : 0,
+      "hasContent" : true,
       "attachmentsCount" : 4,
       "shouldDisplayMessage" : false
     }, {
       "name" : "check_code: code校验",
       "time" : {
-        "start" : 1655103358077,
-        "stop" : 1655103358077,
+        "start" : 1655114553665,
+        "stop" : 1655114553665,
         "duration" : 0
       },
       "status" : "broken",
@@ -73,28 +73,28 @@
       "statusTrace" : "  File \"E:\\APIframework\\com\\core\\checkResult.py\", line 98, in check_res\n    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n",
       "steps" : [ ],
       "attachments" : [ {
-        "uid" : "b0081de07a2ff58d",
+        "uid" : "99fbc3c06a35b13d",
         "name" : "预期响应码: ",
-        "source" : "b0081de07a2ff58d.attach",
+        "source" : "99fbc3c06a35b13d.attach",
         "type" : "text/plain",
         "size" : 3
       } ],
       "parameters" : [ ],
-      "hasContent" : true,
       "stepsCount" : 0,
+      "hasContent" : true,
       "attachmentsCount" : 1,
       "shouldDisplayMessage" : true
     } ],
     "attachments" : [ {
-      "uid" : "7b11aa1af41fb6b2",
+      "uid" : "16aabc1bea73aaf2",
       "name" : "log",
-      "source" : "7b11aa1af41fb6b2.txt",
+      "source" : "16aabc1bea73aaf2.txt",
       "type" : "text/plain",
-      "size" : 21200
+      "size" : 21173
     } ],
     "parameters" : [ ],
-    "hasContent" : true,
     "stepsCount" : 2,
+    "hasContent" : true,
     "attachmentsCount" : 6,
     "shouldDisplayMessage" : true
   },
@@ -113,7 +113,7 @@
     "value" : "CN01XIT00000ZON"
   }, {
     "name" : "thread",
-    "value" : "12752-MainThread"
+    "value" : "26300-MainThread"
   }, {
     "name" : "framework",
     "value" : "pytest"
@@ -129,7 +129,7 @@
   } ],
   "parameters" : [ {
     "name" : "test_case",
-    "value" : "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}"
+    "value" : "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'SESSION': '28ee399c-8f10-4896-a2fe-eb417438c815'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}"
   } ],
   "links" : [ ],
   "hidden" : false,
@@ -137,13 +137,13 @@
   "extra" : {
     "severity" : "normal",
     "retries" : [ {
-      "uid" : "d23c817745804276",
+      "uid" : "59427134d8902d2b",
       "status" : "broken",
       "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'get'",
       "time" : {
-        "start" : 1655103356203,
-        "stop" : 1655103356453,
-        "duration" : 250
+        "start" : 1655114551728,
+        "stop" : 1655114552010,
+        "duration" : 282
       }
     } ],
     "categories" : [ {
@@ -153,6 +153,6 @@
     } ],
     "tags" : [ ]
   },
-  "source" : "d07586244ec679bb.json",
-  "parameterValues" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+  "source" : "d39049ad3a246408.json",
+  "parameterValues" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'SESSION': '28ee399c-8f10-4896-a2fe-eb417438c815'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
 }
