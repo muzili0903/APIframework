@@ -102,7 +102,7 @@ def get_case_data(scene_file, api_name):
     try:
         return dict(scene_file_data.get_items(api_name))
     except Exception as e:
-        logging.error("场景文件对应的数据文件不存在: >>>{}".format(scene_file))
+        logging.error("场景文件对应的接口section不存在: >>>{}".format(scene_file))
         logging.error("报错详情内容: >>>{}".format(e))
         return None
 

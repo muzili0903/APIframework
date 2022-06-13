@@ -34,9 +34,9 @@ test = {
 }
 
 # test.get('data').update({'Cookie': res1.cookies.get_dict()})
-
+cookies = requests.utils.cookiejar_from_dict(res1.cookies)
 res = requests.post(url=test.get('url'), headers=test.get('header'), data=test.get('data'),
-                    cookies=res1.cookies.get_dict())
+                    cookies=cookies)
 print(res.cookies.get_dict())
 print(res.status_code)
 # print(res.json())
@@ -116,9 +116,9 @@ test1 = {
                       'blueInvoiceCode': '',
                       'redRushInfoNo': ''}}
 }
-
+cookies = requests.utils.cookiejar_from_dict(res.cookies)
 res2 = requests.post(url=test1.get('url'), headers=test1.get('header'), data=test1.get('data'),
-                     cookies=res.cookies.get_dict())
+                     cookies=cookies)
 
 print(res.cookies.get_dict())
 print(res2.cookies.get_dict())

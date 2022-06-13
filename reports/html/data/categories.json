@@ -4,16 +4,16 @@
   "children" : [ {
     "name" : "Test defects",
     "children" : [ {
-      "name" : "AttributeError: 'NoneType' object has no attribute 'get'",
+      "name" : "requests.exceptions.ProxyError: HTTPSConnectionPool(host='efssit.midea.com', port=443): Max retries exceeded with url: /admin/ (Caused by ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 503 Service Unavailable',)))",
       "children" : [ {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "d39049ad3a246408",
-        "parentUid" : "4fdd8ecb15a7c385dab7798f3af15cca",
+        "uid" : "707b36715475d7f0",
+        "parentUid" : "0ce87c998bbac71992f554c70995b7b3",
         "status" : "broken",
         "time" : {
-          "start" : 1655114553416,
-          "stop" : 1655114553665,
-          "duration" : 249
+          "start" : 1655120261866,
+          "stop" : 1655120263225,
+          "duration" : 1359
         },
         "flaky" : false,
         "newFailed" : false,
@@ -21,9 +21,9 @@
         "newBroken" : false,
         "retriesCount" : 1,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'SESSION': '28ee399c-8f10-4896-a2fe-eb417438c815'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'cnware_app_cook': 'cab27ca6-abac-4a7f-838b-2c85cd42fb21_1640341706134_100'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
       } ],
-      "uid" : "4fdd8ecb15a7c385dab7798f3af15cca"
+      "uid" : "0ce87c998bbac71992f554c70995b7b3"
     } ],
     "uid" : "bdbf199525818fae7a8651db9eafe741"
   } ]

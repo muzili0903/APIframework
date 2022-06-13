@@ -9,13 +9,13 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "d39049ad3a246408",
+      "uid" : "707b36715475d7f0",
       "status" : "broken",
-      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'get'",
+      "statusDetails" : "requests.exceptions.ProxyError: HTTPSConnectionPool(host='efssit.midea.com', port=443): Max retries exceeded with url: /admin/ (Caused by ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 503 Service Unavailable',)))",
       "time" : {
-        "start" : 1655114553416,
-        "stop" : 1655114553665,
-        "duration" : 249
+        "start" : 1655120261866,
+        "stop" : 1655120263225,
+        "duration" : 1359
       }
     } ]
   }

@@ -112,7 +112,7 @@
     函数带参数报文: {"name": $Resp{test.data[0].name}}    参数化结果: {"name": "muzili"}
     函数带参数报文: {"name": $Resp{test.data[1].name}}    参数化结果: {"name": "rosy"}
     函数带参数报文: {"name": $Resp{test.data[2].name}}  获取不到值  参数化结果: {"name": ""}
-6、通过数据库参数化 $DB{变量名} （待实现）
+6、通过数据库参数化 $DB{变量名} （已实现）
     示例
     函数带参数报文: {"biz": $DB{biz}}  定义接口响应报文中的某个字段值  参数化结果: {"biz": 20220531}
 

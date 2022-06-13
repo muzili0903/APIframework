@@ -2,18 +2,35 @@
   "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
   "name" : "timeline",
   "children" : [ {
-    "name" : "CN01XIT00000ZON",
+    "name" : "LAPTOP-TT5JR8LD",
     "children" : [ {
-      "name" : "26300-MainThread",
+      "name" : "9324-MainThread",
       "children" : [ {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "59427134d8902d2b",
-        "parentUid" : "06eac8a4563d4301ac5a796f49be2011",
+        "uid" : "707b36715475d7f0",
+        "parentUid" : "625fb6d36487690ff255eb8f24d2d5d4",
         "status" : "broken",
         "time" : {
-          "start" : 1655114551728,
-          "stop" : 1655114552010,
-          "duration" : 282
+          "start" : 1655120261866,
+          "stop" : 1655120263225,
+          "duration" : 1359
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 1,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'cnware_app_cook': 'cab27ca6-abac-4a7f-838b-2c85cd42fb21_1640341706134_100'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case0]",
+        "uid" : "1f6777da294c6d61",
+        "parentUid" : "625fb6d36487690ff255eb8f24d2d5d4",
+        "status" : "broken",
+        "time" : {
+          "start" : 1655120259396,
+          "stop" : 1655120260693,
+          "duration" : 1297
         },
         "flaky" : false,
         "newFailed" : false,
@@ -22,26 +39,9 @@
         "retriesCount" : 0,
         "retriesStatusChange" : false,
         "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
-      }, {
-        "name" : "test_test_scene_1[test_case0]",
-        "uid" : "d39049ad3a246408",
-        "parentUid" : "06eac8a4563d4301ac5a796f49be2011",
-        "status" : "broken",
-        "time" : {
-          "start" : 1655114553416,
-          "stop" : 1655114553665,
-          "duration" : 249
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 1,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin/', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': \"{'oam_locale': 'en', 'SESSION': '28ee399c-8f10-4896-a2fe-eb417438c815'}\", 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
       } ],
-      "uid" : "06eac8a4563d4301ac5a796f49be2011"
+      "uid" : "625fb6d36487690ff255eb8f24d2d5d4"
     } ],
-    "uid" : "f8b0faf773517d923b353d1ef0c9672e"
+    "uid" : "4e048fba802ca2e2c1a051a5254d3533"
   } ]
 }
