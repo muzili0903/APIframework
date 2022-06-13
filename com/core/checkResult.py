@@ -21,7 +21,8 @@ def check_res(response_body: dict, expect_body: dict):
     :param expect_body: 预期结果
     :return:
     """
-    logging.info("接口响应结果：>>>{}".format(response_body.get('response_body')))
+    if response_body is not None:
+        logging.info("接口响应结果：>>>{}".format(response_body.get('response_body')))
     result = list()
     for key, value in expect_body.items():
         if key.lower() == 'check_json':

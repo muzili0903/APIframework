@@ -1,0 +1,286 @@
+INFO     root:initializeParam.py:48 request_headers处理前: >>>{'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0}
+INFO     root:initializeParam.py:57 request_headers处理后: >>>{'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}
+INFO     root:initializeParam.py:68 body处理前>>>None
+INFO     root:initializeParam.py:87 body处理后>>>None
+INFO     root:reqSend.py:25 请求地址：>>>https://efssit.midea.com/admin
+INFO     root:reqSend.py:26 请求方法：>>>get
+INFO     root:reqSend.py:27 请求头：>>>{'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None'}
+INFO     root:reqSend.py:28 请求体：>>>None
+DEBUG    urllib3.connectionpool:connectionpool.py:1001 Starting new HTTPS connection (1): efssit.midea.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:456 https://efssit.midea.com:443 "GET /admin HTTP/1.1" 301 185
+DEBUG    urllib3.connectionpool:connectionpool.py:228 Starting new HTTP connection (1): efssit.midea.com:80
+DEBUG    urllib3.connectionpool:connectionpool.py:456 http://efssit.midea.com:80 "GET /admin/ HTTP/1.1" 302 0
+DEBUG    urllib3.connectionpool:connectionpool.py:1001 Starting new HTTPS connection (1): signinuat.midea.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:456 https://signinuat.midea.com:443 "GET /login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F HTTP/1.1" 200 None
+ERROR    root:reqMethod.py:99 get请求异常: >>>[Errno Expecting value] <!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"/><meta http-equiv="Expires" content="0"/><meta http-equiv="Cache-Control" content="max-age=7200"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><meta name="renderer" content="webkit"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><title>Midea Single Sign On</title>
+    <meta name="keywords" content="Midea - 单点登录"/><meta name="description" content="Midea - 单点登录"/><link rel="icon" type="image/x-icon" href="/favicon.ico" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/reset.css?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/responsive.css?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/carousel.css?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/header.css?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/midea/css/form.css?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/footer.css?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D" /><script type="text/javascript" src="/themes/commons/js/jquery.min.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+    <script type="text/javascript" src="/themes/commons/js/carousel.min.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/themes/commons/js/html5shiv.min.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+    <script type="text/javascript" src="/themes/commons/js/respond.min.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+
+    <![endif]--></head>
+<body>
+<script type="text/javascript">
+    var serviceId = 158;
+    var authType = "mip";
+    console.log(authType)
+</script>
+<!-- header start --><div class="header-wrapper">
+    <div class="container">
+        <a class="logo" href="javascript:void(0);">
+            <img src="/themes/midea/images/logo.png" alt="logo"/></a>
+        <em class="sub-title hidden-xs"></em>
+        <div class="language">
+    <a href="javascript:void(0);">
+        <em>English</em>
+        <i class="language-arrow">
+            <em class="language-arrow--em"></em>
+        </i>
+    </a>
+    <div class="lang">
+        <ul>
+            <li><a data-role="item" href="/login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F&amp;locale=zh" rel="zh"> 简体中文 </a></li>
+            <li><a data-role="item" href="/login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F&amp;locale=en" rel="en"> English </a></li>
+            <li><a data-role="item" href="/login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F&amp;locale=ja" rel="ja"> 日本語 </a></li>
+        </ul>
+    </div>
+</div>
+    </div>
+</div>
+<!-- header end --><div class="container-wrapper">
+    <!-- carousel start --><div class="carousel-wrapper">
+    <div class="carousel">
+        <ul class="carousel-inner">
+            <li class="carousel-item" style="background: url(/themes/midea/images/bg.png) no-repeat center; background-size: cover">
+                <div class="container hidden-xs" style="background: url(/themes/midea/images/banner.png) center no-repeat"></div>
+            </li>
+        </ul>
+        <ul class="carousel-indicators"></ul>
+        <div class="carousel-bar"></div>
+    </div>
+</div>
+<!-- carousel end --><div id="content">
+        <!-- login form start --><div class="container">
+    <div class="login-wrapper">
+        <div class="login-form module-static">
+            <div class="login-switch" onclick="handleSwitch()">
+                <i class="icon qrcode">&#xe654;</i>
+                <i class="icon static">&#xe67d;</i>
+            </div>
+            <div id="J_StaticForm" class="static-form">
+                <form id="masForm" method="post">
+                    <div class="login-title">Midea Single Sign On</div>
+                    <div class="filed">
+                        <div class="filed-panel clear">
+                            <i class="icon filed-panel--icon">&#xe603;</i>
+                            <input tabindex="1"
+                                   id="username"
+                                   class="filed-input username"
+                                   type="text"
+                                   placeholder="Account"
+                                   autocomplete="off" name="username" value=""/></div>
+                        <div class="filed-panel clear">
+                            <i class="icon filed-panel--icon">&#xe60f;</i>
+                            <input type="password" style="display: none;"><input tabindex="2"
+                                   id="password"
+                                   class="filed-input password"
+                                   type="password"
+                                   placeholder="Password"
+                                   autocomplete="new-password" name="password" value=""/></div>
+                        <div class="tip">
+                            </div>
+                        <button class="login-button"
+                                accesskey="l"
+                                tabindex="4"
+                                type="button"
+                                onclick="handleSubmit()">LOGIN</button>
+                        <div class="filed-panel clear">
+                            <div class="remember" onclick="rememberMeHandler()">
+                                <input type="checkbox" name="mas_remember_me"/><img class="checkbox" src="/themes/midea/images/check-box.png"><span class="checkbox"></span>
+                                <span>Remember Me</span>
+                            </div>
+                            <div class="clause">
+                                <a href="http://idmtool.midea.com?redirect=https://efssit.midea.com/admin/"
+                                   target="_blank">Forgot Password?</a>
+                                </div>
+                        </div>
+                        </div>
+                    <input type="hidden" name="execution" value="e1s1"/><input type="hidden" name="_eventId" value="submit"/><input type="hidden" name="authType" value="sms123" /><input type="hidden" name="geolocation"/></form>
+            </div>
+            <form id="masQrCodeForm" method="post">
+                <input type="hidden" name="execution" value="e1s1"/><input type="hidden" name="username"/><input type="hidden" name="password"/><input type="hidden" name="mx"/><input type="hidden" name="_eventId" value="submit"/><div id="J_QrCodeForm" class="qrcode-form"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- login form end --></div>
+</div>
+<!-- footer start --><div class="footer-wrapper">
+    <div class="container">
+        <div class="footer-link">
+            <a href="http://si.midea.com/static/service_agreement" target="_blank">Terms & Conditions</a>
+            <a href="http://si.midea.com/static/privacy_policy" target="_blank">Privacy</a>
+            <a href="http://si.midea.com/static/contact_us" target="_blank">Contact Us</a>
+            <a class="last" href="http://si.midea.com/static/complaints_center" target="_blank">Complaints</a>
+        </div>
+        <p class="copyright">Copyright @ 1968-<span>2022</span> <span>Midea Group. All Right Reserved</span></p>
+    </div>
+</div>
+<!-- footer end --><script type="text/javascript">
+    var trackGeoLocation = false == true;
+    var captchaValidation = null == true;
+    var ctx = "";
+    var msg_cred_required = "Account or password is empty!";
+    var msg_captcha_required = "Captcha code is empty!";
+</script>
+<script type="text/javascript" src="/themes/commons/js/aes.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+<script type="text/javascript" src="/themes/commons/js/login.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+<script type="text/javascript" src="/themes/commons/js/jquery.cookie.min.js?v=2022-06-13T14:55:56.412%2B08:00%5BAsia/Shanghai%5D"></script>
+</body>
+</html>: 0
+INFO     root:initializeParam.py:48 request_headers处理前: >>>{'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}
+INFO     root:initializeParam.py:57 request_headers处理后: >>>{'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}
+INFO     root:initializeParam.py:68 body处理前>>>None
+INFO     root:initializeParam.py:87 body处理后>>>None
+INFO     root:reqSend.py:25 请求地址：>>>https://efssit.midea.com/admin
+INFO     root:reqSend.py:26 请求方法：>>>get
+INFO     root:reqSend.py:27 请求头：>>>{'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None'}
+INFO     root:reqSend.py:28 请求体：>>>None
+DEBUG    urllib3.connectionpool:connectionpool.py:1001 Starting new HTTPS connection (1): efssit.midea.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:456 https://efssit.midea.com:443 "GET /admin HTTP/1.1" 301 185
+DEBUG    urllib3.connectionpool:connectionpool.py:228 Starting new HTTP connection (1): efssit.midea.com:80
+DEBUG    urllib3.connectionpool:connectionpool.py:456 http://efssit.midea.com:80 "GET /admin/ HTTP/1.1" 302 0
+DEBUG    urllib3.connectionpool:connectionpool.py:1001 Starting new HTTPS connection (1): signinuat.midea.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:456 https://signinuat.midea.com:443 "GET /login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F HTTP/1.1" 200 None
+ERROR    root:reqMethod.py:99 get请求异常: >>>[Errno Expecting value] <!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"/><meta http-equiv="Expires" content="0"/><meta http-equiv="Cache-Control" content="max-age=7200"/><meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/><meta name="renderer" content="webkit"/><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><title>Midea Single Sign On</title>
+    <meta name="keywords" content="Midea - 单点登录"/><meta name="description" content="Midea - 单点登录"/><link rel="icon" type="image/x-icon" href="/favicon.ico" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/reset.css?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/responsive.css?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/carousel.css?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/header.css?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/midea/css/form.css?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D" /><link rel="stylesheet" type="text/css" href="/themes/commons/css/footer.css?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D" /><script type="text/javascript" src="/themes/commons/js/jquery.min.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+    <script type="text/javascript" src="/themes/commons/js/carousel.min.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/themes/commons/js/html5shiv.min.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+    <script type="text/javascript" src="/themes/commons/js/respond.min.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+
+    <![endif]--></head>
+<body>
+<script type="text/javascript">
+    var serviceId = 158;
+    var authType = "mip";
+    console.log(authType)
+</script>
+<!-- header start --><div class="header-wrapper">
+    <div class="container">
+        <a class="logo" href="javascript:void(0);">
+            <img src="/themes/midea/images/logo.png" alt="logo"/></a>
+        <em class="sub-title hidden-xs"></em>
+        <div class="language">
+    <a href="javascript:void(0);">
+        <em>English</em>
+        <i class="language-arrow">
+            <em class="language-arrow--em"></em>
+        </i>
+    </a>
+    <div class="lang">
+        <ul>
+            <li><a data-role="item" href="/login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F&amp;locale=zh" rel="zh"> 简体中文 </a></li>
+            <li><a data-role="item" href="/login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F&amp;locale=en" rel="en"> English </a></li>
+            <li><a data-role="item" href="/login?service=https%3A%2F%2Fefssit.midea.com%2Fadmin%2F&amp;locale=ja" rel="ja"> 日本語 </a></li>
+        </ul>
+    </div>
+</div>
+    </div>
+</div>
+<!-- header end --><div class="container-wrapper">
+    <!-- carousel start --><div class="carousel-wrapper">
+    <div class="carousel">
+        <ul class="carousel-inner">
+            <li class="carousel-item" style="background: url(/themes/midea/images/bg.png) no-repeat center; background-size: cover">
+                <div class="container hidden-xs" style="background: url(/themes/midea/images/banner.png) center no-repeat"></div>
+            </li>
+        </ul>
+        <ul class="carousel-indicators"></ul>
+        <div class="carousel-bar"></div>
+    </div>
+</div>
+<!-- carousel end --><div id="content">
+        <!-- login form start --><div class="container">
+    <div class="login-wrapper">
+        <div class="login-form module-static">
+            <div class="login-switch" onclick="handleSwitch()">
+                <i class="icon qrcode">&#xe654;</i>
+                <i class="icon static">&#xe67d;</i>
+            </div>
+            <div id="J_StaticForm" class="static-form">
+                <form id="masForm" method="post">
+                    <div class="login-title">Midea Single Sign On</div>
+                    <div class="filed">
+                        <div class="filed-panel clear">
+                            <i class="icon filed-panel--icon">&#xe603;</i>
+                            <input tabindex="1"
+                                   id="username"
+                                   class="filed-input username"
+                                   type="text"
+                                   placeholder="Account"
+                                   autocomplete="off" name="username" value=""/></div>
+                        <div class="filed-panel clear">
+                            <i class="icon filed-panel--icon">&#xe60f;</i>
+                            <input type="password" style="display: none;"><input tabindex="2"
+                                   id="password"
+                                   class="filed-input password"
+                                   type="password"
+                                   placeholder="Password"
+                                   autocomplete="new-password" name="password" value=""/></div>
+                        <div class="tip">
+                            </div>
+                        <button class="login-button"
+                                accesskey="l"
+                                tabindex="4"
+                                type="button"
+                                onclick="handleSubmit()">LOGIN</button>
+                        <div class="filed-panel clear">
+                            <div class="remember" onclick="rememberMeHandler()">
+                                <input type="checkbox" name="mas_remember_me"/><img class="checkbox" src="/themes/midea/images/check-box.png"><span class="checkbox"></span>
+                                <span>Remember Me</span>
+                            </div>
+                            <div class="clause">
+                                <a href="http://idmtool.midea.com?redirect=https://efssit.midea.com/admin/"
+                                   target="_blank">Forgot Password?</a>
+                                </div>
+                        </div>
+                        </div>
+                    <input type="hidden" name="execution" value="e1s1"/><input type="hidden" name="_eventId" value="submit"/><input type="hidden" name="authType" value="sms123" /><input type="hidden" name="geolocation"/></form>
+            </div>
+            <form id="masQrCodeForm" method="post">
+                <input type="hidden" name="execution" value="e1s1"/><input type="hidden" name="username"/><input type="hidden" name="password"/><input type="hidden" name="mx"/><input type="hidden" name="_eventId" value="submit"/><div id="J_QrCodeForm" class="qrcode-form"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- login form end --></div>
+</div>
+<!-- footer start --><div class="footer-wrapper">
+    <div class="container">
+        <div class="footer-link">
+            <a href="http://si.midea.com/static/service_agreement" target="_blank">Terms & Conditions</a>
+            <a href="http://si.midea.com/static/privacy_policy" target="_blank">Privacy</a>
+            <a href="http://si.midea.com/static/contact_us" target="_blank">Contact Us</a>
+            <a class="last" href="http://si.midea.com/static/complaints_center" target="_blank">Complaints</a>
+        </div>
+        <p class="copyright">Copyright @ 1968-<span>2022</span> <span>Midea Group. All Right Reserved</span></p>
+    </div>
+</div>
+<!-- footer end --><script type="text/javascript">
+    var trackGeoLocation = false == true;
+    var captchaValidation = null == true;
+    var ctx = "";
+    var msg_cred_required = "Account or password is empty!";
+    var msg_captcha_required = "Captcha code is empty!";
+</script>
+<script type="text/javascript" src="/themes/commons/js/aes.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+<script type="text/javascript" src="/themes/commons/js/login.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+<script type="text/javascript" src="/themes/commons/js/jquery.cookie.min.js?v=2022-06-13T14:55:58.047%2B08:00%5BAsia/Shanghai%5D"></script>
+</body>
+</html>: 0

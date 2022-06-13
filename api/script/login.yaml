@@ -1,8 +1,8 @@
 request_header:
   base_url: https://signinuat.midea.com
-  env: '' # 测试环境, 字段名固定为: env
-  method: get
-  path: /login?service=https://efssit.midea.com/admin/
+  env: '/'
+  Method: post
+  path: login?service=https://efssit.midea.com/admin/
   Connection: keep-alive
   Content-Type: application/x-www-form-urlencoded
   timeout: 10

@@ -1,0 +1,158 @@
+{
+  "uid" : "d07586244ec679bb",
+  "name" : "test_test_scene_1[test_case0]",
+  "fullName" : "testCases.test_invoice_manage_Test_scene_1#test_test_scene_1",
+  "historyId" : "841be38a4332b6035dbdc04eaddb162c",
+  "time" : {
+    "start" : 1655103357859,
+    "stop" : 1655103358077,
+    "duration" : 218
+  },
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'get'",
+  "statusTrace" : "test_case = {'admin': {'step_1': {'data': {}, 'script': {'check_body': {'check_code': {'expected_code': 200}}, 'request_body': Non.../5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', ...}}}}}\n\n    @pytest.mark.parametrize(\"test_case\", test_case)\n    @allure.story(\"test_test_scene_1\")\n    def test_test_scene_1(test_case):\n        api_name = list(test_case.keys())[0]\n        api_content = list(test_case.values())[0]\n        api_step = list(api_content.keys())[0]\n        api_step_content = list(api_content.values())[0]\n        test_info = api_step_content['script']\n        test_data = api_step_content['data']\n        expect_data = test_info.get('check_body')\n        api_info = ini_package(test_info, test_data)\n        result = requestSend(api_step, api_name, api_info)\n>       assert True == check_res(result, expect_data)\n\ntestCases\\test_invoice_manage_Test_scene_1.py:27: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse_body = None, expect_body = {'check_code': {'expected_code': 200}}\n\n    def check_res(response_body: dict, expect_body: dict):\n        \"\"\"\n        校验结果\n        :param response_body: 实际结果\n        :param expect_body: 预期结果\n        :return:\n        \"\"\"\n        if response_body is not None:\n            logging.info(\"接口响应结果：>>>{}\".format(response_body.get('response_body')))\n        result = list()\n        for key, value in expect_body.items():\n            if key.lower() == 'check_json':\n                with allure.step(\"check_json: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n                    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n                # expected_code: 200\n                # if int(value.get('expected_code')) != int(response_body.get('response_code')):\n                #     result.append(False)\n                #     logging.info(\"请求状态码校验不通过: 预期code: >>>{} 实际code: >>>{}\".format(value.get('expected_code'),\n                #                                                                   response_body.get('response_code')))\n                #     break\n                # 预期结果json文件格式全匹配\n                # elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':\n                #     logging.info(\"预期结果：{}\".format(value.get('expected_result')))\n                #     result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))\n                # # 预期结果json文件格式部分匹配\n                # elif value.get('check_type') == 'partial_match' or value.get('check_type') == 'in':\n                #     pass\n                # elif value.get('check_type') not in ['perfect_match', '==', 'partial_match', 'in']:\n                #     result.append(False)\n                #     logging.info(\"预期结果校验方式不存在: >>>{}\".format(value.get('check_type')))\n                #     break\n                if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):\n                    break\n                elif not checkData.check_type(value.get('check_type')):\n                    break\n                else:\n                    path = APIJSON + '\\\\' + value.get('expected_result')\n                    expect_result = read_json(path, is_str=False)\n                    # TODO\n                    # ini_params\n                    # logging.info(\"预期结果：{}\".format(value.get('expected_result')))\n                    logging.info(\"预期结果: >>>{}\".format(expect_result))\n                    with allure.step(\"check_json: data校验\"):\n                        allure.attach(name='校验方式: ', body=str(value.get('check_type')))\n                        allure.attach(name='预期结果: ', body=str(expect_result))\n                        allure.attach(name='实际结果: ', body=str(response_body.get('response_body')))\n                    # result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),\n                    #                                    value.get('check_type')))\n                    result.append(\n                        checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))\n            elif key.lower() == 'check_db':\n                with allure.step(\"check_db: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n                    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n                if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):\n                    break\n                elif not checkData.check_type(value.get('check_type')):\n                    break\n                else:\n                    result.append(checkData.check_db(response_body, value))\n            elif key.lower() == 'check_part':\n                with allure.step(\"check_part: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n                    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n                if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):\n                    break\n                elif not checkData.check_type(value.get('check_type')):\n                    break\n                else:\n                    expect_result = value.get('expected_result')\n                    logging.info(\"预期结果: >>>{}\".format(expect_result))\n                    with allure.step(\"check_part: data校验\"):\n                        allure.attach(name='校验方式: ', body=str(value.get('check_type')))\n                        allure.attach(name='预期结果: ', body=str(expect_result))\n                        allure.attach(name='实际结果: ', body=str(response_body.get('response_body')))\n                    result.append(\n                        checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))\n            elif key.lower() == 'check_code':\n                with allure.step(\"check_code: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n>                   allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\nE                   AttributeError: 'NoneType' object has no attribute 'get'\n\ncom\\core\\checkResult.py:98: AttributeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 1,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'get'",
+    "statusTrace" : "test_case = {'admin': {'step_1': {'data': {}, 'script': {'check_body': {'check_code': {'expected_code': 200}}, 'request_body': Non.../5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', ...}}}}}\n\n    @pytest.mark.parametrize(\"test_case\", test_case)\n    @allure.story(\"test_test_scene_1\")\n    def test_test_scene_1(test_case):\n        api_name = list(test_case.keys())[0]\n        api_content = list(test_case.values())[0]\n        api_step = list(api_content.keys())[0]\n        api_step_content = list(api_content.values())[0]\n        test_info = api_step_content['script']\n        test_data = api_step_content['data']\n        expect_data = test_info.get('check_body')\n        api_info = ini_package(test_info, test_data)\n        result = requestSend(api_step, api_name, api_info)\n>       assert True == check_res(result, expect_data)\n\ntestCases\\test_invoice_manage_Test_scene_1.py:27: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nresponse_body = None, expect_body = {'check_code': {'expected_code': 200}}\n\n    def check_res(response_body: dict, expect_body: dict):\n        \"\"\"\n        校验结果\n        :param response_body: 实际结果\n        :param expect_body: 预期结果\n        :return:\n        \"\"\"\n        if response_body is not None:\n            logging.info(\"接口响应结果：>>>{}\".format(response_body.get('response_body')))\n        result = list()\n        for key, value in expect_body.items():\n            if key.lower() == 'check_json':\n                with allure.step(\"check_json: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n                    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n                # expected_code: 200\n                # if int(value.get('expected_code')) != int(response_body.get('response_code')):\n                #     result.append(False)\n                #     logging.info(\"请求状态码校验不通过: 预期code: >>>{} 实际code: >>>{}\".format(value.get('expected_code'),\n                #                                                                   response_body.get('response_code')))\n                #     break\n                # 预期结果json文件格式全匹配\n                # elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':\n                #     logging.info(\"预期结果：{}\".format(value.get('expected_result')))\n                #     result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))\n                # # 预期结果json文件格式部分匹配\n                # elif value.get('check_type') == 'partial_match' or value.get('check_type') == 'in':\n                #     pass\n                # elif value.get('check_type') not in ['perfect_match', '==', 'partial_match', 'in']:\n                #     result.append(False)\n                #     logging.info(\"预期结果校验方式不存在: >>>{}\".format(value.get('check_type')))\n                #     break\n                if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):\n                    break\n                elif not checkData.check_type(value.get('check_type')):\n                    break\n                else:\n                    path = APIJSON + '\\\\' + value.get('expected_result')\n                    expect_result = read_json(path, is_str=False)\n                    # TODO\n                    # ini_params\n                    # logging.info(\"预期结果：{}\".format(value.get('expected_result')))\n                    logging.info(\"预期结果: >>>{}\".format(expect_result))\n                    with allure.step(\"check_json: data校验\"):\n                        allure.attach(name='校验方式: ', body=str(value.get('check_type')))\n                        allure.attach(name='预期结果: ', body=str(expect_result))\n                        allure.attach(name='实际结果: ', body=str(response_body.get('response_body')))\n                    # result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result'),\n                    #                                    value.get('check_type')))\n                    result.append(\n                        checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))\n            elif key.lower() == 'check_db':\n                with allure.step(\"check_db: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n                    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n                if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):\n                    break\n                elif not checkData.check_type(value.get('check_type')):\n                    break\n                else:\n                    result.append(checkData.check_db(response_body, value))\n            elif key.lower() == 'check_part':\n                with allure.step(\"check_part: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n                    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n                if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):\n                    break\n                elif not checkData.check_type(value.get('check_type')):\n                    break\n                else:\n                    expect_result = value.get('expected_result')\n                    logging.info(\"预期结果: >>>{}\".format(expect_result))\n                    with allure.step(\"check_part: data校验\"):\n                        allure.attach(name='校验方式: ', body=str(value.get('check_type')))\n                        allure.attach(name='预期结果: ', body=str(expect_result))\n                        allure.attach(name='实际结果: ', body=str(response_body.get('response_body')))\n                    result.append(\n                        checkData.check_resp(response_body.get('response_body'), expect_result, value.get('check_type')))\n            elif key.lower() == 'check_code':\n                with allure.step(\"check_code: code校验\"):\n                    allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))\n>                   allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\nE                   AttributeError: 'NoneType' object has no attribute 'get'\n\ncom\\core\\checkResult.py:98: AttributeError",
+    "steps" : [ {
+      "name" : "请求步骤: step_1, 接口名: admin",
+      "time" : {
+        "start" : 1655103357859,
+        "stop" : 1655103357874,
+        "duration" : 15
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "f8c6798981a51f30",
+        "name" : "请求方法",
+        "source" : "f8c6798981a51f30.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "20e814a3e57cdb1d",
+        "name" : "请求地址",
+        "source" : "20e814a3e57cdb1d.attach",
+        "type" : "text/plain",
+        "size" : 30
+      }, {
+        "uid" : "d18770529f206370",
+        "name" : "请求头",
+        "source" : "d18770529f206370.attach",
+        "type" : "text/plain",
+        "size" : 232
+      }, {
+        "uid" : "402ad28f74eedf60",
+        "name" : "请求参数",
+        "source" : "402ad28f74eedf60.attach",
+        "type" : "text/plain",
+        "size" : 4
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "check_code: code校验",
+      "time" : {
+        "start" : 1655103358077,
+        "stop" : 1655103358077,
+        "duration" : 0
+      },
+      "status" : "broken",
+      "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'get'\n",
+      "statusTrace" : "  File \"E:\\APIframework\\com\\core\\checkResult.py\", line 98, in check_res\n    allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))\n",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "b0081de07a2ff58d",
+        "name" : "预期响应码: ",
+        "source" : "b0081de07a2ff58d.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "7b11aa1af41fb6b2",
+      "name" : "log",
+      "source" : "7b11aa1af41fb6b2.txt",
+      "type" : "text/plain",
+      "size" : 21200
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 2,
+    "attachmentsCount" : 6,
+    "shouldDisplayMessage" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "12752-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "d23c817745804276",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'get'",
+      "time" : {
+        "start" : 1655103356203,
+        "stop" : 1655103356453,
+        "duration" : 250
+      }
+    } ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "d07586244ec679bb.json",
+  "parameterValues" : [ "{'admin': {'step_1': {'script': {'request_header': {'env': '/', 'Method': 'get', 'path': 'admin', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'save_cookie': True, 'sleep_time': 0, 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36', 'cookie': 'None', 'base_url': 'https://efssit.midea.com'}, 'request_body': None, 'check_body': {'check_code': {'expected_code': 200}}}, 'data': {}}}}" ]
+}

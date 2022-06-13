@@ -19,6 +19,7 @@ def read_yaml(file, is_str=True):
     if not os.path.exists(file):
         logging.error("文件不存在, 获取数据失败: >>>{}".format(file))
         return None
+    print(file)
     with open(file=file, encoding='utf-8') as f:
         content = yaml.load(f, yaml.FullLoader)
     if is_str:
