@@ -48,6 +48,7 @@
         Content-Type : application/json # 请求文本格式, 字段名固定为: Content-Type
         User-Agent : Mozilla/5.0 # 请求代理, 字段名固定为: User-Agent
         cookie : None # 请求token, 字段名固定为: cookie
+        is_login: true # 是否需要登陆, 字段名固定为: is_login
         save_cookie : false # 是否保存cookies, 字段名固定为: save_cookie, 默认为: false
         sleep_time: 0 # 接口等待时间, 字段值固定为: sleep_time, 默认不等待
     request_body: # 请求体内容, 字段名固定为: request_body
@@ -78,7 +79,9 @@
     Connection = keep-alive
     timeout = 10
     cookie = None
+    is_login = false
     save_cookie = false
+    sleep_time = 0
 
 关于参数化:
 1、用户参数化: ${变量名} （已实现）

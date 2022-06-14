@@ -23,7 +23,8 @@ def write_pytest_header(path):
         f_write.write("import pytest\n\n")
         f_write.write("from com.core.checkResult import check_res\n")
         f_write.write("from com.core.initializeParam import ini_package\n")
-        f_write.write("from com.core.reqSends import requestSend\n\n")
+        f_write.write("from com.core import reqSends\n")
+        f_write.write("from com.core import reqSend\n\n")
 
 
 def write_pytest_content(path, function_name, test_case):
@@ -40,7 +41,6 @@ def write_pytest_content(path, function_name, test_case):
 @pytest.mark.parametrize("test_case", test_case)
 @allure.story("test_{function_name}")
 def test_{function_name}(login_manage, test_case):
-    request = login_manage
     api_name = list(test_case.keys())[0]
     api_content = list(test_case.values())[0]
     api_step = list(api_content.keys())[0]
@@ -49,7 +49,11 @@ def test_{function_name}(login_manage, test_case):
     test_data = api_step_content['data']
     expect_data = test_info.get('check_body')
     api_info = ini_package(test_info, test_data)
-    result = requestSend(request, api_step, api_name, api_info)
+    if api_info.get('is_login'):
+        request = login_manage
+        result = reqSends.requestSend(request, api_step, api_name, api_info)
+    else:
+        result = reqSend.requestSend(api_step, api_name, api_info)
     assert True == check_res(result, expect_data)
     """.format(function_name=function_name)
     with open(path, "a+", encoding='utf-8') as f_write:
