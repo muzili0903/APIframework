@@ -4,15 +4,14 @@
 @time    :2022/5/18 9:01
 @file    :APIrun.py
 """
-import os
-
-import pytest
-
-# from com.core.replaceData import replace_user_func, replace_func
-from com.util import logOperation
 
 if __name__ == "__main__":
-    # from com.util.yamlOperation import read_yaml
+    import os
+
+    import pytest
+
+    from com.util import logOperation
+    from com.util.fileOperation import json_to_yaml
     from com.util.getFileDirs import LOGS, TESTCASES, REPORT
     from com.util.scriptOperation import write_script
     from com.util.getConfig import Config
@@ -20,6 +19,9 @@ if __name__ == "__main__":
     con = Config()
 
     logOperation.MyLogs(LOGS)
+
+    # 将api文件夹中的 json文件格式转为yaml文件格式
+    json_to_yaml()
 
     # 写pytest脚本
     write_script()

@@ -8,6 +8,26 @@
 import os
 import logging
 
+from com.util.getFileDirs import APIJSON, APIYAML
+from com.util.jsonOperation import read_json
+from com.util.yamlOperation import write_yaml
+
+
+def json_to_yaml():
+    """
+    json文件转为yaml文件
+    :return:
+    """
+    json_all_file = get_all_file(APIJSON)
+    for json_file in json_all_file:
+        json_file_name = get_file_name(json_file)
+        if '_response.json' in json_file_name:
+            pass
+        else:
+            yaml_file_name = APIYAML + '\\' + json_file_name.split('.')[0] + '.yaml'
+            content = read_json(json_file, is_str=False)
+            write_yaml(yaml_file_name, content)
+
 
 def get_all_file(path):
     """

@@ -2,7 +2,7 @@
 """
 @Time ： 2022/5/21 13:03
 @Auth ： muzili
-@File ： excelOperation.py
+@File ： excelOperation.py 暂时用不到该文件
 @IDE  ： PyCharm
 """
 import openpyxl
