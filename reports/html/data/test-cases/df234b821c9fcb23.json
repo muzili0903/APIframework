@@ -1,0 +1,193 @@
+{
+  "uid" : "df234b821c9fcb23",
+  "name" : "test_test_scene_1[test_case0]",
+  "fullName" : "testCases.test_invoice_manage_Test_scene_1#test_test_scene_1",
+  "historyId" : "841be38a4332b6035dbdc04eaddb162c",
+  "time" : {
+    "start" : 1655196670241,
+    "stop" : 1655196670480,
+    "duration" : 239
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "login_manage",
+    "time" : {
+      "start" : 1655196668802,
+      "stop" : 1655196670238,
+      "duration" : 1436
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "请求步骤: step_1, 接口名: addInvoiceToConfirm",
+      "time" : {
+        "start" : 1655196670248,
+        "stop" : 1655196670258,
+        "duration" : 10
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "971ad573c35f1f95",
+        "name" : "请求方法",
+        "source" : "971ad573c35f1f95.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "a8773f1f6a21a03b",
+        "name" : "请求地址",
+        "source" : "a8773f1f6a21a03b.attach",
+        "type" : "text/plain",
+        "size" : 78
+      }, {
+        "uid" : "e3a4d350c5f3e9de",
+        "name" : "请求头",
+        "source" : "e3a4d350c5f3e9de.attach",
+        "type" : "text/plain",
+        "size" : 93
+      }, {
+        "uid" : "d91dbe16657d0d8",
+        "name" : "请求参数",
+        "source" : "d91dbe16657d0d8.attach",
+        "type" : "text/plain",
+        "size" : 1980
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "check_json: code校验",
+      "time" : {
+        "start" : 1655196670465,
+        "stop" : 1655196670470,
+        "duration" : 5
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "1f990dec81e27747",
+        "name" : "预期响应码: ",
+        "source" : "1f990dec81e27747.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "82965c40bfcad9ec",
+        "name" : "实际响应码: ",
+        "source" : "82965c40bfcad9ec.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    }, {
+      "name" : "check_json: data校验",
+      "time" : {
+        "start" : 1655196670471,
+        "stop" : 1655196670480,
+        "duration" : 9
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "46235eaef5fef3ad",
+        "name" : "校验方式: ",
+        "source" : "46235eaef5fef3ad.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "14bdf56facea1b21",
+        "name" : "预期结果: ",
+        "source" : "14bdf56facea1b21.attach",
+        "type" : "text/plain",
+        "size" : 89
+      }, {
+        "uid" : "cbc2e934de45a789",
+        "name" : "实际结果: ",
+        "source" : "cbc2e934de45a789.attach",
+        "type" : "text/plain",
+        "size" : 89
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 3,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "88320f87f900750d",
+      "name" : "log",
+      "source" : "88320f87f900750d.txt",
+      "type" : "text/plain",
+      "size" : 9579
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 10,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 3
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "25104-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '0', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili'}}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "df234b821c9fcb23.json",
+  "parameterValues" : [ "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '0', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': 'DZFP$(fdate)$(ftime)$(fnum::length=4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': 'DZFP$(fdate)$(ftime)$(fnum::length=2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili'}}}}" ]
+}

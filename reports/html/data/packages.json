@@ -5,13 +5,13 @@
     "name" : "testCases.test_invoice_manage_Test_scene_1",
     "children" : [ {
       "name" : "test_test_scene_1[test_case0]",
-      "uid" : "3ed1156866f670ca",
+      "uid" : "df234b821c9fcb23",
       "parentUid" : "8a14cdf5500c634b14ea594bb97ff2f1",
       "status" : "passed",
       "time" : {
-        "start" : 1655187090074,
-        "stop" : 1655187090246,
-        "duration" : 172
+        "start" : 1655196670241,
+        "stop" : 1655196670480,
+        "duration" : 239
       },
       "flaky" : false,
       "newFailed" : false,
