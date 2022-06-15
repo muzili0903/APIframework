@@ -1,58 +1,21 @@
 {
-  "f7ac59bd1f41bb0fad32c6d1c4c8d549" : {
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "fa321422f908411c",
-      "status" : "passed",
-      "time" : {
-        "start" : 1655267318647,
-        "stop" : 1655267319678,
-        "duration" : 1031
-      }
-    } ]
-  },
   "841be38a4332b6035dbdc04eaddb162c" : {
     "statistic" : {
-      "failed" : 0,
+      "failed" : 1,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "7a06c0d33932a50f",
-      "status" : "passed",
+      "uid" : "3666898135013959",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'code': '99999', 'msg': '失败'}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'blue_response.json'}})",
       "time" : {
-        "start" : 1655267318101,
-        "stop" : 1655267318303,
-        "duration" : 202
-      }
-    } ]
-  },
-  "bca6bc17de44d993a1284dd58014e2c9" : {
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    },
-    "items" : [ {
-      "uid" : "ad9e606c50544e97",
-      "status" : "passed",
-      "time" : {
-        "start" : 1655267318319,
-        "stop" : 1655267318616,
-        "duration" : 297
+        "start" : 1655288085853,
+        "stop" : 1655288085978,
+        "duration" : 125
       }
     } ]
   }

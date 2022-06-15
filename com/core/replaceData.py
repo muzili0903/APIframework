@@ -41,6 +41,7 @@ def query_db(sql_list: list):
     """
     mysql = connection()
     query_result = list()
+    logging.info("需要执行的sql: >>>{}".format(sql_list))
     for sql in sql_list:
         # if ('where' in sql and 'limit' in sql) or ('WHERE' in sql and 'limit' in sql):
         if 'where' in sql or 'WHERE' in sql:
@@ -51,6 +52,7 @@ def query_db(sql_list: list):
             logging.info("sql的结果: >>>{}".format(result))
         else:
             logging.error("请编写含有where条件的sql: >>>{}".format(sql))
+    logging.info("sql_list执行结果: >>>{}".format(query_result))
     return query_result
 
 
@@ -65,6 +67,7 @@ def replace_db(case, data: dict):
         res = re.findall('\$DB\{.*?\}', case)
     else:
         return case
+    logging.info("获取到的sql语句: >>>{}".format(data.get('sql')))
     query_result = query_db(eval(data.get('sql')))
     try:
         for index in range(len(res)):

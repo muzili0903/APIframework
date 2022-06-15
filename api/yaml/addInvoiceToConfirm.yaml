@@ -6,7 +6,7 @@ data:
   invoiceHead: '1'
   erpCustCode: ''
   sysSource: '0'
-  autoSendFlag: '0'
+  autoSendFlag: ${autoSendFlag}
   ouName: ''
   ouCode: ''
   payTaxpayerName: ${payTaxpayerName}

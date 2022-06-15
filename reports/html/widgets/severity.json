@@ -1,31 +1,11 @@
 [ {
-  "uid" : "7a06c0d33932a50f",
+  "uid" : "3666898135013959",
   "name" : "test_test_scene_1[test_case0]",
   "time" : {
-    "start" : 1655267318101,
-    "stop" : 1655267318303,
-    "duration" : 202
+    "start" : 1655288085853,
+    "stop" : 1655288085978,
+    "duration" : 125
   },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "ad9e606c50544e97",
-  "name" : "test_test_scene_1[test_case1]",
-  "time" : {
-    "start" : 1655267318319,
-    "stop" : 1655267318616,
-    "duration" : 297
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "fa321422f908411c",
-  "name" : "test_test_scene_1[test_case2]",
-  "time" : {
-    "start" : 1655267318647,
-    "stop" : 1655267319678,
-    "duration" : 1031
-  },
-  "status" : "passed",
+  "status" : "failed",
   "severity" : "normal"
 } ]

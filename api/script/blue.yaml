@@ -1,0 +1,16 @@
+request_header:
+  base_url: https://fenqitest.midea.com
+  env: /invoice_sit
+  Method: post
+  path: /invoice/trans/blue
+  Connection: keep-alive
+  timeout: 10
+  sleep_time: 0
+  is_login: false
+request_body:
+  parameter: blue.yaml
+  check_body:
+    check_json:
+      check_type: perfect_match
+      expected_code: 200
+      expected_result: blue_response.json

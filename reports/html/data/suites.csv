@@ -1,4 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Jun 15 12:28:38 CST 2022","Wed Jun 15 12:28:39 CST 2022","1031","testCases","test_invoice_manage_Test_scene_1","","","","test_test_scene_1[test_case2]",""
-"passed","Wed Jun 15 12:28:38 CST 2022","Wed Jun 15 12:28:38 CST 2022","202","testCases","test_invoice_manage_Test_scene_1","","","","test_test_scene_1[test_case0]",""
-"passed","Wed Jun 15 12:28:38 CST 2022","Wed Jun 15 12:28:38 CST 2022","297","testCases","test_invoice_manage_Test_scene_1","","","","test_test_scene_1[test_case1]",""
+"failed","Wed Jun 15 18:14:45 CST 2022","Wed Jun 15 18:14:45 CST 2022","125","testCases","test_invoice_manage_Test_scene_1","","","","test_test_scene_1[test_case0]",""
