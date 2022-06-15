@@ -26,10 +26,12 @@ def json_to_yaml():
         yaml_file_list.append(yaml_file_name)
     for json_file in json_all_file:
         json_file_name = get_file_name(json_file)
+        # 预期结果的文件不转换
         if '_response.json' in json_file_name:
             pass
         else:
             json_file_name = json_file_name.split('.')[0]
+            # 已存在yaml文件的不转换
             if json_file_name in yaml_file_list:
                 pass
             else:

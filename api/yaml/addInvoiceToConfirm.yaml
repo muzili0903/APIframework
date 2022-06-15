@@ -1,5 +1,5 @@
-appId: IBCP
-appKey: '123456'
+appId: ${appId}
+appKey: ${appKey}
 data:
   id: ''
   invoiceType: '1'
@@ -9,17 +9,17 @@ data:
   autoSendFlag: '0'
   ouName: ''
   ouCode: ''
-  payTaxpayerName: muzili
+  payTaxpayerName: ${payTaxpayerName}
   payTaxpayerCode: ''
   payUnitAddress: '220610'
   payFixedPhoneNumber: '220610'
-  businessNos: '220610'
+  businessNos: $(fdate)$(ftime)$(fnum::4)
   mail: '220610'
   messagePhone: '220610'
   payBankName: '220610'
   payBankAccount: '220610'
   invoiceToConfirmDetailBOList:
-  - businessNo: '220610'
+  - businessNo: $(fdate)$(ftime)$(fnum::2)
     goodsName: 石狮子
     goodsId: 204
     goodsCode: '17122000041283'
@@ -37,7 +37,7 @@ data:
     taxRate: 0.13
     taxCode: '1020600000000000000'
     shortTaxCode: '10206'
-  - businessNo: '220610'
+  - businessNo: $(fdate)$(ftime)$(fnum::2)
     goodsName: 收音机
     goodsId: 179
     goodsCode: '963852741'

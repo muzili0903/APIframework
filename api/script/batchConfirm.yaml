@@ -1,0 +1,16 @@
+request_header:
+  Method: post
+  path: /mage/manual/batchConfirm
+  Connection: keep-alive
+  Content-Type: application/x-www-form-urlencoded
+  timeout: 10
+  sleep_time: 0
+  is_login: true
+request_body:
+  parameter: batchConfirm.yaml
+  check_body:
+    check_json:
+      check_type: perfect_match
+      expected_code: 200
+      expected_result: batchConfirm_response.json
+
