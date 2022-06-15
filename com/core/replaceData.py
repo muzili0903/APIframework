@@ -9,6 +9,7 @@ import logging
 
 from jsonpath import jsonpath
 
+from com.core.initializeParam import ini_db_params
 from com.db.mysqlConnection import MySqlConnect
 from com.util import sysFunc
 from api import userFunc
@@ -43,6 +44,7 @@ def query_db(sql_list: list):
     for sql in sql_list:
         # if ('where' in sql and 'limit' in sql) or ('WHERE' in sql and 'limit' in sql):
         if 'where' in sql or 'WHERE' in sql:
+            sql = ini_db_params(sql)
             logging.info("正在执行的sql: >>>{}".format(sql))
             result = mysql.query(sql, is_dict=True)
             query_result.append(result)

@@ -14,7 +14,7 @@
         # 注意: 通过数据库进行参数化的, 数据库语句写在这, 字段名固定为: sql
         # sql取值顺序, 例如 sex 取值, 先从 第一条sql的查询结果取值, 取不到值就到第二条sql的查询结果取值, 依此类推
         [test]
-        sql = ['select name from student where id = 1', 'select sex from student where id = 2']
+        sql = ['select name from student where id = $Req{test.data.num}', 'select sex from student where id = 2']
         appId = IBCP
         appKey = 123456
 

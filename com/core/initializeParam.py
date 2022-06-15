@@ -58,6 +58,21 @@ def ini_request_headers(request_headers: dict, test_data: dict, con) -> dict:
     return request_headers
 
 
+def ini_db_params(sql: str):
+    """
+    初始化sql
+    :param sql:
+    :return:
+    """
+    # 从请求报文获取参数值
+    if re.search('\$Req\{.*?\}', sql) is not None:
+        sql = replaceData.replace_req(sql)
+    # 从响应报文获取参数值
+    if re.search('\$Resp\{.*?\}', sql) is not None:
+        sql = replaceData.replace_resp(sql)
+    return sql
+
+
 def ini_params(test_info: dict, test_data: dict) -> dict:
     """
     初始化报文
