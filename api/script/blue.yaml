@@ -14,3 +14,8 @@ request_body:
       check_type: perfect_match
       expected_code: 200
       expected_result: blue_response.json
+    check_part:
+      check_type: in
+      expected_code: 200
+      expected_result:
+        code: "00000"

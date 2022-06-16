@@ -1,0 +1,193 @@
+{
+  "uid" : "a29eaa6a50df111a",
+  "name" : "test_test_scene_1[test_case4]",
+  "fullName" : "testCases.test_invoice_manage1_Test_scene_1#test_test_scene_1",
+  "historyId" : "231876fa9b88ad6b4f3aa9046eb3d33e",
+  "time" : {
+    "start" : 1655341153984,
+    "stop" : 1655341154624,
+    "duration" : 640
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "login_manage",
+    "time" : {
+      "start" : 1655341150938,
+      "stop" : 1655341152422,
+      "duration" : 1484
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "请求步骤: step_5, 接口名: batchInvoice",
+      "time" : {
+        "start" : 1655341154374,
+        "stop" : 1655341154390,
+        "duration" : 16
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "585ce38b43b99392",
+        "name" : "请求方法",
+        "source" : "585ce38b43b99392.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "96218df82031cdb1",
+        "name" : "请求地址",
+        "source" : "96218df82031cdb1.attach",
+        "type" : "text/plain",
+        "size" : 70
+      }, {
+        "uid" : "2edc51f56701912f",
+        "name" : "请求头",
+        "source" : "2edc51f56701912f.attach",
+        "type" : "text/plain",
+        "size" : 110
+      }, {
+        "uid" : "56e920dad1e23779",
+        "name" : "请求参数",
+        "source" : "56e920dad1e23779.attach",
+        "type" : "text/plain",
+        "size" : 18
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 4,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "check_json: code校验",
+      "time" : {
+        "start" : 1655341154609,
+        "stop" : 1655341154609,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "8bd68fd8790fb1a1",
+        "name" : "预期响应码: ",
+        "source" : "8bd68fd8790fb1a1.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "eeb30c5dbc8ba42e",
+        "name" : "实际响应码: ",
+        "source" : "eeb30c5dbc8ba42e.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 2,
+      "shouldDisplayMessage" : false
+    }, {
+      "name" : "check_json: data校验",
+      "time" : {
+        "start" : 1655341154609,
+        "stop" : 1655341154624,
+        "duration" : 15
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9eaf142ef47fd7b9",
+        "name" : "校验方式: ",
+        "source" : "9eaf142ef47fd7b9.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "da4acd50872f96bc",
+        "name" : "预期结果: ",
+        "source" : "da4acd50872f96bc.attach",
+        "type" : "text/plain",
+        "size" : 89
+      }, {
+        "uid" : "78c7496ffff1d06c",
+        "name" : "实际结果: ",
+        "source" : "78c7496ffff1d06c.attach",
+        "type" : "text/plain",
+        "size" : 89
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "attachmentsCount" : 3,
+      "shouldDisplayMessage" : false
+    } ],
+    "attachments" : [ {
+      "uid" : "f711cb31d8e37754",
+      "name" : "log",
+      "source" : "f711cb31d8e37754.txt",
+      "type" : "text/plain",
+      "size" : 3511
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 3,
+    "attachmentsCount" : 10,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage1_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "22644-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.test_invoice_manage1_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'batchInvoice': {'step_5': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a29eaa6a50df111a.json",
+  "parameterValues" : [ "{'batchInvoice': {'step_5': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
+}

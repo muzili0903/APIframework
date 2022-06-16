@@ -6,7 +6,7 @@
 """
 import requests
 import logging
-import json
+# import json
 import urllib3
 
 from com.util.getConfig import Config
@@ -27,7 +27,7 @@ def post(url, data, content_type, headers=None, timeout=30, cookies=None, save_c
     """
     # application/json
     if 'json' in content_type:
-        data = json.dumps(data)
+        # data = json.dumps(data)
         response = requests.post(url=url,
                                  json=data,
                                  headers=headers,
