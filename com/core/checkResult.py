@@ -71,11 +71,11 @@ def check_res(response_body: dict, expect_body: dict):
                 allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))
             if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
                 break
-            elif not checkData.check_type(value.get('check_type')):
-                break
+            # 数据库校验方式废弃
+            # elif not checkData.check_type(value.get('check_type')):
+            #     break
             else:
-                result.append(checkData.check_db(value.get('check_sql'), value.get('expected_result'),
-                                                 value.get('check_type')))
+                result.append(checkData.check_db(value.get('check_sql'), value.get('expected_result')))
         elif key.lower() == 'check_part':
             with allure.step("check_part: code校验"):
                 allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))

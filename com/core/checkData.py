@@ -7,6 +7,7 @@
 import logging
 
 from com.core import replaceData
+from com.core.replaceData import query_db
 
 
 def check_code(response_code: int, expect_code: int) -> bool:
@@ -165,73 +166,100 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
         return False
 
 
-def check_db(check_sql: list, expect_body: dict, check_type: str) -> bool:
-    return True
+def check_db(check_sql: list, expect_body: dict, check_type=None) -> bool:
+    """
+    数据库校验
+    :param check_sql:
+    :param expect_body:
+    :param check_type: 暂时不用, 废弃
+    :return:
+    """
+    res = list()
+    sql_result = query_db(sql_list=check_sql)
+    if isinstance(expect_body, dict):
+        for key, value in expect_body.items():
+            for result in sql_result:
+                if key in list(result.keys()) and result.__getitem__(key) is not None:
+                    res.append(check_value(result.__getitem__(key), value))
+                else:
+                    logging.info("数据库校验, 关键字：>>>{}预期结果：>>>{}".format(key, value))
+                    logging.info("数据库校验, sql查询结果{}".format(sql_result))
+                    return False
+    else:
+        logging.info("数据库校验内容非dict格式: >>>{}".format(expect_body))
+        return False
+    if False not in res:
+        return True
+    else:
+        return False
 
 
 if __name__ == "__main__":
     # test {'test': {"test": 1}} {'test': [1]]}}
-    test = {'test': [{"test1": 2}, {"test": [33, 11]}]}
-    test1 = {'test': [{"test1": 2}, {"test": [33, 11]}]}
-    test2 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1, 2]], 'test2': "221"}
-    test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}], 'test2': "221"}
-    # print(check_resp(test, test1, 'partial_match'))
-    expect_result = {'isSuccess': True, 'data': {'total': 1}}
-    response_result = {'isSuccess': True, 'errorCode': None, 'message': None, 'isPinCode': None,
-                       'data': {'total': 1, 'pageNum': 1, 'pageSize': 10, 'pages': 1, 'hasPreviousPage': False,
-                                'hasNextPage': False, 'rows': [
-                               {'pageNumber': None, 'pageSize': None, 'returnflag': False, 'id': 1090036,
-                                'bizId': 'IVMG1655265673788VTVQ', 'invoiceType': '1', 'batchNo': None, 'sysSource': 0,
-                                'sourceRemarks': None, 'ouCode': '', 'ouName': '', 'provinceCentre': None,
-                                'erpCustCode': '', 'recTaxpayerId': 269, 'recTaxpayerCode': '440001999999260',
-                                'recTaxpayerName': '百鸣鸟装饰有限公司', 'recUnitAddress': '中欧',
-                                'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行',
-                                'recBankAccount': '12353154656665', 'openMan': '孙悟空', 'reviewer': '沙和尚',
-                                'receiver': '猪八戒', 'invoiceAmt': 300.0, 'noTaxInvoiceAmt': 265.49,
-                                'operator': 'shirui4', 'invoiceHead': 1, 'payTaxpayerId': None, 'payTaxpayerCode': '',
-                                'payTaxpayerName': 'muzili', 'payUnitAddress': '220610',
-                                'payFixedPhoneNumber': '220610', 'payBankName': '220610', 'payBankAccount': '220610',
-                                'mail': '220610', 'provinceCode': None, 'messagePhone': '220610', 'remarks': '220610',
-                                'status': 3, 'invoiceId': 1492439, 'businessNos': '202206151201139953',
-                                'createDateStartStr': None, 'createDateEndStr': None, 'createBy': 'shirui4',
-                                'createDate': '2022-06-15 12:01:14', 'updateBy': 'system',
-                                'updateDate': '2022-06-15 12:01:16', 'invoiceDate': None, 'autoSendFlag': 0,
-                                'totalAmtContainTax': None, 'totalAmtNotContainTax': None, 'totalTaxAmt': 34.51,
-                                'valid': '1', 'redFlag': '1', 'taxRule': None, 'redList': [], 'blueList': [
-                                   {'pageNumber': None, 'pageSize': None, 'returnflag': False, 'id': 1492439,
-                                    'bizId': None, 'transId': None, 'draftId': None, 'invoiceRedBlue': None,
-                                    'invId': None, 'invoiceType': '1', 'batchNo': '20220615120114wEJ4M2Abdw',
-                                    'source': None, 'ouCode': '', 'ouName': '', 'provinceCentre': None,
-                                    'erpCustCode': '', 'recTaxpayerId': None, 'recTaxpayerCode': '440001999999260',
-                                    'recTaxpayerName': '百鸣鸟装饰有限公司', 'recUnitAddress': '中欧',
-                                    'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行',
-                                    'recBankAccount': '12353154656665', 'openMan': '孙悟空', 'reviewer': '沙和尚',
-                                    'receiver': '猪八戒', 'invoiceAmt': 300.0, 'invoiceCode': '044001800211',
-                                    'invoiceNo': '44501789', 'invoiceDate': '2022-06-15 12:07:09', 'checkCode': None,
-                                    'pdfUrl': 'http://aisinogd.com:5000/InvSys_test/getPdf.html?id=eUZpS25WeTlKK3FnZlNQWEdxSUZoS0xkYTJxYzFCZGx5VEFYTHAzU2lzamw4eCtzZFFVMUlTMVAxU0xYQVpnU0NGZ29LQjBHMmpyZHc1TUZsUTNPR1hPTkh2R0cvVmxFNFppTTJKMzZGVjA9',
-                                    'picUrl': None, 'printId': None, 'redRushId': None, 'rushBizId': None,
-                                    'redRushCode': None, 'redRushInfoNo': None, 'operator': 'system', 'invoiceHead': 1,
-                                    'payTaxpayerId': None, 'payTaxpayerCode': '', 'payTaxpayerName': 'muzili',
-                                    'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610',
-                                    'payBankName': '220610', 'payBankAccount': '220610', 'mail': '220610',
-                                    'remarks': '220610', 'status': 2, 'invoiceFailReason': '',
-                                    'redRushFailReason': None, 'delFlag': None, 'createBy': 'system',
-                                    'createDate': None, 'updateBy': 'system', 'updateDate': None,
-                                    'pdfAttchmentId': None, 'pdfFileName': None, 'printedFlag': None,
-                                    'requestChannel': None, 'deviceType': None, 'canRetry': None, 'redList': None,
-                                    'redShowFlag': False, 'provinceCode': None, 'applyDateStartStr': None,
-                                    'applyDateEndStr': None, 'businessNos': None, 'messagePhone': None,
-                                    'redRushFlag': False, 'reInvoiceFlag': False, 'downloadBlueInvoiceFlag': False,
-                                    'downloadRedInvoiceFlag': False, 'invoiceReturnFlag': False, 'ids': None,
-                                    'allCount': None, 'allAmt': None, 'allAmtNotContainTax': None, 'allTaxAmt': None,
-                                    'invoicePrintStatus': None, 'checkListPrintStatus': None, 'checkListMark': None,
-                                    'blueInvoiceNo': None, 'blueInvoiceCode': None, 'filter': None, 'totalCount': None,
-                                    'valid': False, 'pid': None, 'pbizId': None, 'invoiceHeadStr': None}],
-                                'invoiceByHandFlag': 1, 'amount': 0, 'redStatus': None, 'printedFlag': None,
-                                'redRushInfoNo': None, 'redBizId': None, 'requestChannel': 'HX',
-                                'blueInvoiceCode': None, 'blueInvoiceNo': None, 'filter': None, 'totalCount': None,
-                                'invoiceHeadStr': None}]}}
-    print(check_resp(response_result, expect_result, 'in'))
-    # bug 待解决
-    # print(check_list([{"test1": 2}, [1, 22]], [{"test1": 2}, [1, 22]], 'perfect_match'))
-    pass
+    # test = {'test': [{"test1": 2}, {"test": [33, 11]}]}
+    # test1 = {'test': [{"test1": 2}, {"test": [33, 11]}]}
+    # test2 = {'test1': [{"test1": [3, 11]}, {"test": 2}, [1, 2]], 'test2': "221"}
+    # test3 = {'test1': [{"test1": [3, 11]}, {"test": 2}], 'test2': "221"}
+    # # print(check_resp(test, test1, 'partial_match'))
+    # expect_result = {'isSuccess': True, 'data': {'total': 1}}
+    # response_result = {'isSuccess': True, 'errorCode': None, 'message': None, 'isPinCode': None,
+    #                    'data': {'total': 1, 'pageNum': 1, 'pageSize': 10, 'pages': 1, 'hasPreviousPage': False,
+    #                             'hasNextPage': False, 'rows': [
+    #                            {'pageNumber': None, 'pageSize': None, 'returnflag': False, 'id': 1090036,
+    #                             'bizId': 'IVMG1655265673788VTVQ', 'invoiceType': '1', 'batchNo': None, 'sysSource': 0,
+    #                             'sourceRemarks': None, 'ouCode': '', 'ouName': '', 'provinceCentre': None,
+    #                             'erpCustCode': '', 'recTaxpayerId': 269, 'recTaxpayerCode': '440001999999260',
+    #                             'recTaxpayerName': '百鸣鸟装饰有限公司', 'recUnitAddress': '中欧',
+    #                             'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行',
+    #                             'recBankAccount': '12353154656665', 'openMan': '孙悟空', 'reviewer': '沙和尚',
+    #                             'receiver': '猪八戒', 'invoiceAmt': 300.0, 'noTaxInvoiceAmt': 265.49,
+    #                             'operator': 'shirui4', 'invoiceHead': 1, 'payTaxpayerId': None, 'payTaxpayerCode': '',
+    #                             'payTaxpayerName': 'muzili', 'payUnitAddress': '220610',
+    #                             'payFixedPhoneNumber': '220610', 'payBankName': '220610', 'payBankAccount': '220610',
+    #                             'mail': '220610', 'provinceCode': None, 'messagePhone': '220610', 'remarks': '220610',
+    #                             'status': 3, 'invoiceId': 1492439, 'businessNos': '202206151201139953',
+    #                             'createDateStartStr': None, 'createDateEndStr': None, 'createBy': 'shirui4',
+    #                             'createDate': '2022-06-15 12:01:14', 'updateBy': 'system',
+    #                             'updateDate': '2022-06-15 12:01:16', 'invoiceDate': None, 'autoSendFlag': 0,
+    #                             'totalAmtContainTax': None, 'totalAmtNotContainTax': None, 'totalTaxAmt': 34.51,
+    #                             'valid': '1', 'redFlag': '1', 'taxRule': None, 'redList': [], 'blueList': [
+    #                                {'pageNumber': None, 'pageSize': None, 'returnflag': False, 'id': 1492439,
+    #                                 'bizId': None, 'transId': None, 'draftId': None, 'invoiceRedBlue': None,
+    #                                 'invId': None, 'invoiceType': '1', 'batchNo': '20220615120114wEJ4M2Abdw',
+    #                                 'source': None, 'ouCode': '', 'ouName': '', 'provinceCentre': None,
+    #                                 'erpCustCode': '', 'recTaxpayerId': None, 'recTaxpayerCode': '440001999999260',
+    #                                 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recUnitAddress': '中欧',
+    #                                 'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行',
+    #                                 'recBankAccount': '12353154656665', 'openMan': '孙悟空', 'reviewer': '沙和尚',
+    #                                 'receiver': '猪八戒', 'invoiceAmt': 300.0, 'invoiceCode': '044001800211',
+    #                                 'invoiceNo': '44501789', 'invoiceDate': '2022-06-15 12:07:09', 'checkCode': None,
+    #                                 'pdfUrl': 'http://aisinogd.com:5000/InvSys_test/getPdf.html?id=eUZpS25WeTlKK3FnZlNQWEdxSUZoS0xkYTJxYzFCZGx5VEFYTHAzU2lzamw4eCtzZFFVMUlTMVAxU0xYQVpnU0NGZ29LQjBHMmpyZHc1TUZsUTNPR1hPTkh2R0cvVmxFNFppTTJKMzZGVjA9',
+    #                                 'picUrl': None, 'printId': None, 'redRushId': None, 'rushBizId': None,
+    #                                 'redRushCode': None, 'redRushInfoNo': None, 'operator': 'system', 'invoiceHead': 1,
+    #                                 'payTaxpayerId': None, 'payTaxpayerCode': '', 'payTaxpayerName': 'muzili',
+    #                                 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610',
+    #                                 'payBankName': '220610', 'payBankAccount': '220610', 'mail': '220610',
+    #                                 'remarks': '220610', 'status': 2, 'invoiceFailReason': '',
+    #                                 'redRushFailReason': None, 'delFlag': None, 'createBy': 'system',
+    #                                 'createDate': None, 'updateBy': 'system', 'updateDate': None,
+    #                                 'pdfAttchmentId': None, 'pdfFileName': None, 'printedFlag': None,
+    #                                 'requestChannel': None, 'deviceType': None, 'canRetry': None, 'redList': None,
+    #                                 'redShowFlag': False, 'provinceCode': None, 'applyDateStartStr': None,
+    #                                 'applyDateEndStr': None, 'businessNos': None, 'messagePhone': None,
+    #                                 'redRushFlag': False, 'reInvoiceFlag': False, 'downloadBlueInvoiceFlag': False,
+    #                                 'downloadRedInvoiceFlag': False, 'invoiceReturnFlag': False, 'ids': None,
+    #                                 'allCount': None, 'allAmt': None, 'allAmtNotContainTax': None, 'allTaxAmt': None,
+    #                                 'invoicePrintStatus': None, 'checkListPrintStatus': None, 'checkListMark': None,
+    #                                 'blueInvoiceNo': None, 'blueInvoiceCode': None, 'filter': None, 'totalCount': None,
+    #                                 'valid': False, 'pid': None, 'pbizId': None, 'invoiceHeadStr': None}],
+    #                             'invoiceByHandFlag': 1, 'amount': 0, 'redStatus': None, 'printedFlag': None,
+    #                             'redRushInfoNo': None, 'redBizId': None, 'requestChannel': 'HX',
+    #                             'blueInvoiceCode': None, 'blueInvoiceNo': None, 'filter': None, 'totalCount': None,
+    #                             'invoiceHeadStr': None}]}}
+    # print(check_resp(response_result, expect_result, 'in'))
+    # # bug 待解决
+    # # print(check_list([{"test1": 2}, [1, 22]], [{"test1": 2}, [1, 22]], 'perfect_match'))
+    # pass
+    check_sql = ["select biz_detail_id, biz_id from t_invoice_to_confirm_detail where business_no = '2022061516273647'"]
+    expect_body = {"biz_detail_id": "DTIVMG1655281656982XSJT0hlMGE", "biz_id": "IVMG165581656982XSJT"}
+    print(check_db(check_sql, expect_body))

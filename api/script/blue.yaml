@@ -17,5 +17,5 @@ request_body:
     check_part:
       check_type: in
       expected_code: 200
-      expected_result:111
+      expected_result:
         code: "00000"

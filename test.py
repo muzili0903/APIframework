@@ -7,6 +7,8 @@
 from com.util.getConfig import Config
 
 con = Config()
+t = {'te':1}
+print(list(t.keys()))
 
 if __name__ == "__main__":
     pass

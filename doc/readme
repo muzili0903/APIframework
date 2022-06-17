@@ -138,7 +138,6 @@
             expected_result: test_response.json
         check_db:（待实现）
             expected_code: 200
-            check_type: perfect_match
             check_sql: ['select * from test where id = 1']
             expected_result:
                 name: muzili
