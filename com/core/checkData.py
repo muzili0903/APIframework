@@ -64,27 +64,27 @@ def check_value(respone_value, expect_value):
         return False
 
 
-def check_list(response_body: list, expect_body: list, check_type) -> bool:
+def check_list(response_body: list, expected_body: list, checked_type) -> bool:
     """
     校验列表字段值
     :param response_body: 响应结果
-    :param expect_body: 预期结果
-    :param check_type: 校验值的方式
+    :param expected_body: 预期结果
+    :param checked_type: 校验值的方式
     :return:
     """
     result = list()
-    if check_type in ['perfect_match', '==']:
-        if response_body.__len__() != expect_body.__len__():
+    if checked_type in ['perfect_match', '==']:
+        if response_body.__len__() != expected_body.__len__():
             return False
     try:
-        for index, value in enumerate(expect_body):
+        for index, value in enumerate(expected_body):
             print(index, value)
             if isinstance(value, dict):
-                result.append(check_resp(response_body[index], value, check_type))
+                result.append(check_resp(response_body[index], value, checked_type))
                 # response_body.remove(value)
                 # expect_body.remove(value)
             elif isinstance(value, list):
-                result.append(check_list(response_body[index], value, check_type))
+                result.append(check_list(response_body[index], value, checked_type))
                 # 这两行代码是否需要删除？
                 # response_body.remove(value)
                 # expect_body.remove(value)
@@ -111,13 +111,13 @@ def check_list(response_body: list, expect_body: list, check_type) -> bool:
                 #     else:
                 #         result = False
         else:
-            if check_type in ['perfect_match', '==']:
-                if response_body.__len__() != expect_body.__len__():
+            if checked_type in ['perfect_match', '==']:
+                if response_body.__len__() != expected_body.__len__():
                     return False
                 else:
                     pass
     except Exception as e:
-        logging.info("JSON格式校验, 预期结果：>>>{}与响应结果：>>>{}值不一致".format(expect_body, response_body))
+        logging.info("JSON格式校验, 预期结果：>>>{}与响应结果：>>>{}值不一致".format(expected_body, response_body))
         logging.info("值校验报错：>>>{}".format(e))
         return False
     if False not in result:
@@ -126,27 +126,27 @@ def check_list(response_body: list, expect_body: list, check_type) -> bool:
         return False
 
 
-def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
+def check_resp(response_body: dict, expected_body: dict, checked_type) -> bool:
     """
     校验响应报文，预期结果json文件格式
     :param response_body:
-    :param expect_body:
-    :param check_type:
+    :param expected_body:
+    :param checked_type:
     :return:
     check_type: perfect_match
     expected_result: addInvoiceToConfirm_response.json
     """
     result = list()
     # resp = False
-    if isinstance(expect_body, dict):
-        for key, value in expect_body.items():
+    if isinstance(expected_body, dict):
+        for key, value in expected_body.items():
             if key not in response_body:
                 logging.info("JSON格式校验, 关键字: >>>{}不在响应结果：>>>{}中".format(key, response_body))
                 return False
             else:
                 if isinstance(value, dict) and isinstance(response_body.get(key), dict):
                     # resp = check_resp(value, response_body.get(key), check_type)
-                    result.append(check_resp(response_body.get(key), value, check_type))
+                    result.append(check_resp(response_body.get(key), value, checked_type))
                 elif not isinstance(value, type(response_body.get(key))):
                     logging.info(
                         "JSON格式校验, 关键字：>>>{}预期结果：>>>{}与响应结果：>>>{}类型不符".format(key, value, response_body.get(key)))
@@ -154,11 +154,11 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
                 else:
                     if isinstance(value, list):
                         # resp = check_list(response_body.get(key), value, check_type)
-                        result.append(check_list(response_body.get(key), value, check_type))
+                        result.append(check_list(response_body.get(key), value, checked_type))
                     else:
                         result.append(check_value(response_body.get(key), value))
     else:
-        logging.info("JSON校验内容非dict格式: >>>{}".format(expect_body))
+        logging.info("JSON校验内容非dict格式: >>>{}".format(expected_body))
         return False
     if False not in result:
         return True
@@ -166,18 +166,17 @@ def check_resp(response_body: dict, expect_body: dict, check_type) -> bool:
         return False
 
 
-def check_db(check_sql: list, expect_body: dict, check_type=None) -> bool:
+def check_db(checked_sql: list, expected_body: dict) -> bool:
     """
     数据库校验
-    :param check_sql:
-    :param expect_body:
-    :param check_type: 暂时不用, 废弃
+    :param checked_sql:
+    :param expected_body:
     :return:
     """
     res = list()
-    sql_result = query_db(sql_list=check_sql)
-    if isinstance(expect_body, dict):
-        for key, value in expect_body.items():
+    sql_result = query_db(sql_list=checked_sql)
+    if isinstance(expected_body, dict):
+        for key, value in expected_body.items():
             for result in sql_result:
                 if key in list(result.keys()) and result.__getitem__(key) is not None:
                     res.append(check_value(result.__getitem__(key), value))
@@ -186,7 +185,7 @@ def check_db(check_sql: list, expect_body: dict, check_type=None) -> bool:
                     logging.info("数据库校验, sql查询结果{}".format(sql_result))
                     return False
     else:
-        logging.info("数据库校验内容非dict格式: >>>{}".format(expect_body))
+        logging.info("数据库校验内容非dict格式: >>>{}".format(expected_body))
         return False
     if False not in res:
         return True

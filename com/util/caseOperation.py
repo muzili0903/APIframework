@@ -69,6 +69,7 @@ def get_script(file):
 def api_to_script(scene_file_name, scene_api_name):
     """
     替换接口名对应的接口script脚本
+    :param scene_file_name: 场景文件名
     :param scene_api_name: 场景下的接口名
     :return:
     """

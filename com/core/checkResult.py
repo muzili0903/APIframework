@@ -14,17 +14,17 @@ from com.util.getFileDirs import APIJSON
 from com.util.jsonOperation import read_json
 
 
-def check_res(response_body: dict, expect_body: dict):
+def check_res(response_body: dict, expected_body: dict):
     """
     校验结果
     :param response_body: 实际结果
-    :param expect_body: 预期结果
+    :param expected_body: 预期结果
     :return:
     """
     if response_body is not None:
         logging.info("接口响应结果：>>>{}".format(response_body.get('response_body')))
     result = list()
-    for key, value in expect_body.items():
+    for key, value in expected_body.items():
         if key.lower() == 'check_json':
             with allure.step("check_json: code校验"):
                 allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
