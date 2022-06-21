@@ -158,7 +158,7 @@ if __name__ == "__main__":
     test = {
         'script': {
             'request_header': {
-                'path': '/api/register/getAdultCurbactList',
+                'path': '/.api/register/getAdultCurbactList',
                 'Method': '${method}'
             },
             'request_body': {
