@@ -7,6 +7,7 @@
 import logging
 
 from com.util.caseOperation import get_scene
+from com.util.fileOperation import get_all_file, get_file_name
 from com.util.getFileDirs import APISCENE, TESTCASES
 
 
@@ -76,7 +77,7 @@ def write_pytest_tail(path, file_name):
 
 def write_scene_script(path):
     """
-    文件路径
+    获取场景文件
     :param path:
     :return:
     """
@@ -89,19 +90,40 @@ def write_scene_script(path):
                 yield [scene_file_name, key, value]
 
 
-def write_script():
+def write_script(con):
+    """
+    写pytest脚本文件
+    :param con:
+    :return:
+    """
     scene_script = write_scene_script(APISCENE)
+    # 获取已存在的pytest脚本文件
+    test_cases = get_all_file(TESTCASES)
+    test_cases_file = list()
+    for cases in test_cases:
+        if cases.endswith('.py'):
+            cases_file_name = get_file_name(cases).split('.')[0]
+            test_cases_file.append(cases_file_name)
     while True:
         try:
             script_file_name, function_name, contents = scene_script.__next__()
-            test_file_name = TESTCASES + script_file_name + '.py'
-            write_pytest_header(test_file_name)
-            write_pytest_content(test_file_name, function_name, contents)
-            write_pytest_tail(test_file_name, script_file_name)
+            # 存在的pytest脚本文件不重新生成
+            if not con.get_config('TESTCASES', 'exist_script_refresh').capitalize() \
+                    and script_file_name in test_cases_file:
+                pass
+            else:
+                test_file_name = TESTCASES + script_file_name + '.py'
+                write_pytest_header(test_file_name)
+                write_pytest_content(test_file_name, function_name, contents)
+                write_pytest_tail(test_file_name, script_file_name)
         except StopIteration:
             break
 
 
 if __name__ == "__main__":
-    write_script()
+    from com.util.getConfig import Config
+
+    con = Config()
+    write_script(con)
+    # print(not con.get_config('TESTCASES', 'exist_script_refresh').capitalize())
     pass

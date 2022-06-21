@@ -25,7 +25,8 @@ if __name__ == "__main__":
         json_to_yaml(con)
 
     # 写pytest脚本
-    write_script()
+    if con.get_config('TESTCASES', 'script_refresh'):
+        write_script(con)
 
     # 定义运行参数
     args_list = ['-vs', TESTCASES,
