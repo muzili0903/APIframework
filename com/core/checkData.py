@@ -6,7 +6,7 @@
 """
 import logging
 
-from com.core import replaceData
+# from com.core import replaceData
 from com.core.replaceData import query_db
 
 

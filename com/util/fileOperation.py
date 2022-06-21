@@ -13,9 +13,10 @@ from com.util.jsonOperation import read_json
 from com.util.yamlOperation import write_yaml
 
 
-def json_to_yaml():
+def json_to_yaml(con):
     """
     json文件转为yaml文件
+    :param con:
     :return:
     """
     json_all_file = get_all_file(APIJSON)
@@ -32,8 +33,24 @@ def json_to_yaml():
         else:
             json_file_name = json_file_name.split('.')[0]
             # 已存在yaml文件的不转换
-            if json_file_name in yaml_file_list:
+            if con.get_config('API', 'exist_json_to_yaml').capitalize() and json_file_name in yaml_file_list:
                 pass
+            # 指定json文件转yaml文件, 没有指定默认转全部
+            elif len(eval(con.get_config('API', 'json_to_yaml_file'))):
+                if json_file_name in eval(con.get_config('API', 'json_to_yaml_file')):
+                    yaml_file_name = APIYAML + '\\' + json_file_name + '.yaml'
+                    content = read_json(json_file, is_str=False)
+                    write_yaml(yaml_file_name, content)
+                else:
+                    pass
+            # 指定json文件不转yaml文件, 没有指定默认转全部
+            elif len(eval(con.get_config('API', 'json_not_to_yaml_file'))):
+                if json_file_name in eval(con.get_config('API', 'json_not_to_yaml_file')):
+                    pass
+                else:
+                    yaml_file_name = APIYAML + '\\' + json_file_name + '.yaml'
+                    content = read_json(json_file, is_str=False)
+                    write_yaml(yaml_file_name, content)
             else:
                 yaml_file_name = APIYAML + '\\' + json_file_name + '.yaml'
                 content = read_json(json_file, is_str=False)
@@ -67,5 +84,9 @@ def get_file_name(path):
 
 
 if __name__ == "__main__":
-    json_to_yaml()
+    from com.util.getConfig import Config
+    con = Config()
+    print(len(eval(con.get_config('API', 'json_to_yaml_file'))) == 0)
+    if con.get_config('API', 'json_to_yaml'):
+        json_to_yaml(con)
     pass

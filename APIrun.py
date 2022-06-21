@@ -21,7 +21,8 @@ if __name__ == "__main__":
     logOperation.MyLogs(LOGS)
 
     # 将api文件夹中的 json文件格式转为yaml文件格式
-    json_to_yaml()
+    if con.get_config('API', 'json_to_yaml'):
+        json_to_yaml(con)
 
     # 写pytest脚本
     write_script()
