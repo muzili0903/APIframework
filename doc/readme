@@ -47,7 +47,7 @@
         Method: post # 请求方法, 字段名固定为: Method
         path: /invoice/trans/blue # 请求路径, 字段名固定为: path
         Connection: keep-alive # 请求连接方式, 字段名固定为: Connection
-        timeout: 10 # 请求超时, 字段名固定为: timeout
+        timeout: 10 # 接口请求超时, 字段名固定为: timeout
         Content-Type : application/json # 请求文本格式, 字段名固定为: Content-Type
         User-Agent : Mozilla/5.0 # 请求代理, 字段名固定为: User-Agent
         cookie : None # 请求token, 字段名固定为: cookie
@@ -85,6 +85,33 @@
     is_login = false
     save_cookie = false
     sleep_time = 0
+
+    # pytest相关配置, 字段名固定
+    [pytest]
+    # 失败重跑运行次数
+    reruns = 0
+    # 等待运行秒数
+    delay = 1
+    # 出现多少个失败就终止测试
+    maxfail = 0
+
+    # api文件相关配置, 字段名固定
+    [API]
+    # 将json文件转为yaml文件: True不转, False转
+    json_to_yaml = True
+    # 已存在yaml文件: True不转, False转
+    exist_json_to_yaml = True
+    # 指定json文件转yaml文件, 没有指定默认转全部
+    json_to_yaml_file = ['exportQueryDraft']
+    # 指定json文件不转yaml文件, 没有指定默认转
+    json_not_to_yaml_file = []
+
+    # testCases相关配置, 字段名固定
+    [TESTCASES]
+    # 生成pytest脚本文件: True生成, False不生成
+    script_refresh = True
+    # 存在的pytest脚本文件: True重新生成, False跳过
+    exist_script_refresh = True
 
 关于参数化:
 1、用户参数化: ${变量名} （已实现）
@@ -136,7 +163,7 @@
             expected_code: 200
             check_type: perfect_match
             expected_result: test_response.json
-        check_db:（待实现）
+        check_db:（已实现）
             expected_code: 200
             check_sql: ['select * from test where id = 1']
             expected_result:
