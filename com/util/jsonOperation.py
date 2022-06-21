@@ -29,7 +29,7 @@ def read_json(file, is_str=True):
 
 if __name__ == "__main__":
     from com.util.getFileDirs import APIJSON
-    path = APIJSON + '\\' + '.api.json'
+    path = APIJSON + '\\' + 'api.json'
     print(read_json(path, is_str=False))
     print(type(read_json(path, is_str=False)))
     pass
