@@ -24,9 +24,5 @@ def unum(length=1):
     return nums
 
 
-def utest():
-    pass
-
-
 if __name__ == "__main__":
     pass
