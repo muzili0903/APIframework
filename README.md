@@ -1,0 +1,182 @@
+# APIframework
+框架运行流程：
+案例读取->案例解析->报文组装->发送请求->结果比对->生成报告
+
+关于接口脚本与接口数据
+1、目录与描述:
+    1.1、\APIframework\api\scene: 存放接口关联或单接口的场景文件
+    1.2、\APIframework\api\script: 存放接口脚本
+    1.3、\APIframework\api\json: 存放接口报文体json格式文件和接口预期结果json格式文件（注意: 预期结果文件以 _response.json 结尾）
+    1.4、\APIframework\api\data: 存放用户参数化数据, 文件名必须保持与场景目录下的文件名一致
+    1.5、\APIframework\api\yaml: 存放接口报文体yaml格式文件
+
+关于data数据文件格式
+    文件名命名: 与场景\scene的文件名一致
+    文件内容:
+        # 接口名
+        # 变量名 = 变量值
+        # 注意: 通过数据库进行参数化的, 数据库语句写在这, 字段名固定为: sql, sql语句一定要有 where 过滤条件
+        # sql取值顺序, 例如 sex 取值, 先从 第一条sql的查询结果取值, 取不到值就到第二条sql的查询结果取值, 依此类推
+        [test]
+        sql = ['select name from student where id = $Req{test.data.num}', 'select sex from student where id = 2']
+        appId = IBCP
+        appKey = 123456
+
+关于json数据文件格式
+    文件名命名: 接口名.json或接口名_response.json
+    test.json # 接口名: test的请求报文体
+    test_response.json # 接口名:  test的预期响应体
+
+关于yaml数据文件格式
+    系统自动将json数据文件转为yaml格式文件
+
+关于scene数据文件格式
+    文件名命名: 自定义
+    文件内容:
+    # 场景名
+    # step_1 = 接口名
+    [test_scene_1]
+    step_1 = test
+    step_2 = test2
+
+关于script数据文件格式
+    文件名命名: 接口名.yaml
+    文件内容:
+    request_header: # 请求头内容, 字段名固定为: request_header 字段没填则取配置文件对应的字段以及字段值
+        base_url: https://www.baidu.com # 基础地址, 字段名固定为: base_url
+        env: /sit # 测试环境, 字段名固定为: env
+        Method: post # 请求方法, 字段名固定为: Method
+        path: /invoice/trans/blue # 请求路径, 字段名固定为: path
+        Connection: keep-alive # 请求连接方式, 字段名固定为: Connection
+        timeout: 10 # 接口请求超时, 字段名固定为: timeout
+        Content-Type : application/json # 请求文本格式, 字段名固定为: Content-Type
+        User-Agent : Mozilla/5.0 # 请求代理, 字段名固定为: User-Agent
+        cookie : None # 请求token, 字段名固定为: cookie
+        is_login: true # 是否需要登陆, 字段名固定为: is_login
+        save_cookie : false # 是否保存cookies, 字段名固定为: save_cookie, 默认为: false
+        sleep_time: 0 # 接口等待时间, 字段值固定为: sleep_time, 默认不等待
+    request_body: # 请求体内容, 字段名固定为: request_body
+        parameter: test.yaml # 请求体参数内容, 字段名固定为: parameter, 值为: 接口名.yaml
+        check_body: # 检查体内容, 字段名固定为: check_body
+            check_json: # 检查体方式, 字段名固定为: check_json or check_db or check_part
+                check_type: perfect_match # 检查方式, 字段名固定为: check_type, 值为: perfect_match or == or partial_match or in
+                expected_code: 200 # 检查响应码, 字段名固定为: expected_code
+                expected_result: test_response.json # 检查预期结果, 字段名固定为: expected_result
+
+关于系统配置文件APIframework.ini
+    [MySql] # mysql数据库相关参数, 字段名固定
+    host = 127.0.0.1
+    port = 3306
+    user = muzili
+    password = 123456
+    database = test
+    charset = utf8
+
+    [project] # 项目相关参数 接口请求地址 = base_url + env + script脚本中的path, 字段名固定
+    base_url = https://www.baidu.com
+    env = /sit
+
+    [request_headers] # 请求头默认参数, 字段名固定
+    Method = POST
+    Content-Type = application/json
+    User-Agent = Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36
+    Connection = keep-alive
+    timeout = 10
+    cookie = None
+    is_login = false
+    save_cookie = false
+    sleep_time = 0
+
+    # pytest相关配置, 字段名固定
+    [pytest]
+    # 失败重跑运行次数
+    reruns = 0
+    # 等待运行秒数
+    delay = 1
+    # 出现多少个失败就终止测试
+    maxfail = 0
+
+    # api文件相关配置, 字段名固定
+    [API]
+    # 将json文件转为yaml文件: True不转, False转
+    json_to_yaml = True
+    # 已存在yaml文件: True不转, False转
+    exist_json_to_yaml = True
+    # 指定json文件转yaml文件, 没有指定默认转全部
+    json_to_yaml_file = ['exportQueryDraft']
+    # 指定json文件不转yaml文件, 没有指定默认转
+    json_not_to_yaml_file = []
+
+    # testCases相关配置, 字段名固定
+    [TESTCASES]
+    # 生成pytest脚本文件: True生成, False不生成
+    script_refresh = True
+    # 存在的pytest脚本文件: True重新生成, False跳过
+    exist_script_refresh = True
+
+关于参数化:
+1、用户参数化: ${变量名} （已实现）
+    示例
+    报文: {"name": ${name}}  变量名name的值:muzili  参数化结果: {"name": "muzili"}
+2、系统函数参数化: $(f函数名) （已实现）
+    2.1、函数不带参数报文: {"date": $(fDATE)}  调用系统fDATE函数返回当前日期  参数化结果: {"date": 2022-05-20}
+    2.2、函数带参数报文: {"num": $(fnum::3)}  调用系统fnum函数返回随机整数  参数化结果: {"num": 456}
+    2.3、函数带参数报文: {"num": $(fnum::length=5)}  调用系统fnum函数返回随机整数  参数化结果: {"num": 47897}
+    目前系统函数有:
+    1.fDATE: 返回系统当前日期, 格式: yyyy-mm-dd
+    2.fdate: 返回系统当前日期, 格式: yyyymmdd
+    3.fTIME: 返回系统当前时间, 格式: HH:MM:SS
+    4.ftime: 返回系统当前时间, 格式: HHMMSS
+    5.fnum(length=1): 生成随机整数, 默认长度为1。可传长度, 如上面例子
+3、用户自定义函数参数化: $(u函数名) （已实现）
+    自定义函数写在\APIframework\api\userFunc.py下, 命名规则以u开头
+    示例:
+    函数带参数报文: {"num": $(unum::length=5)}  调用用户自定义unum函数返回随机整数  参数化结果: {"num": 47897}
+4、通过请求报文参数化: $Req{接口名.变量名} 变量名为: jsonpath表达式（已实现）
+    示例:
+    test接口的请求报文: {"biz": 20220531, data: [{"name": "muzili"}, {"name": "rosy"}]}
+    函数带参数报文: {"biz": $Req{test.biz}}  定义接口请求报文中的某个字段值  参数化结果: {"biz": 20220531}
+    函数带参数报文: {"name": $Req{test.data[0].name}}    参数化结果: {"name": "muzili"}
+    函数带参数报文: {"name": $Req{test.data[1].name}}    参数化结果: {"name": "rosy"}
+    函数带参数报文: {"name": $Req{test.data[2].name}}  获取不到值  参数化结果: {"name": ""}
+5、通过响应报文参数化: $Resp{接口名.变量名} 变量名为: jsonpath表达式（已实现）
+    示例:
+    test接口的响应报文: {"biz": 20220531, data: [{"name": "muzili"}, {"name": "rosy"}]}
+    函数带参数报文: {"biz": $Resp{test.biz}}  定义接口响应报文中的某个字段值  参数化结果: {"biz": 20220531}
+    函数带参数报文: {"name": $Resp{test.data[0].name}}    参数化结果: {"name": "muzili"}
+    函数带参数报文: {"name": $Resp{test.data[1].name}}    参数化结果: {"name": "rosy"}
+    函数带参数报文: {"name": $Resp{test.data[2].name}}  获取不到值  参数化结果: {"name": ""}
+6、通过数据库参数化 $DB{变量名} （已实现）
+    示例
+    函数带参数报文: {"biz": $DB{biz}}  定义接口响应报文中的某个字段值  参数化结果: {"biz": 20220531}
+
+
+关于数据校验:
+    校验类型
+        1、响应报文与预期结果(json文件校验) check_json
+        2、响应报文与预期结果(部分字段校验) check_part
+        3、响应报文与数据库校验 check_db
+    校验方式 check_type
+        1、全匹配(字段与字段值全匹配) perfect_match or ==
+        2、部分匹配(字段与字段值部分匹配) partial_match or in
+    示例:
+        check_json:（已实现）
+            expected_code: 200
+            check_type: perfect_match
+            expected_result: test_response.json
+        check_db:（已实现）
+            expected_code: 200
+            check_sql: ['select * from test where id = 1']
+            expected_result:
+                name: muzili
+                num: 666
+        check_part:（已实现）
+            expected_code: 200
+            check_type: partial_match
+            expected_result:
+                name: muzili
+                num: 666
+                age: 18
+        check_code:（已实现）
+            expected_code: 200
+
