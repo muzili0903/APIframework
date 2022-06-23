@@ -9,12 +9,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "ade0d2a71abbbd27",
+      "uid" : "79fdf39731f12700",
       "status" : "passed",
       "time" : {
-        "start" : 1655457074970,
-        "stop" : 1655457075766,
-        "duration" : 796
+        "start" : 1655947692604,
+        "stop" : 1655947693499,
+        "duration" : 895
       }
     } ]
   },
@@ -28,12 +28,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "eaaa13eb4a6fecf4",
+      "uid" : "42520d429dbdcd55",
       "status" : "passed",
       "time" : {
-        "start" : 1655457073126,
-        "stop" : 1655457073532,
-        "duration" : 406
+        "start" : 1655947690662,
+        "stop" : 1655947691089,
+        "duration" : 427
       }
     } ]
   },
@@ -47,12 +47,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "6d4c2e6b40fe988d",
+      "uid" : "2574e8e955015470",
       "status" : "passed",
       "time" : {
-        "start" : 1655457071220,
-        "stop" : 1655457071439,
-        "duration" : 219
+        "start" : 1655947687734,
+        "stop" : 1655947688098,
+        "duration" : 364
       }
     } ]
   },
@@ -66,12 +66,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "235e2ae25b240454",
+      "uid" : "5a60a7f4042b3b3d",
       "status" : "passed",
       "time" : {
-        "start" : 1655457073548,
-        "stop" : 1655457074282,
-        "duration" : 734
+        "start" : 1655947691101,
+        "stop" : 1655947691804,
+        "duration" : 703
       }
     } ]
   },
@@ -85,12 +85,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "9df87a7b6c4d9c74",
+      "uid" : "8815ffc1ed3fef70",
       "status" : "passed",
       "time" : {
-        "start" : 1655457074298,
-        "stop" : 1655457074470,
-        "duration" : 172
+        "start" : 1655947691815,
+        "stop" : 1655947692047,
+        "duration" : 232
       }
     } ]
   },
@@ -104,12 +104,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "a21a45b5de878345",
+      "uid" : "fa36de1c8b19f095",
       "status" : "passed",
       "time" : {
-        "start" : 1655457074485,
-        "stop" : 1655457074954,
-        "duration" : 469
+        "start" : 1655947692059,
+        "stop" : 1655947692593,
+        "duration" : 534
       }
     } ]
   },
@@ -123,12 +123,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "612aec7a945f926",
+      "uid" : "3b6f5ae04bc9a704",
       "status" : "passed",
       "time" : {
-        "start" : 1655457072892,
-        "stop" : 1655457073126,
-        "duration" : 234
+        "start" : 1655947690361,
+        "stop" : 1655947690651,
+        "duration" : 290
       }
     } ]
   },
@@ -142,12 +142,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "336a7ced30cd8fe1",
+      "uid" : "e4c80d378ba1a306",
       "status" : "passed",
       "time" : {
-        "start" : 1655457071455,
-        "stop" : 1655457071908,
-        "duration" : 453
+        "start" : 1655947688110,
+        "stop" : 1655947688737,
+        "duration" : 627
       }
     } ]
   },
@@ -161,12 +161,12 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "9288251e79cd6404",
+      "uid" : "7c7b3ee512ea53e1",
       "status" : "passed",
       "time" : {
-        "start" : 1655457075782,
-        "stop" : 1655457075923,
-        "duration" : 141
+        "start" : 1655947693509,
+        "stop" : 1655947693731,
+        "duration" : 222
       }
     } ]
   },
@@ -180,50 +180,52 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "916625c32a58467f",
+      "uid" : "a0f0aa1cecc41f0a",
       "status" : "passed",
       "time" : {
-        "start" : 1655457071033,
-        "stop" : 1655457071205,
-        "duration" : 172
+        "start" : 1655947687463,
+        "stop" : 1655947687714,
+        "duration" : 251
       }
     } ]
   },
   "e277651760c7ba68187048e682ef3780" : {
     "statistic" : {
-      "failed" : 0,
+      "failed" : 1,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "afd1356ed25f9605",
-      "status" : "passed",
+      "uid" : "3272ed862d8d9008",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'data': '共确认1笔，确认成功0笔;服务异常;', 'errorCode': None, 'isPinCode': None, 'isSuccess': True, ...}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}})",
       "time" : {
-        "start" : 1655457071923,
-        "stop" : 1655457072314,
-        "duration" : 391
+        "start" : 1655947688748,
+        "stop" : 1655947689410,
+        "duration" : 662
       }
     } ]
   },
   "231876fa9b88ad6b4f3aa9046eb3d33e" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
+      "broken" : 1,
       "skipped" : 0,
-      "passed" : 1,
+      "passed" : 0,
       "unknown" : 0,
       "total" : 1
     },
     "items" : [ {
-      "uid" : "228fd42492d79d29",
-      "status" : "passed",
+      "uid" : "dbdf0a47f1732a63",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'get'",
       "time" : {
-        "start" : 1655457072330,
-        "stop" : 1655457072876,
-        "duration" : 546
+        "start" : 1655947689870,
+        "stop" : 1655947690323,
+        "duration" : 453
       }
     } ]
   }
