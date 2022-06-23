@@ -47,8 +47,10 @@ def check_res(response_body: dict, expected_body: dict):
             #     logging.info("预期结果校验方式不存在: >>>{}".format(value.get('check_type')))
             #     break
             if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
+                result.append(False)
                 break
             elif not checkData.check_type(value.get('check_type')):
+                result.append(False)
                 break
             else:
                 path = APIJSON + '\\' + value.get('expected_result')
@@ -70,6 +72,7 @@ def check_res(response_body: dict, expected_body: dict):
                 allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
                 allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))
             if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
+                result.append(False)
                 break
             # 数据库校验方式废弃
             # elif not checkData.check_type(value.get('check_type')):
@@ -81,8 +84,10 @@ def check_res(response_body: dict, expected_body: dict):
                 allure.attach(name='预期响应码: ', body=str(value.get('expected_code')))
                 allure.attach(name='实际响应码: ', body=str(response_body.get('response_code')))
             if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
+                result.append(False)
                 break
             elif not checkData.check_type(value.get('check_type')):
+                result.append(False)
                 break
             else:
                 expect_result = value.get('expected_result')
