@@ -80,7 +80,7 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     :param test_data: 测试数据
     :return:
     """
-    logging.info("body处理前>>>{}".format(test_info))
+    logging.info("body处理前: >>>{}".format(test_info))
     # 用户自定义参数化
     if re.search('\$\{.*?\}', str(test_info)) is not None:
         test_info = eval(replaceData.replace_user_var(str(test_info), test_data))
@@ -99,7 +99,7 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     # 从数据库获取参数值
     if re.search('\$DB\{.*?\}', str(test_info)) is not None:
         test_info = eval(replaceData.replace_db(str(test_info), test_data))
-    logging.info("body处理后>>>{}".format(test_info))
+    logging.info("body处理后: >>>{}".format(test_info))
     return test_info
 
 

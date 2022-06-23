@@ -110,4 +110,6 @@ def get_case_data(scene_file, api_name):
 
 if __name__ == "__main__":
     print(get_scene(APISCENE))
+    # test = 'E:\\APIframework\\api\\scene\\blue'.rsplit('\\', 1)[1]
+    # print(get_scene(test))
     pass

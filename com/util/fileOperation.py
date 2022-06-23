@@ -71,6 +71,8 @@ def get_all_file(path):
             files_path.append(f_path)
     except FileNotFoundError:
         logging.error("找不到指定的文件路径: >>>{}".format(path))
+    except NotADirectoryError:
+        logging.error("目录名称无效: >>>{}".format(path))
     return files_path
 
 

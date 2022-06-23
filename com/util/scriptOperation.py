@@ -5,6 +5,7 @@
 @file    :scriptOperation.py
 """
 import logging
+import os
 
 from com.util.caseOperation import get_scene
 from com.util.fileOperation import get_all_file, get_file_name
@@ -90,15 +91,19 @@ def write_scene_script(path):
                 yield [scene_file_name, key, value]
 
 
-def write_script(con):
+def write_script(con, scene_file, scene_script_path):
     """
     写pytest脚本文件
     :param con:
+    :param scene_file: 场景目录
+    :param scene_script_path: 场景目录路径
     :return:
     """
-    scene_script = write_scene_script(APISCENE)
+    if not os.path.exists(TESTCASES + scene_file):
+        os.makedirs(TESTCASES + scene_file)
+    scene_script = write_scene_script(scene_script_path)
     # 获取已存在的pytest脚本文件
-    test_cases = get_all_file(TESTCASES)
+    test_cases = get_all_file(TESTCASES + scene_file)
     test_cases_file = list()
     for cases in test_cases:
         if cases.endswith('.py'):
@@ -108,11 +113,11 @@ def write_script(con):
         try:
             script_file_name, function_name, contents = scene_script.__next__()
             # 存在的pytest脚本文件不重新生成
-            if not con.get_config('TESTCASES', 'exist_script_refresh').capitalize() \
+            if not eval(con.get_config('TESTCASES', 'exist_script_refresh').capitalize()) \
                     and script_file_name in test_cases_file:
                 pass
             else:
-                test_file_name = TESTCASES + script_file_name + '.py'
+                test_file_name = TESTCASES + scene_file + '\\' + script_file_name + '.py'
                 write_pytest_header(test_file_name)
                 write_pytest_content(test_file_name, function_name, contents)
                 write_pytest_tail(test_file_name, script_file_name)
@@ -120,10 +125,22 @@ def write_script(con):
             break
 
 
-if __name__ == "__main__":
-    from com.util.getConfig import Config
+def write(con):
+    """
+    :param con:
+    :return:
+    """
+    scene_script_list = get_all_file(APISCENE)
+    for scene_script_path in scene_script_list:
+        scene_file = scene_script_path.rsplit('\\', 1)[1]
+        write_script(con, scene_file, scene_script_path)
 
-    con = Config()
-    write_script(con)
-    # print(not con.get_config('TESTCASES', 'exist_script_refresh').capitalize())
+
+if __name__ == "__main__":
+    # from com.util.getConfig import Config
+
+    # con = Config()
+    # write(con)
+    # print(con.get_config('TESTCASES', 'exist_script_refresh').capitalize())
+    # print(not eval(con.get_config('TESTCASES', 'exist_script_refresh').capitalize()))
     pass

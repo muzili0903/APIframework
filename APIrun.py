@@ -13,7 +13,7 @@ if __name__ == "__main__":
     from com.util import logOperation
     from com.util.fileOperation import json_to_yaml
     from com.util.getFileDirs import LOGS, TESTCASES, REPORT
-    from com.util.scriptOperation import write_script
+    from com.util.scriptOperation import write
     from com.util.getConfig import Config
 
     con = Config()
@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     # 写pytest脚本
     if con.get_config('TESTCASES', 'script_refresh'):
-        write_script(con)
+        write(con)
 
     # 定义运行参数
     args_list = ['-vs', TESTCASES,
