@@ -115,6 +115,25 @@
     # 存在的pytest脚本文件: True重新生成, False跳过
     exist_script_refresh = True
 
+    # 定时任务相关配置
+    [scheduler]
+    # 是否开启定时任务, True: 开启定时任务 False: 不开启定时任务
+    is_scheduler = False
+    # 间隔几周
+    weeks = None
+    # 间隔几天
+    days = None
+    # 间隔几小时
+    hours = None
+    # 间隔几分钟
+    minutes = None
+    # 间隔多少秒
+    seconds = None
+    # 开始日期
+    start_date = None
+    # 结束日期
+    end_date = None
+
 关于参数化:
 1、用户参数化: ${变量名} （已实现）
     示例
