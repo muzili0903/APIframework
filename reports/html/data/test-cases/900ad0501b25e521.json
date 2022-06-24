@@ -1,0 +1,187 @@
+{
+  "uid" : "900ad0501b25e521",
+  "name" : "test_test_scene_1[test_case2]",
+  "fullName" : "testCases.addInvoiceToConfirm.test_invoice_manage_Test_scene_1#test_test_scene_1",
+  "historyId" : "278b2a7c9ac43764fae6fc61727ae281",
+  "time" : {
+    "start" : 1656032569006,
+    "stop" : 1656032570520,
+    "duration" : 1514
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "login_manage",
+    "time" : {
+      "start" : 1656032558477,
+      "stop" : 1656032561094,
+      "duration" : 2617
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "请求步骤: step_3, 接口名: draftList",
+      "time" : {
+        "start" : 1656032569008,
+        "stop" : 1656032569016,
+        "duration" : 8
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "3013a727924f1c5b",
+        "name" : "请求方法",
+        "source" : "3013a727924f1c5b.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "856ea44fe58f54ce",
+        "name" : "请求地址",
+        "source" : "856ea44fe58f54ce.attach",
+        "type" : "text/plain",
+        "size" : 67
+      }, {
+        "uid" : "11b20a30be700138",
+        "name" : "请求头",
+        "source" : "11b20a30be700138.attach",
+        "type" : "text/plain",
+        "size" : 93
+      }, {
+        "uid" : "98f559b6a049bfd1",
+        "name" : "请求参数",
+        "source" : "98f559b6a049bfd1.attach",
+        "type" : "text/plain",
+        "size" : 315
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 4
+    }, {
+      "name" : "check_part: code校验",
+      "time" : {
+        "start" : 1656032570508,
+        "stop" : 1656032570512,
+        "duration" : 4
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "c3cbe79e6ba4716",
+        "name" : "预期响应码: ",
+        "source" : "c3cbe79e6ba4716.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "1c9f3641050ef77",
+        "name" : "实际响应码: ",
+        "source" : "1c9f3641050ef77.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "check_part: data校验",
+      "time" : {
+        "start" : 1656032570512,
+        "stop" : 1656032570520,
+        "duration" : 8
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "884dc5338f939466",
+        "name" : "校验方式: ",
+        "source" : "884dc5338f939466.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "1ec030715a460799",
+        "name" : "预期结果: ",
+        "source" : "1ec030715a460799.attach",
+        "type" : "text/plain",
+        "size" : 41
+      }, {
+        "uid" : "e82158578e848694",
+        "name" : "实际结果: ",
+        "source" : "e82158578e848694.attach",
+        "type" : "text/plain",
+        "size" : 3923
+      } ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 3
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 3,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 9
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases.addInvoiceToConfirm"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "39492-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.addInvoiceToConfirm.test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'draftList': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/draftList', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'invoiceType': '', 'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'payTaxpayerName': '', 'createDateStartStr': '', 'createDateEndStr': '', 'status': '', 'provinceCentre': '', 'taxpayerCode': '', 'recTaxpayerName': '', 'ouName': '', 'sysSource': '', 'requestChannel': '', 'blueInvoiceNo': '', 'pageNumber': 1, 'pageSize': 10}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': {'total': 1}}}}}, 'data': None}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "900ad0501b25e521.json",
+  "parameterValues" : [ "{'draftList': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/draftList', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'invoiceType': '', 'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'payTaxpayerName': '', 'createDateStartStr': '', 'createDateEndStr': '', 'status': '', 'provinceCentre': '', 'taxpayerCode': '', 'recTaxpayerName': '', 'ouName': '', 'sysSource': '', 'requestChannel': '', 'blueInvoiceNo': '', 'pageNumber': 1, 'pageSize': 10}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': {'total': 1}}}}}, 'data': None}}}" ]
+}

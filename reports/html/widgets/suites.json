@@ -4,10 +4,10 @@
     "uid" : "ad85971d1336889bc8c648978153f3e5",
     "name" : "testCases.addInvoiceToConfirm",
     "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
+      "failed" : 1,
+      "broken" : 1,
       "skipped" : 0,
-      "passed" : 9,
+      "passed" : 7,
       "unknown" : 0,
       "total" : 9
     }
