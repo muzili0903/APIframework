@@ -51,6 +51,8 @@ if __name__ == "__main__":
                  '--reruns-delay', con.get_config('pytest', 'delay'),
                  '--maxfail', con.get_config('pytest', 'maxfail'),
                  '--alluredir', REPORT + '/xml',
+                 '-n', 'auto',
+                 '--dist=loadfile',
                  '--clean-alluredir',
                  '--disable-warnings']
 

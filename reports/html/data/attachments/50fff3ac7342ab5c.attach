@@ -1,0 +1,1 @@
+{'businessNos': '202206240846411397', 'pageNumber': 1, 'pageSize': 10, 'totalCount': 2, 'filter': ['businessNos', 'payTaxpayerName', 'payTaxpayerCode', 'noTaxInvoiceAmt', 'totalTaxAmt', 'invoiceAmt', 'payUnitAddress', 'payFixedPhoneNumber', 'payBankName', 'payBankAccount', 'remarks', 'recTaxpayerName', 'status', 'invoiceType', 'requestChannel', 'operate']}
