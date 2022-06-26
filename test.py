@@ -37,18 +37,33 @@ def scheduler_params(con):
     return params
 
 
-def job_func(param):
+def print_test():
+    print('test')
+
+
+def print_test1():
+    print('test1')
+
+
+def print_test2():
+    print('test2')
+
+
+def job_func():
     print("当前时间：", datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S.%f"))
 
     scheduler = BlockingScheduler()
 
     # 每2小时触发
-    scheduler.add_job(job_func(param), 'interval', hours=2)
+    scheduler.add_job(print_test, 'interval', seconds=5)
+    scheduler.add_job(print_test1, 'interval', seconds=5)
+    scheduler.add_job(print_test2, 'interval', seconds=5)
 
     # 在 2019-04-15 17:00:00 ~ 2019-12-31 24:00:00 之间, 每隔两分钟执行一次 job_func 方法
-    scheduler.add_job(job_func(param), 'interval', seconds=2, start_date='2022-06-24', end_date='2022-06-25')
+    # scheduler.add_job(job_func, 'interval', seconds=2, start_date='2022-06-24', end_date='2022-06-25')
 
     scheduler.start()
+    print('job')
 
 
 def t(cont=None):
@@ -68,5 +83,5 @@ tt(l)
 
 if __name__ == "__main__":
     con = Config()
-    job_func(1)
+    job_func()
     print(scheduler_params(con))

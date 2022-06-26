@@ -7,6 +7,7 @@
 """
 import os
 import logging
+import zipfile
 
 from com.util.getFileDirs import APIJSON, APIYAML
 from com.util.jsonOperation import read_json
@@ -85,10 +86,50 @@ def get_file_name(path):
     return os.path.split(path)[1]
 
 
+def make_zip(source_dir, output_filename):
+    """
+    打包目录为zip文件（未压缩）
+    :param source_dir:
+    :param output_filename:
+    :return:
+    """
+    zipf = zipfile.ZipFile(output_filename, 'w')
+    pre_len = len(os.path.dirname(source_dir))
+    for parent, dirnames, filenames in os.walk(source_dir):
+        for filename in filenames:
+            pathfile = os.path.join(parent, filename)
+            arcname = pathfile[pre_len:].strip(os.path.sep)  # 相对路径
+            zipf.write(pathfile, arcname)
+    zipf.close()
+
+
+def un_zip(file_name):
+    """
+    解压目录为zip文件
+    :param file_name:
+    :return:
+    """
+    zip_file = zipfile.ZipFile(file_name)
+    if os.path.isdir(file_name + "_files"):
+        pass
+    else:
+        os.mkdir(file_name + "_files")
+    for names in zip_file.namelist():
+        zip_file.extract(names, file_name + "_files/")
+    zip_file.close()
+
+
+# un_zip("test.zip")
+# make_zip(r"E:\python_sample\libs\test_tar_files\libs", "test.zip")
+
 if __name__ == "__main__":
     from com.util.getConfig import Config
-    con = Config()
-    print(len(eval(con.get_config('API', 'json_to_yaml_file'))) == 0)
-    if con.get_config('API', 'json_to_yaml'):
-        json_to_yaml(con)
+    from com.util.getFileDirs import REPORT, HISTORY
+    path = HISTORY+ '\\test.zip'
+    make_zip(REPORT, path)
+
+    # con = Config()
+    # print(len(eval(con.get_config('API', 'json_to_yaml_file'))) == 0)
+    # if con.get_config('API', 'json_to_yaml'):
+    #     json_to_yaml(con)
     pass

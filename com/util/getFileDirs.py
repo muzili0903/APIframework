@@ -24,11 +24,12 @@ APISCENE = os.path.join(dir, 'api\\scene')
 APISCRIPT = os.path.join(dir, 'api\\script')
 # 报告文件
 REPORT = os.path.join(dir, 'reports')
+# 历史报告文件
+HISTORY = os.path.join(dir, 'history')
 # 测试文件
 TESTCASES = os.path.join(dir, 'testCases\\')
 # 日志文件
 LOGS = os.path.join(dir, 'logs')
 
 if __name__ == "__main__":
-    print(CASE)
     pass

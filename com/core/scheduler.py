@@ -5,6 +5,7 @@
 @file    :scheduler.py
 """
 from apscheduler.schedulers.blocking import BlockingScheduler
+from com.core.APIrun import run
 
 
 def scheduler_params(con):
@@ -37,13 +38,15 @@ def scheduler_params(con):
     return params + ')'
 
 
-def job_func():
+def scheduler_py(con):
+    """
+    :param con:
+    :return:
+    """
     scheduler = BlockingScheduler()
-    scheduler.add_job(job_func, 'interval', hours=2)
+    eval(scheduler_params(con))
     scheduler.start()
 
 
 if __name__ == "__main__":
-    from com.util.getConfig import Config
-    con = Config()
-    print(scheduler_params(con))
+    pass
