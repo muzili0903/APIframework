@@ -11,7 +11,6 @@ if __name__ == "__main__":
 
     con = Config()
     if eval(con.get_config('scheduler', 'is_scheduler').capitalize()):
-        print(1)
         scheduler_py(con)
     else:
         run()
