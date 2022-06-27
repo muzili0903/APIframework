@@ -9,8 +9,9 @@ import os
 import logging
 import zipfile
 
-from com.util.getFileDirs import APIJSON, APIYAML
+from com.util.getFileDirs import APIJSON, APIYAML, HISTORY
 from com.util.jsonOperation import read_json
+from com.util.sysFunc import ftime, fdate
 from com.util.yamlOperation import write_yaml
 
 
@@ -86,21 +87,22 @@ def get_file_name(path):
     return os.path.split(path)[1]
 
 
-def make_zip(source_dir, output_filename):
+def make_zip(source_dir, output_filename=None):
     """
     打包目录为zip文件（未压缩）
     :param source_dir:
     :param output_filename:
     :return:
     """
-    zipf = zipfile.ZipFile(output_filename, 'w')
-    pre_len = len(os.path.dirname(source_dir))
-    for parent, dirnames, filenames in os.walk(source_dir):
-        for filename in filenames:
-            pathfile = os.path.join(parent, filename)
-            arcname = pathfile[pre_len:].strip(os.path.sep)  # 相对路径
-            zipf.write(pathfile, arcname)
-    zipf.close()
+    if output_filename is None:
+        output_filename = HISTORY + '\\' + fdate() + ftime() + '.zip'
+    with zipfile.ZipFile(output_filename, 'w') as zip_file:
+        pre_len = len(os.path.dirname(source_dir))
+        for parent, dirnames, filenames in os.walk(source_dir):
+            for filename in filenames:
+                pathfile = os.path.join(parent, filename)
+                arcname = pathfile[pre_len:].strip(os.path.sep)  # 相对路径
+                zip_file.write(pathfile, arcname)
 
 
 def un_zip(file_name):
@@ -109,24 +111,23 @@ def un_zip(file_name):
     :param file_name:
     :return:
     """
-    zip_file = zipfile.ZipFile(file_name)
-    if os.path.isdir(file_name + "_files"):
-        pass
-    else:
-        os.mkdir(file_name + "_files")
-    for names in zip_file.namelist():
-        zip_file.extract(names, file_name + "_files/")
-    zip_file.close()
+    with zipfile.ZipFile(file_name) as zip_file:
+        if os.path.isdir(file_name + "_files"):
+            pass
+        else:
+            os.mkdir(file_name + "_files")
+        for names in zip_file.namelist():
+            zip_file.extract(names, file_name + "_files/")
 
-
-# un_zip("test.zip")
-# make_zip(r"E:\python_sample\libs\test_tar_files\libs", "test.zip")
 
 if __name__ == "__main__":
-    from com.util.getConfig import Config
-    from com.util.getFileDirs import REPORT, HISTORY
-    path = HISTORY+ '\\test.zip'
-    make_zip(REPORT, path)
+    # from com.util.getConfig import Config
+    # from com.util.getFileDirs import REPORT, HISTORY
+    #
+    # path = HISTORY + '\\test.zip'
+    # # make_zip('1')
+    # # get_all_file('1')
+    # un_zip(path)
 
     # con = Config()
     # print(len(eval(con.get_config('API', 'json_to_yaml_file'))) == 0)

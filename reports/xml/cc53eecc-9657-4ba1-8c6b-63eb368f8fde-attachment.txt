@@ -1,3 +1,0 @@
-[1m[31mERROR   [0m root:glo.py:45 变量值不存在，获取失败：>>>request_body
-[1m[31mERROR   [0m root:replaceData.py:211 获取不到请求报文字段值: >>>data.businessNos
-[1m[31mERROR   [0m root:mysqlConnection.py:65 MySQL执行异常: >>>(1064, "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1")

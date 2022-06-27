@@ -4,50 +4,16 @@
   "children" : [ {
     "name" : "CN01XIT00000ZON",
     "children" : [ {
-      "name" : "39492-MainThread",
+      "name" : "38728-MainThread",
       "children" : [ {
-        "name" : "test_test_scene_1[test_case1]",
-        "uid" : "3e06b598b5d7d891",
-        "parentUid" : "d411d59cf7159f173f1357fc455f35b9",
-        "status" : "passed",
-        "time" : {
-          "start" : 1656032566768,
-          "stop" : 1656032568995,
-          "duration" : 2227
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'batchConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}',\\n'select id from t_invoice_to_confirm where business_no = $Req{blue.data.businessNos}']\"}}}}" ]
-      }, {
-        "name" : "test_test_scene_1[test_case2]",
-        "uid" : "900ad0501b25e521",
-        "parentUid" : "d411d59cf7159f173f1357fc455f35b9",
-        "status" : "passed",
-        "time" : {
-          "start" : 1656032569006,
-          "stop" : 1656032570520,
-          "duration" : 1514
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'draftList': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/draftList', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'invoiceType': '', 'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'payTaxpayerName': '', 'createDateStartStr': '', 'createDateEndStr': '', 'status': '', 'provinceCentre': '', 'taxpayerCode': '', 'recTaxpayerName': '', 'ouName': '', 'sysSource': '', 'requestChannel': '', 'blueInvoiceNo': '', 'pageNumber': 1, 'pageSize': 10}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': {'total': 1}}}}}, 'data': None}}}" ]
-      }, {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "1a96220fee8b6a40",
-        "parentUid" : "d411d59cf7159f173f1357fc455f35b9",
+        "uid" : "718e4679d3947d00",
+        "parentUid" : "27f9b313cace4c2f9dde78f59d0e7b1f",
         "status" : "passed",
         "time" : {
-          "start" : 1656032561097,
-          "stop" : 1656032566758,
-          "duration" : 5661
+          "start" : 1656293573449,
+          "stop" : 1656293577563,
+          "duration" : 4114
         },
         "flaky" : false,
         "newFailed" : false,
@@ -55,54 +21,16 @@
         "newBroken" : false,
         "retriesCount" : 0,
         "retriesStatusChange" : false,
-        "parameters" : [ "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '${autoSendFlag}', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$(fdate)$(ftime)$(fnum::4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili', 'autoSendFlag': '0'}}}}" ]
-      }, {
-        "name" : "test_test_scene_1[test_case3]",
-        "uid" : "dcfa88f2cc298225",
-        "parentUid" : "d411d59cf7159f173f1357fc455f35b9",
-        "status" : "passed",
-        "time" : {
-          "start" : 1656032570529,
-          "stop" : 1656032572435,
-          "duration" : 1906
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'exportQueryDraft': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/exportQueryDraft', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'pageNumber': 1, 'pageSize': 10, 'totalCount': 2, 'filter': ['businessNos', 'payTaxpayerName', 'payTaxpayerCode', 'noTaxInvoiceAmt', 'totalTaxAmt', 'invoiceAmt', 'payUnitAddress', 'payFixedPhoneNumber', 'payBankName', 'payBankAccount', 'remarks', 'recTaxpayerName', 'status', 'invoiceType', 'requestChannel', 'operate']}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': None}}}}, 'data': None}}}" ]
-      } ],
-      "uid" : "d411d59cf7159f173f1357fc455f35b9"
-    }, {
-      "name" : "11780-MainThread",
-      "children" : [ {
-        "name" : "test_test_scene_1[test_case1]",
-        "uid" : "121f6212f73a39",
-        "parentUid" : "ac84dac15e2d371c6211e9c0d580616a",
-        "status" : "passed",
-        "time" : {
-          "start" : 1656032566768,
-          "stop" : 1656032568619,
-          "duration" : 1851
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'viewInvoiceToConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/viewInvoiceToConfirm', 'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'id': '$DB{id}', 'isEdit': 1}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'errorCode': None, 'isPinCode': None, 'isSuccess': True, 'message': None}}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
+        "parameters" : [ "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '${autoSendFlag}', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$(fdate)$(ftime)$(fnum::4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili', 'autoSendFlag': '1'}}}}" ]
       }, {
         "name" : "test_test_scene_1[test_case2]",
-        "uid" : "dc9cae5ce7488f2b",
-        "parentUid" : "ac84dac15e2d371c6211e9c0d580616a",
+        "uid" : "841b5acbd2bf4fc1",
+        "parentUid" : "27f9b313cace4c2f9dde78f59d0e7b1f",
         "status" : "passed",
         "time" : {
-          "start" : 1656032568627,
-          "stop" : 1656032569616,
-          "duration" : 989
+          "start" : 1656293578107,
+          "stop" : 1656293581177,
+          "duration" : 3070
         },
         "flaky" : false,
         "newFailed" : false,
@@ -113,13 +41,13 @@
         "parameters" : [ "{'updateInvoiceToConfirm': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/updateInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': 'IBCP', 'appKey': '123456', 'data': {'id': '$DB{id}', 'invoiceType': '1', 'invoiceHead': 1, 'erpCustCode': '', 'sysSource': 0, 'autoSendFlag': 1, 'ouName': '', 'ouCode': '', 'payTaxpayerName': 'muzili', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'mail': '220615', 'messagePhone': '220615', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[0].businessNo}', 'bizDetailId': '$DB{b0_bizDetailId}', 'standards': '220610', 'goodsCount': 1, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'goodsId': 206, 'goodsCode': '17122000041283', 'goodsName': '石狮子', 'goodsUnit': '只', 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'taxClassificationId': 378, 'taxCode': '1020600000000000000', 'taxRate': 0.13, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'merchantId': '0000111008', 'shortTaxCode': '10206', 'confirmId': '$DB{b0_id}', '_X_ROW_KEY': 'row_5553'}, {'businessNo': '$Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[1].businessNo}', 'bizDetailId': '$DB{b1_bizDetailId}', 'standards': '220610', 'goodsCount': 2, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'goodsId': 178, 'goodsCode': '963852741', 'goodsName': '收音机', 'goodsUnit': '件', 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'taxClassificationId': 999, 'taxCode': '1090604040000000000', 'taxRate': 0.13, 'taxName': '黑色金属矿石', 'taxFullName': '铁矿石', 'merchantId': '0000111008', 'shortTaxCode': '1020301', 'confirmId': '$DB{b1_id}', '_X_ROW_KEY': 'row_5554'}], 'recTaxpayerId': 0, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '2206101212', 'recUnitAddress': '中欧', 'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '12353154656665', 'invoiceByHandFlag': '', 'amount': '', 'deviceId': '', 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'updateInvoiceToConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}',\\n'select id as b0_id, biz_detail_id as b0_bizDetailId from t_invoice_to_confirm_detail where business_no = $Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[0].businessNo}',\\n'select id as b1_id, biz_detail_id as b1_bizDetailId from t_invoice_to_confirm_detail where business_no = $Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[1].businessNo}']\"}}}}" ]
       }, {
         "name" : "test_test_scene_1[test_case3]",
-        "uid" : "1f60897a2a596170",
-        "parentUid" : "ac84dac15e2d371c6211e9c0d580616a",
-        "status" : "failed",
+        "uid" : "64f56fe89c090cf2",
+        "parentUid" : "27f9b313cace4c2f9dde78f59d0e7b1f",
+        "status" : "passed",
         "time" : {
-          "start" : 1656032569624,
-          "stop" : 1656032572435,
-          "duration" : 2811
+          "start" : 1656293581185,
+          "stop" : 1656293582349,
+          "duration" : 1164
         },
         "flaky" : false,
         "newFailed" : false,
@@ -129,14 +57,31 @@
         "retriesStatusChange" : false,
         "parameters" : [ "{'batchConfirm': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
       }, {
-        "name" : "test_test_scene_1[test_case4]",
-        "uid" : "61a6c8b8ae9e90b4",
-        "parentUid" : "ac84dac15e2d371c6211e9c0d580616a",
-        "status" : "broken",
+        "name" : "test_test_scene_1[test_case1]",
+        "uid" : "61ebdcf6df582d62",
+        "parentUid" : "27f9b313cace4c2f9dde78f59d0e7b1f",
+        "status" : "passed",
         "time" : {
-          "start" : 1656032572845,
-          "stop" : 1656032573568,
-          "duration" : 723
+          "start" : 1656293577573,
+          "stop" : 1656293578099,
+          "duration" : 526
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'viewInvoiceToConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/viewInvoiceToConfirm', 'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'id': '$DB{id}', 'isEdit': 1}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'errorCode': None, 'isPinCode': None, 'isSuccess': True, 'message': None}}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case4]",
+        "uid" : "7e23a13a6b5ab204",
+        "parentUid" : "27f9b313cace4c2f9dde78f59d0e7b1f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1656293582357,
+          "stop" : 1656293583165,
+          "duration" : 808
         },
         "flaky" : false,
         "newFailed" : false,
@@ -145,53 +90,19 @@
         "retriesCount" : 0,
         "retriesStatusChange" : false,
         "parameters" : [ "{'batchInvoice': {'step_5': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
-      }, {
-        "name" : "test_test_scene_1[test_case0]",
-        "uid" : "669cd7df55a49263",
-        "parentUid" : "ac84dac15e2d371c6211e9c0d580616a",
-        "status" : "passed",
-        "time" : {
-          "start" : 1656032561068,
-          "stop" : 1656032566758,
-          "duration" : 5690
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '${autoSendFlag}', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$(fdate)$(ftime)$(fnum::4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili', 'autoSendFlag': '1'}}}}" ]
       } ],
-      "uid" : "ac84dac15e2d371c6211e9c0d580616a"
+      "uid" : "27f9b313cace4c2f9dde78f59d0e7b1f"
     }, {
-      "name" : "34876-MainThread",
+      "name" : "2304-MainThread",
       "children" : [ {
-        "name" : "test_test_scene_1[test_case1]",
-        "uid" : "6d533e52877fd4f",
-        "parentUid" : "68de6efaf3b27a121d2608dfd62f1951",
-        "status" : "passed",
-        "time" : {
-          "start" : 1656032561664,
-          "stop" : 1656032566756,
-          "duration" : 5092
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'batchConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{blue.data.businessNo}']\"}}}}" ]
-      }, {
         "name" : "test_test_scene_1[test_case0]",
-        "uid" : "692fc89a12401a3d",
-        "parentUid" : "68de6efaf3b27a121d2608dfd62f1951",
+        "uid" : "4185709ae18f3a1d",
+        "parentUid" : "9c774ba058c59853d2cf9474538383ae",
         "status" : "passed",
         "time" : {
-          "start" : 1656032561096,
-          "stop" : 1656032561654,
-          "duration" : 558
+          "start" : 1656293573458,
+          "stop" : 1656293573885,
+          "duration" : 427
         },
         "flaky" : false,
         "newFailed" : false,
@@ -202,13 +113,13 @@
         "parameters" : [ "{'blue': {'step_1': {'script': {'request_header': {'base_url': 'https://fenqitest.midea.com', 'env': '/invoice_sit', 'Method': 'post', 'path': '/invoice/trans/blue', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': False}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'invoiceAmt': 610.0, 'immediateInvoice': 1, 'payTaxpayerName': '${payTaxpayerName}', 'invoiceHead': 1, 'bizId': 'biz$(fdate)$(ftime)', 'invoiceType': 3, 'remarks': '票面备注：客户名称：${payTaxpayerName}, bizId=biz$(fdate)$(ftime)$(fnum::2)', 'taxpayerCode': '${taxpayerCode}', 'businessNo': '$(fdate)$(ftime)$(fnum::4)', 'detailList': [{'standards': 'MT-TZBKC01', 'taxRate': 0.13, 'taxUnitPrice': 180.0, 'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'bdid$(fnum::11)', 'amtContainTax': 180.0, 'taxCode': '1080422', 'goodsName': 'Micca 炊具'}, {'standards': 'MP-SJ20W101', 'taxRate': 0.13, 'taxUnitPrice': 430.0, 'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodCount': 1, 'goodUnit': '台', 'bizDetailId': 'bdid$(fnum::11)', 'amtContainTax': 430.0, 'taxCode': '107060112', 'goodsName': 'Midea/美的 餐饮具'}]}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'blue_response.json'}, 'check_part': {'check_type': 'in', 'expected_code': 200, 'expected_result': {'code': '00000'}}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili_blue', 'taxpayerCode': '440001999999260'}}}}" ]
       }, {
         "name" : "test_test_scene_1[test_case2]",
-        "uid" : "c17b492d9124b247",
-        "parentUid" : "68de6efaf3b27a121d2608dfd62f1951",
+        "uid" : "ac851579d20db811",
+        "parentUid" : "9c774ba058c59853d2cf9474538383ae",
         "status" : "passed",
         "time" : {
-          "start" : 1656032566765,
-          "stop" : 1656032569618,
-          "duration" : 2853
+          "start" : 1656293577567,
+          "stop" : 1656293581223,
+          "duration" : 3656
         },
         "flaky" : false,
         "newFailed" : false,
@@ -217,8 +128,97 @@
         "retriesCount" : 0,
         "retriesStatusChange" : false,
         "parameters" : [ "{'batchInvoice': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{blue.data.businessNo}']\"}}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case1]",
+        "uid" : "80fbfda8d0dfe3c1",
+        "parentUid" : "9c774ba058c59853d2cf9474538383ae",
+        "status" : "passed",
+        "time" : {
+          "start" : 1656293573895,
+          "stop" : 1656293577557,
+          "duration" : 3662
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'batchConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{blue.data.businessNo}']\"}}}}" ]
       } ],
-      "uid" : "68de6efaf3b27a121d2608dfd62f1951"
+      "uid" : "9c774ba058c59853d2cf9474538383ae"
+    }, {
+      "name" : "37000-MainThread",
+      "children" : [ {
+        "name" : "test_test_scene_1[test_case0]",
+        "uid" : "195c815f5ba4a9d1",
+        "parentUid" : "ba2ad930ba59ec01f9b735abf8b6cbe8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1656293573457,
+          "stop" : 1656293577564,
+          "duration" : 4107
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '${autoSendFlag}', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$(fdate)$(ftime)$(fnum::4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili', 'autoSendFlag': '0'}}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case3]",
+        "uid" : "c43d3b06b214db0a",
+        "parentUid" : "ba2ad930ba59ec01f9b735abf8b6cbe8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1656293583321,
+          "stop" : 1656293583667,
+          "duration" : 346
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'exportQueryDraft': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/exportQueryDraft', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'pageNumber': 1, 'pageSize': 10, 'totalCount': 2, 'filter': ['businessNos', 'payTaxpayerName', 'payTaxpayerCode', 'noTaxInvoiceAmt', 'totalTaxAmt', 'invoiceAmt', 'payUnitAddress', 'payFixedPhoneNumber', 'payBankName', 'payBankAccount', 'remarks', 'recTaxpayerName', 'status', 'invoiceType', 'requestChannel', 'operate']}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': None}}}}, 'data': None}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case2]",
+        "uid" : "fc25dd15ec2bd0f1",
+        "parentUid" : "ba2ad930ba59ec01f9b735abf8b6cbe8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1656293581248,
+          "stop" : 1656293583313,
+          "duration" : 2065
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'draftList': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/draftList', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'invoiceType': '', 'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'payTaxpayerName': '', 'createDateStartStr': '', 'createDateEndStr': '', 'status': '', 'provinceCentre': '', 'taxpayerCode': '', 'recTaxpayerName': '', 'ouName': '', 'sysSource': '', 'requestChannel': '', 'blueInvoiceNo': '', 'pageNumber': 1, 'pageSize': 10}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': {'total': 1}}}}}, 'data': None}}}" ]
+      }, {
+        "name" : "test_test_scene_1[test_case1]",
+        "uid" : "d017939d7c45a51e",
+        "parentUid" : "ba2ad930ba59ec01f9b735abf8b6cbe8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1656293577574,
+          "stop" : 1656293581237,
+          "duration" : 3663
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "newPassed" : false,
+        "newBroken" : false,
+        "retriesCount" : 0,
+        "retriesStatusChange" : false,
+        "parameters" : [ "{'batchConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}',\\n'select id from t_invoice_to_confirm where business_no = $Req{blue.data.businessNos}']\"}}}}" ]
+      } ],
+      "uid" : "ba2ad930ba59ec01f9b735abf8b6cbe8"
     } ],
     "uid" : "f8b0faf773517d923b353d1ef0c9672e"
   } ]

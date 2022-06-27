@@ -10,7 +10,8 @@ if __name__ == "__main__":
     from com.core.APIrun import run
 
     con = Config()
-    if eval(con.get_config('scheduler', 'weeks').capitalize()):
+    if eval(con.get_config('scheduler', 'is_scheduler').capitalize()):
+        print(1)
         scheduler_py(con)
     else:
         run()

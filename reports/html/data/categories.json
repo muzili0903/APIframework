@@ -1,55 +1,5 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
   "name" : "categories",
-  "children" : [ {
-    "name" : "Product defects",
-    "children" : [ {
-      "name" : "AssertionError: assert True == False\n +  where False = check_res({'response_body': {'data': '共确认1笔，确认成功0笔;服务异常;', 'errorCode': None, 'isPinCode': None, 'isSuccess': True, ...}, 'response_code': 200}, {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}})",
-      "children" : [ {
-        "name" : "test_test_scene_1[test_case3]",
-        "uid" : "1f60897a2a596170",
-        "parentUid" : "eab47680a8fc2646bf3f3afed3e828b7",
-        "status" : "failed",
-        "time" : {
-          "start" : 1656032569624,
-          "stop" : 1656032572435,
-          "duration" : 2811
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'batchConfirm': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
-      } ],
-      "uid" : "eab47680a8fc2646bf3f3afed3e828b7"
-    } ],
-    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
-  }, {
-    "name" : "Test defects",
-    "children" : [ {
-      "name" : "AttributeError: 'NoneType' object has no attribute 'get'",
-      "children" : [ {
-        "name" : "test_test_scene_1[test_case4]",
-        "uid" : "61a6c8b8ae9e90b4",
-        "parentUid" : "4fdd8ecb15a7c385dab7798f3af15cca",
-        "status" : "broken",
-        "time" : {
-          "start" : 1656032572845,
-          "stop" : 1656032573568,
-          "duration" : 723
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "newPassed" : false,
-        "newBroken" : false,
-        "retriesCount" : 0,
-        "retriesStatusChange" : false,
-        "parameters" : [ "{'batchInvoice': {'step_5': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
-      } ],
-      "uid" : "4fdd8ecb15a7c385dab7798f3af15cca"
-    } ],
-    "uid" : "bdbf199525818fae7a8651db9eafe741"
-  } ]
+  "children" : [ ]
 }

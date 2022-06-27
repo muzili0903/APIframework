@@ -12,7 +12,7 @@ import os
 import pytest
 
 from com.util import logOperation
-from com.util.fileOperation import json_to_yaml
+from com.util.fileOperation import json_to_yaml, make_zip
 from com.util.getFileDirs import LOGS, TESTCASES, REPORT
 from com.util.scriptOperation import write
 from com.util.getConfig import Config
@@ -48,6 +48,9 @@ def run():
     # 生成allure报告
     cmd = 'allure generate --clean %s -o %s ' % (REPORT + '/xml', REPORT + '/html')
     os.system(cmd)
+
+    # 打包报告文件放在history目录下
+    make_zip(REPORT)
 
 
 if __name__ == "__main__":
