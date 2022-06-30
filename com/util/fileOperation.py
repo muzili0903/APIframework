@@ -103,6 +103,7 @@ def make_zip(source_dir, output_filename=None):
                 pathfile = os.path.join(parent, filename)
                 arcname = pathfile[pre_len:].strip(os.path.sep)  # 相对路径
                 zip_file.write(pathfile, arcname)
+    return output_filename
 
 
 def un_zip(file_name):
@@ -122,11 +123,12 @@ def un_zip(file_name):
 
 if __name__ == "__main__":
     # from com.util.getConfig import Config
-    # from com.util.getFileDirs import REPORT, HISTORY
+    from com.util.getFileDirs import REPORT, HISTORY
     #
-    # path = HISTORY + '\\test.zip'
-    # # make_zip('1')
-    # # get_all_file('1')
+    path = REPORT
+    test = make_zip(REPORT)
+    print(test)
+    # get_all_file('1')
     # un_zip(path)
 
     # con = Config()
