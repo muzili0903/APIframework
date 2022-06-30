@@ -12,4 +12,3 @@ request_body:
       check_type: perfect_match
       expected_code: 200
       expected_result: addInvoiceToConfirm_response.json
-
