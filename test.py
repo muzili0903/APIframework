@@ -4,7 +4,6 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from com.util.getConfig import Config
 
 
-# weeks(int)	间隔几周
 # days(int)	间隔几天
 # hours(int)	间隔几小时
 # minutes(int)	间隔几分钟
