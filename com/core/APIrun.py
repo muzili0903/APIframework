@@ -15,6 +15,7 @@ from com.util import logOperation
 from com.util.fileOperation import json_to_yaml, make_zip
 from com.util.getFileDirs import LOGS, TESTCASES, REPORT
 from com.util.scriptOperation import write
+from com.util.mailOperation import send_mail
 from com.util.getConfig import Config
 
 
@@ -25,11 +26,11 @@ def run():
     logOperation.MyLogs(LOGS)
 
     # 将api文件夹中的 json文件格式转为yaml文件格式
-    if con.get_config('API', 'json_to_yaml'):
+    if eval(con.get_config('API', 'json_to_yaml').capitalize()):
         json_to_yaml(con)
 
     # 写pytest脚本
-    if con.get_config('TESTCASES', 'script_refresh'):
+    if eval(con.get_config('TESTCASES', 'script_refresh').capitalize()):
         write(con)
 
     # 定义运行参数
@@ -50,7 +51,10 @@ def run():
     os.system(cmd)
 
     # 打包报告文件放在history目录下
-    make_zip(REPORT)
+    report_zip = make_zip(REPORT)
+    # 发送邮件
+    if eval(con.get_config('mail', 'is_send_mail').capitalize()):
+        send_mail(con, report_zip)
 
 
 if __name__ == "__main__":

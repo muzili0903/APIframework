@@ -134,6 +134,23 @@
     # 结束日期
     end_date = None
 
+    # 邮箱相关配置
+    [mail]
+    # 是否开启邮箱
+    is_send_mail = False
+    # 邮箱服务器, 可为空
+    mail_host = None
+    # 发件人
+    sender = None
+    # 发件人密钥
+    sender_pass = None
+    # 收件人, 可多个收件人, 以字符串的形式存入列表中
+    receivers = []
+    # 邮件主题
+    subject = invoice auto test report
+    # 邮件内容
+    content = 发票平台测试报告, 各位亲请注意查收, 谢谢亲
+
 关于参数化:
 1、用户参数化: ${变量名} （已实现）
     示例

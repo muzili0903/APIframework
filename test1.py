@@ -9,7 +9,6 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 
-
 mail_host = "smtp.qq.com"  # 设置服务器
 mail_user = "2584167983@qq.com"  # 用户名
 mail_pass = "jctcwqoxyisuebaa"  # 授权码而非邮箱密码
@@ -28,7 +27,6 @@ msg.attach(part)
 part = MIMEApplication(open(r'E:\project\APIframework\history\20220630164851.zip', 'rb').read())
 part.add_header('Content-Disposition', 'attachment', filename="20220630164851.zip")
 msg.attach(part)
-
 
 try:
     s = smtplib.SMTP("smtp.qq.com", timeout=30)  # 连接smtp邮件服务器,端口默认是25
