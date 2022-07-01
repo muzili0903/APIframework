@@ -59,8 +59,8 @@ def check_value(respone_value, expect_value):
             if expect_value != respone_value:
                 return False
     except Exception as e:
-        logging.info("值校验不一致：>>>{}".format(respone_value))
-        logging.info("值校验报错：>>>{}".format(e))
+        logging.info("值校验, 预期结果: >>>{}与响应结果: >>>{}值不一致".format(expect_value, respone_value))
+        logging.info("值校验报错: >>>{}".format(e))
         return False
 
 
@@ -117,8 +117,8 @@ def check_list(response_body: list, expected_body: list, checked_type) -> bool:
                 else:
                     pass
     except Exception as e:
-        logging.info("JSON格式校验, 预期结果：>>>{}与响应结果：>>>{}值不一致".format(expected_body, response_body))
-        logging.info("值校验报错：>>>{}".format(e))
+        logging.info("JSON格式校验, 预期结果: >>>{}与响应结果: >>>{}值不一致".format(expected_body, response_body))
+        logging.info("值校验报错: >>>{}".format(e))
         return False
     if False not in result:
         return True
@@ -141,7 +141,7 @@ def check_resp(response_body: dict, expected_body: dict, checked_type) -> bool:
     if isinstance(expected_body, dict):
         for key, value in expected_body.items():
             if key not in response_body:
-                logging.info("JSON格式校验, 关键字: >>>{}不在响应结果：>>>{}中".format(key, response_body))
+                logging.info("JSON格式校验, 关键字: >>>{}不在响应结果: >>>{}中".format(key, response_body))
                 return False
             else:
                 if isinstance(value, dict) and isinstance(response_body.get(key), dict):
@@ -149,7 +149,7 @@ def check_resp(response_body: dict, expected_body: dict, checked_type) -> bool:
                     result.append(check_resp(response_body.get(key), value, checked_type))
                 elif not isinstance(value, type(response_body.get(key))):
                     logging.info(
-                        "JSON格式校验, 关键字：>>>{}预期结果：>>>{}与响应结果：>>>{}类型不符".format(key, value, response_body.get(key)))
+                        "JSON格式校验, 关键字: >>>{}预期结果: >>>{}与响应结果: >>>{}类型不符".format(key, value, response_body.get(key)))
                     return False
                 else:
                     if isinstance(value, list):
@@ -181,8 +181,8 @@ def check_db(checked_sql: list, expected_body: dict) -> bool:
                 if key in list(result.keys()) and result.__getitem__(key) is not None:
                     res.append(check_value(result.__getitem__(key), value))
                 else:
-                    logging.info("数据库校验, 关键字：>>>{}预期结果：>>>{}".format(key, value))
-                    logging.info("数据库校验, sql查询结果{}".format(sql_result))
+                    logging.info("数据库校验, 关键字: >>>{}预期结果: >>>{}".format(key, value))
+                    logging.info("数据库校验, sql查询结果: >>>{}".format(sql_result))
                     return False
     else:
         logging.info("数据库校验内容非dict格式: >>>{}".format(expected_body))

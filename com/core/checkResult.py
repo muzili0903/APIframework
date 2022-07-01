@@ -22,7 +22,7 @@ def check_res(response_body: dict, expected_body: dict):
     :return:
     """
     if response_body is not None:
-        logging.info("接口响应结果：>>>{}".format(response_body.get('response_body')))
+        logging.info("接口响应结果: >>>{}".format(response_body.get('response_body')))
     result = list()
     for key, value in expected_body.items():
         if key.lower() == 'check_json':
@@ -37,7 +37,7 @@ def check_res(response_body: dict, expected_body: dict):
             #     break
             # 预期结果json文件格式全匹配
             # elif value.get('check_type') == 'perfect_match' or value.get('check_type') == '==':
-            #     logging.info("预期结果：{}".format(value.get('expected_result')))
+            #     logging.info("预期结果: {}".format(value.get('expected_result')))
             #     result.append(checkData.check_resp(response_body.get('response_body'), value.get('expected_result')))
             # # 预期结果json文件格式部分匹配
             # elif value.get('check_type') == 'partial_match' or value.get('check_type') == 'in':
@@ -57,7 +57,7 @@ def check_res(response_body: dict, expected_body: dict):
                 expect_result = read_json(path, is_str=False)
                 # TODO
                 # ini_params
-                # logging.info("预期结果：{}".format(value.get('expected_result')))
+                # logging.info("预期结果: {}".format(value.get('expected_result')))
                 logging.info("预期结果: >>>{}".format(expect_result))
                 with allure.step("check_json: data校验"):
                     allure.attach(name='校验方式: ', body=str(value.get('check_type')))
@@ -78,6 +78,7 @@ def check_res(response_body: dict, expected_body: dict):
             # elif not checkData.check_type(value.get('check_type')):
             #     break
             else:
+                logging.info("预期结果: >>>{}".format(value.get('expected_result')))
                 result.append(checkData.check_db(value.get('check_sql'), value.get('expected_result')))
         elif key.lower() == 'check_part':
             with allure.step("check_part: code校验"):
@@ -105,7 +106,7 @@ def check_res(response_body: dict, expected_body: dict):
             if not checkData.check_code(int(response_body.get('response_code')), int(value.get('expected_code'))):
                 result.append(False)
         else:
-            logging.error("校验方式有误：>>>{}".format(key))
+            logging.error("校验方式有误: >>>{}".format(key))
             result.append(False)
     if False not in result:
         return True

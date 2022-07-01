@@ -1,0 +1,202 @@
+{
+  "uid" : "e2ce75a0eef1adf7",
+  "name" : "test_test_scene_1[test_case3]",
+  "fullName" : "testCases.addInvoiceToConfirm.test_invoice_manage_Test_scene_1#test_test_scene_1",
+  "historyId" : "00708f03bd1a1d2bb8d845792d5e67bd",
+  "time" : {
+    "start" : 1656642525853,
+    "stop" : 1656642525980,
+    "duration" : 127
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1656642522946,
+      "stop" : 1656642523165,
+      "duration" : 219
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "login_manage",
+    "time" : {
+      "start" : 1656642523165,
+      "stop" : 1656642524680,
+      "duration" : 1515
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "请求步骤: step_4, 接口名: exportQueryDraft",
+      "time" : {
+        "start" : 1656642525853,
+        "stop" : 1656642525869,
+        "duration" : 16
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "1f9069dab63cd689",
+        "name" : "请求方法",
+        "source" : "1f9069dab63cd689.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "1918a956d5ff5b42",
+        "name" : "请求地址",
+        "source" : "1918a956d5ff5b42.attach",
+        "type" : "text/plain",
+        "size" : 74
+      }, {
+        "uid" : "800626325da69aac",
+        "name" : "请求头",
+        "source" : "800626325da69aac.attach",
+        "type" : "text/plain",
+        "size" : 93
+      }, {
+        "uid" : "cfb57cd446dc679f",
+        "name" : "请求参数",
+        "source" : "cfb57cd446dc679f.attach",
+        "type" : "text/plain",
+        "size" : 358
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 4
+    }, {
+      "name" : "check_part: code校验",
+      "time" : {
+        "start" : 1656642525965,
+        "stop" : 1656642525980,
+        "duration" : 15
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9c927a905a7a1648",
+        "name" : "预期响应码: ",
+        "source" : "9c927a905a7a1648.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "23630d2120984d5d",
+        "name" : "实际响应码: ",
+        "source" : "23630d2120984d5d.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "check_part: data校验",
+      "time" : {
+        "start" : 1656642525980,
+        "stop" : 1656642525980,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "dbb928f71a80c9b3",
+        "name" : "校验方式: ",
+        "source" : "dbb928f71a80c9b3.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "5fcc5dcec0f5f3f6",
+        "name" : "预期结果: ",
+        "source" : "5fcc5dcec0f5f3f6.attach",
+        "type" : "text/plain",
+        "size" : 33
+      }, {
+        "uid" : "873710d17b597851",
+        "name" : "实际结果: ",
+        "source" : "873710d17b597851.attach",
+        "type" : "text/plain",
+        "size" : 89
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 3
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 9
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases.addInvoiceToConfirm"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "39468-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.addInvoiceToConfirm.test_invoice_manage_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'exportQueryDraft': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/exportQueryDraft', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'pageNumber': 1, 'pageSize': 10, 'totalCount': 2, 'filter': ['businessNos', 'payTaxpayerName', 'payTaxpayerCode', 'noTaxInvoiceAmt', 'totalTaxAmt', 'invoiceAmt', 'payUnitAddress', 'payFixedPhoneNumber', 'payBankName', 'payBankAccount', 'remarks', 'recTaxpayerName', 'status', 'invoiceType', 'requestChannel', 'operate']}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': None}}}}, 'data': None}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e2ce75a0eef1adf7.json",
+  "parameterValues" : [ "{'exportQueryDraft': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/exportQueryDraft', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'pageNumber': 1, 'pageSize': 10, 'totalCount': 2, 'filter': ['businessNos', 'payTaxpayerName', 'payTaxpayerCode', 'noTaxInvoiceAmt', 'totalTaxAmt', 'invoiceAmt', 'payUnitAddress', 'payFixedPhoneNumber', 'payBankName', 'payBankAccount', 'remarks', 'recTaxpayerName', 'status', 'invoiceType', 'requestChannel', 'operate']}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'isSuccess': True, 'data': None}}}}, 'data': None}}}" ]
+}

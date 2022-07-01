@@ -1,0 +1,202 @@
+{
+  "uid" : "560b45faa8acd57a",
+  "name" : "test_test_scene_1[test_case3]",
+  "fullName" : "testCases.addInvoiceToConfirm.test_invoice_manage1_Test_scene_1#test_test_scene_1",
+  "historyId" : "4cfac0c788c049c180e2f593ec96fd14",
+  "time" : {
+    "start" : 1656642525934,
+    "stop" : 1656642526527,
+    "duration" : 593
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1656642522946,
+      "stop" : 1656642523165,
+      "duration" : 219
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "login_manage",
+    "time" : {
+      "start" : 1656642523165,
+      "stop" : 1656642524711,
+      "duration" : 1546
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "请求步骤: step_4, 接口名: batchConfirm",
+      "time" : {
+        "start" : 1656642526027,
+        "stop" : 1656642526027,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "268869a9a46ed7f0",
+        "name" : "请求方法",
+        "source" : "268869a9a46ed7f0.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "8e6378fbefefe520",
+        "name" : "请求地址",
+        "source" : "8e6378fbefefe520.attach",
+        "type" : "text/plain",
+        "size" : 71
+      }, {
+        "uid" : "589409e401267bca",
+        "name" : "请求头",
+        "source" : "589409e401267bca.attach",
+        "type" : "text/plain",
+        "size" : 110
+      }, {
+        "uid" : "82ef1656e4f99625",
+        "name" : "请求参数",
+        "source" : "82ef1656e4f99625.attach",
+        "type" : "text/plain",
+        "size" : 17
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 4
+    }, {
+      "name" : "check_json: code校验",
+      "time" : {
+        "start" : 1656642526512,
+        "stop" : 1656642526512,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "313044cf72fd3563",
+        "name" : "预期响应码: ",
+        "source" : "313044cf72fd3563.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "4fe9048e531651ed",
+        "name" : "实际响应码: ",
+        "source" : "4fe9048e531651ed.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "check_json: data校验",
+      "time" : {
+        "start" : 1656642526512,
+        "stop" : 1656642526527,
+        "duration" : 15
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "de3030607af74010",
+        "name" : "校验方式: ",
+        "source" : "de3030607af74010.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "ed0872f5b1a7a583",
+        "name" : "预期结果: ",
+        "source" : "ed0872f5b1a7a583.attach",
+        "type" : "text/plain",
+        "size" : 119
+      }, {
+        "uid" : "161038cc458f59d5",
+        "name" : "实际结果: ",
+        "source" : "161038cc458f59d5.attach",
+        "type" : "text/plain",
+        "size" : 119
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 3
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 9
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases.addInvoiceToConfirm"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage1_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "35696-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.addInvoiceToConfirm.test_invoice_manage1_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'batchConfirm': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "560b45faa8acd57a.json",
+  "parameterValues" : [ "{'batchConfirm': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']\"}}}}" ]
+}

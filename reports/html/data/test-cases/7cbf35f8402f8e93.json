@@ -1,0 +1,202 @@
+{
+  "uid" : "7cbf35f8402f8e93",
+  "name" : "test_test_scene_1[test_case2]",
+  "fullName" : "testCases.blue.test_invoice_manage2_Test_scene_1#test_test_scene_1",
+  "historyId" : "5e84cecda5358b45118a62c2769c8f30",
+  "time" : {
+    "start" : 1656642525634,
+    "stop" : 1656642525980,
+    "duration" : 346
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ {
+    "name" : "_session_faker",
+    "time" : {
+      "start" : 1656642522946,
+      "stop" : 1656642523165,
+      "duration" : 219
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  }, {
+    "name" : "login_manage",
+    "time" : {
+      "start" : 1656642523165,
+      "stop" : 1656642524680,
+      "duration" : 1515
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : false,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "请求步骤: step_3, 接口名: batchInvoice",
+      "time" : {
+        "start" : 1656642525728,
+        "stop" : 1656642525728,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "2506bcd86ed3259d",
+        "name" : "请求方法",
+        "source" : "2506bcd86ed3259d.attach",
+        "type" : "text/plain",
+        "size" : 4
+      }, {
+        "uid" : "1f2dc85f24689d2e",
+        "name" : "请求地址",
+        "source" : "1f2dc85f24689d2e.attach",
+        "type" : "text/plain",
+        "size" : 70
+      }, {
+        "uid" : "33749d669862ff50",
+        "name" : "请求头",
+        "source" : "33749d669862ff50.attach",
+        "type" : "text/plain",
+        "size" : 110
+      }, {
+        "uid" : "ad821b695608f139",
+        "name" : "请求参数",
+        "source" : "ad821b695608f139.attach",
+        "type" : "text/plain",
+        "size" : 18
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 4
+    }, {
+      "name" : "check_json: code校验",
+      "time" : {
+        "start" : 1656642525965,
+        "stop" : 1656642525980,
+        "duration" : 15
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "2ed133180005092",
+        "name" : "预期响应码: ",
+        "source" : "2ed133180005092.attach",
+        "type" : "text/plain",
+        "size" : 3
+      }, {
+        "uid" : "a5fd73dbfda40fbb",
+        "name" : "实际响应码: ",
+        "source" : "a5fd73dbfda40fbb.attach",
+        "type" : "text/plain",
+        "size" : 3
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 2
+    }, {
+      "name" : "check_json: data校验",
+      "time" : {
+        "start" : 1656642525980,
+        "stop" : 1656642525980,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "9ced1512cc7ae85e",
+        "name" : "校验方式: ",
+        "source" : "9ced1512cc7ae85e.attach",
+        "type" : "text/plain",
+        "size" : 13
+      }, {
+        "uid" : "2d623ca263310359",
+        "name" : "预期结果: ",
+        "source" : "2d623ca263310359.attach",
+        "type" : "text/plain",
+        "size" : 89
+      }, {
+        "uid" : "a4be9a291956c849",
+        "name" : "实际结果: ",
+        "source" : "a4be9a291956c849.attach",
+        "type" : "text/plain",
+        "size" : 89
+      } ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 3
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 3,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 9
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "test_test_scene_1"
+  }, {
+    "name" : "parentSuite",
+    "value" : "testCases.blue"
+  }, {
+    "name" : "suite",
+    "value" : "test_invoice_manage2_Test_scene_1"
+  }, {
+    "name" : "host",
+    "value" : "CN01XIT00000ZON"
+  }, {
+    "name" : "thread",
+    "value" : "9232-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "testCases.blue.test_invoice_manage2_Test_scene_1"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "test_case",
+    "value" : "{'batchInvoice': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{blue.data.businessNo}']\"}}}}"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7cbf35f8402f8e93.json",
+  "parameterValues" : [ "{'batchInvoice': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': \"['select id from t_invoice_trans where business_no = $Req{blue.data.businessNo}']\"}}}}" ]
+}
