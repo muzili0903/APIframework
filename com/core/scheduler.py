@@ -14,11 +14,11 @@ def scheduler_params(con):
     :return:
     """
     params = "scheduler.add_job(run, 'interval'"
-    weeks = eval(con.get_config('scheduler', 'weeks'))
-    days = eval(con.get_config('scheduler', 'days'))
-    hours = eval(con.get_config('scheduler', 'hours'))
-    minutes = eval(con.get_config('scheduler', 'minutes'))
-    seconds = eval(con.get_config('scheduler', 'seconds'))
+    weeks = con.get_config_int('scheduler', 'weeks')
+    days = con.get_config_int('scheduler', 'days')
+    hours = con.get_config_int('scheduler', 'hours')
+    minutes = con.get_config_int('scheduler', 'minutes')
+    seconds = con.get_config_int('scheduler', 'seconds')
     start_date = eval(con.get_config('scheduler', 'start_date'))
     end_date = eval(con.get_config('scheduler', 'end_date'))
     if weeks is not None:

@@ -15,7 +15,8 @@ if __name__ == "__main__":
 
     # logOperation.MyLogs(LOGS)
     con = Config()
-    if eval(con.get_config('scheduler', 'is_scheduler').capitalize()):
+    # if eval(con.get_config('scheduler', 'is_scheduler').capitalize()):
+    if con.get_config_bool('scheduler', 'is_scheduler'):
         scheduler_py(con)
     else:
         run()

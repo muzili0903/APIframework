@@ -26,11 +26,13 @@ def run():
     logOperation.MyLogs(LOGS)
 
     # 将api文件夹中的 json文件格式转为yaml文件格式
-    if eval(con.get_config('API', 'json_to_yaml').capitalize()):
+    # if eval(con.get_config('API', 'json_to_yaml').capitalize()):
+    if con.get_config_bool('API', 'json_to_yaml'):
         json_to_yaml(con)
 
     # 写pytest脚本
-    if eval(con.get_config('TESTCASES', 'script_refresh').capitalize()):
+    # if eval(con.get_config('TESTCASES', 'script_refresh').capitalize()):
+    if con.get_config_bool('TESTCASES', 'script_refresh'):
         write(con)
 
     # 定义运行参数
@@ -53,7 +55,8 @@ def run():
     # 打包报告文件放在history目录下
     report_zip = make_zip(REPORT)
     # 发送邮件
-    if eval(con.get_config('mail', 'is_send_mail').capitalize()):
+    # if eval(con.get_config('mail', 'is_send_mail').capitalize()):
+    if con.get_config_bool('mail', 'is_send_mail'):
         send_mail(con, report_zip)
 
 

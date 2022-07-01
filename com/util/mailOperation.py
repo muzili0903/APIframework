@@ -30,9 +30,9 @@ def send_mail(con, file):
     # 收件人
     receivers = eval(mail_config.get('receivers')) or ['lyh2584167983@163.com']
     # 邮件主题
-    subject = eval(mail_config.get('subject')) or 'auto test report'
+    subject = mail_config.get('subject') or 'auto test report'
     # 邮件内容
-    content = eval(mail_config.get('content')) or '请查收'
+    content = mail_config.get('content') or '请查收'
 
     # 创建一个带附件的实例
     msg = MIMEMultipart()
@@ -73,4 +73,4 @@ if __name__ == "__main__":
     # from com.util.getConfig import Config
     #
     # con = Config()
-    # send_mail(con, r'E:\APIframework\history\20220701091434.zip')
+    # send_mail(con, r'E:\project\APIframework\history\20220701091434.zip')
