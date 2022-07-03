@@ -30,6 +30,8 @@ HISTORY = os.path.join(dir, 'history')
 TESTCASES = os.path.join(dir, 'testCases\\')
 # 日志文件
 LOGS = os.path.join(dir, 'logs')
+# left
+LEFT = os.path.join(dir, 'api\\left')
 
 if __name__ == "__main__":
     pass
