@@ -157,6 +157,12 @@ class ReadExcel(object):
                 row_index.append(i)
         return row_index
 
+    def get_max_col(self):
+        return self.sheet_name.max_column
+
+    def get_max_row(self):
+        return self.sheet_name.max_row
+
 
 class WriteExcel(object):
     """写.xlsx文件"""

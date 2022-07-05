@@ -85,19 +85,19 @@ def dispose_int(field: dict):
     return {'normal_value': normal_value, 'abnormality_value': abnormality_value, 'default': default}
 
 
-def dispose_float():
+def dispose_float(field: dict):
     pass
 
 
-def dispose_string():
+def dispose_string(field: dict):
     pass
 
 
-def dispose_list():
+def dispose_list(field: dict):
     pass
 
 
-def dispose_object():
+def dispose_object(field: dict):
     pass
 
 
