@@ -1,12 +1,5 @@
-from com.util.getConfig import Config
+from com.util.logOperation import logger
 
-con = Config()
-if con.get_config_bool('scheduler', 'is_scheduler'):
-    print(1111)
-
-days = con.get_config_int('scheduler', 'days')
-params = ''
-if days is not None:
-    params = params + ', ' + 'weeks=' + str(days)
-print(params)
-
+logger.exception('ERROR')
+logger.info('test')
+logger.error('error test')
