@@ -86,7 +86,40 @@ def dispose_int(field: dict):
 
 
 def dispose_float(field: dict):
-    pass
+    normal_value = list()
+    abnormality_value = list()
+    default = None
+    if field.get('isRequired') is None or field.get('isRequired').__eq__('N'):
+        # 字段正常案例校验
+        value = {
+            'title': '{} 字段为空'.format(field.get('field')),
+            field.get('field'): '',
+        }
+        normal_value.append(value)
+        value = {
+            'title': '{} 字段不传'.format(field.get('field')),
+            field.get('field'): None,
+        }
+        decade, quantile = str(field.get('length')).split('.')
+        normal_value.append(value)
+        value = {
+            'title': '{} 字段输入正确的最大值'.format(field.get('field')),
+            field.get('field'): math.pow(10, int(decade)) - math.pow(10, -int(quantile)),
+        }
+        normal_value.append(value)
+        value = {
+            'title': '{} 字段输入正确的最小值'.format(field.get('field')),
+            field.get('field'): math.pow(10, -int(quantile)),
+        }
+        normal_value.append(value)
+    else:
+        pass
+    if field.get('default') is not None:
+        default = {
+            'title': '{} 字段默认值'.format(field.get('field')),
+            field.get('field'): field.get('default'),
+        }
+    return {'normal_value': normal_value, 'abnormality_value': abnormality_value, 'default': default}
 
 
 def dispose_string(field: dict):
@@ -102,12 +135,4 @@ def dispose_object(field: dict):
 
 
 if __name__ == "__main__":
-    field = {
-        'field': 'id',
-        'type': int,
-        'length': 8,
-        'default': 32,
-        'isRequired': 'Y'
-    }
-    fields = dispose_int(field)
-    print(fields)
+    print(math.pow(10, 2) - math.pow(10, -0))
