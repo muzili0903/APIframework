@@ -10,7 +10,129 @@ from com.core.initializeParam import ini_package
 from com.core import reqSends
 from com.core import reqSend
 
-test_case = [{'addInvoiceToConfirm': {'step_1': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': '${appId}', 'appKey': '${appKey}', 'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0', 'autoSendFlag': '${autoSendFlag}', 'ouName': '', 'ouCode': '', 'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$(fdate)$(ftime)$(fnum::4)', 'mail': '220610', 'messagePhone': '220610', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '石狮子', 'goodsId': 204, 'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000', 'shortTaxCode': '10206'}, {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '收音机', 'goodsId': 179, 'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2, 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999, 'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13, 'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610', 'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477', 'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'addInvoiceToConfirm_response.json'}}}, 'data': {'appId': 'IBCP', 'appKey': '123456', 'payTaxpayerName': 'muzili', 'autoSendFlag': '1'}}}}, {'viewInvoiceToConfirm': {'step_2': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/viewInvoiceToConfirm', 'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'id': '$DB{id}', 'isEdit': 1}, 'check_body': {'check_part': {'expected_code': 200, 'check_type': 'partial_match', 'expected_result': {'errorCode': None, 'isPinCode': None, 'isSuccess': True, 'message': None}}}}, 'data': {'sql': "['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']"}}}}, {'updateInvoiceToConfirm': {'step_3': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/updateInvoiceToConfirm', 'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'appId': 'IBCP', 'appKey': '123456', 'data': {'id': '$DB{id}', 'invoiceType': '1', 'invoiceHead': 1, 'erpCustCode': '', 'sysSource': 0, 'autoSendFlag': 1, 'ouName': '', 'ouCode': '', 'payTaxpayerName': 'muzili', 'payTaxpayerCode': '', 'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610', 'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}', 'mail': '220615', 'messagePhone': '220615', 'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{'businessNo': '$Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[0].businessNo}', 'bizDetailId': '$DB{b0_bizDetailId}', 'standards': '220610', 'goodsCount': 1, 'amtContainTax': 100, 'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'goodsId': 206, 'goodsCode': '17122000041283', 'goodsName': '石狮子', 'goodsUnit': '只', 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'taxClassificationId': 378, 'taxCode': '1020600000000000000', 'taxRate': 0.13, 'taxName': '矿产品', 'taxFullName': '其他矿产品', 'merchantId': '0000111008', 'shortTaxCode': '10206', 'confirmId': '$DB{b0_id}', '_X_ROW_KEY': 'row_5553'}, {'businessNo': '$Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[1].businessNo}', 'bizDetailId': '$DB{b1_bizDetailId}', 'standards': '220610', 'goodsCount': 2, 'amtContainTax': 200, 'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'goodsId': 178, 'goodsCode': '963852741', 'goodsName': '收音机', 'goodsUnit': '件', 'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'taxClassificationId': 999, 'taxCode': '1090604040000000000', 'taxRate': 0.13, 'taxName': '黑色金属矿石', 'taxFullName': '铁矿石', 'merchantId': '0000111008', 'shortTaxCode': '1020301', 'confirmId': '$DB{b1_id}', '_X_ROW_KEY': 'row_5554'}], 'recTaxpayerId': 0, 'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '2206101212', 'recUnitAddress': '中欧', 'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '12353154656665', 'invoiceByHandFlag': '', 'amount': '', 'deviceId': '', 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'updateInvoiceToConfirm_response.json'}}}, 'data': {'sql': "['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}',\n'select id as b0_id, biz_detail_id as b0_bizDetailId from t_invoice_to_confirm_detail where business_no = $Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[0].businessNo}',\n'select id as b1_id, biz_detail_id as b1_bizDetailId from t_invoice_to_confirm_detail where business_no = $Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[1].businessNo}']"}}}}, {'batchConfirm': {'step_4': {'script': {'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchConfirm_response.json'}}}, 'data': {'sql': "['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']"}}}}, {'batchInvoice': {'step_5': {'script': {'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive', 'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0, 'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {'check_json': {'check_type': 'perfect_match', 'expected_code': 200, 'expected_result': 'batchInvoice_response.json'}}}, 'data': {'sql': "['select id from t_invoice_trans where business_no = $Req{addInvoiceToConfirm.data.businessNos}']"}}}}]
+test_case = [{'addInvoiceToConfirm': {'step_1': {'script': {
+    'request_header': {'Method': 'post', 'path': '/mage/manual/addInvoiceToConfirm', 'Connection': 'keep-alive',
+                       'timeout': 10, 'sleep_time': 0, 'is_login': True},
+    'request_body': {'appId': '${appId}', 'appKey': '${appKey}',
+                     'data': {'id': '', 'invoiceType': '1', 'invoiceHead': '1', 'erpCustCode': '', 'sysSource': '0',
+                              'autoSendFlag': '${autoSendFlag}', 'ouName': '', 'ouCode': '',
+                              'payTaxpayerName': '${payTaxpayerName}', 'payTaxpayerCode': '',
+                              'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610',
+                              'businessNos': '$(fdate)$(ftime)$(fnum::4)', 'mail': '220610', 'messagePhone': '220610',
+                              'payBankName': '220610', 'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [
+                             {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '石狮子', 'goodsId': 204,
+                              'goodsCode': '17122000041283', 'standards': '220610', 'goodsUnit': '只', 'goodsCount': 1,
+                              'taxUnitPrice': 100, 'notTaxUnitPrice': 88.5, 'amtContainTax': 100,
+                              'amtNotContainTax': 88.5, 'taxAmt': 11.5, 'taxClassificationId': 999, 'taxName': '矿产品',
+                              'taxFullName': '其他矿产品', 'taxRate': 0.13, 'taxCode': '1020600000000000000',
+                              'shortTaxCode': '10206'},
+                             {'businessNo': '$(fdate)$(ftime)$(fnum::2)', 'goodsName': '收音机', 'goodsId': 179,
+                              'goodsCode': '963852741', 'standards': '220610', 'goodsUnit': '件', 'goodsCount': 2,
+                              'taxUnitPrice': 100, 'notTaxUnitPrice': 88.495, 'amtContainTax': 200,
+                              'amtNotContainTax': 176.99, 'taxAmt': 23.01, 'taxClassificationId': 999,
+                              'taxName': '绘图测量仪器', 'taxFullName': '数学计算器具', 'taxRate': 0.13,
+                              'taxCode': '1090604040000000000', 'shortTaxCode': '109060404'}], 'recTaxpayerId': 269,
+                              'recTaxpayerName': '百鸣鸟装饰有限公司', 'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚',
+                              'receiver': '猪八戒', 'openMan': '孙悟空', 'remarks': '220610',
+                              'recUnitAddress': '佛山市顺德区北滘美的大道148号', 'recFixedPhoneNumber': '0817-25945214',
+                              'recBankName': '中国农商银行佛山北滘支行', 'recBankAccount': '1845822362245224477',
+                              'invoiceByHandFlag': 1, 'amount': '', 'deviceId': 234, 'deviceType': 1,
+                              'amtNotContainTax': 265.49, 'taxAmt': 34.51, 'invoiceAmt': 300, 'blueInvoiceNo': '',
+                              'blueInvoiceCode': '', 'redRushInfoNo': ''}}, 'check_body': {
+        'check_json': {'check_type': 'perfect_match', 'expected_code': 200,
+                       'expected_result': 'addInvoiceToConfirm_response.json'}}},
+                                                 'data': {'appId': 'IBCP', 'appKey': '123456',
+                                                          'payTaxpayerName': 'muzili', 'autoSendFlag': '1'}}}}, {
+                 'viewInvoiceToConfirm': {'step_2': {'script': {
+                     'request_header': {'Method': 'post', 'path': '/mage/manual/viewInvoiceToConfirm',
+                                        'Content-Type': 'application/x-www-form-urlencoded', 'Connection': 'keep-alive',
+                                        'timeout': 10, 'sleep_time': 0, 'is_login': True},
+                     'request_body': {'id': '$DB{id}', 'isEdit': 1}, 'check_body': {
+                         'check_part': {'expected_code': 200, 'check_type': 'partial_match',
+                                        'expected_result': {'errorCode': None, 'isPinCode': None, 'isSuccess': True,
+                                                            'message': None}}}}, 'data': {
+                     'sql': "['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']"}}}},
+             {'updateInvoiceToConfirm': {'step_3': {'script': {
+                 'request_header': {'Method': 'post', 'path': '/mage/manual/updateInvoiceToConfirm',
+                                    'Connection': 'keep-alive', 'timeout': 10, 'sleep_time': 0, 'is_login': True},
+                 'request_body': {'appId': 'IBCP', 'appKey': '123456',
+                                  'data': {'id': '$DB{id}', 'invoiceType': '1', 'invoiceHead': 1, 'erpCustCode': '',
+                                           'sysSource': 0, 'autoSendFlag': 1, 'ouName': '', 'ouCode': '',
+                                           'payTaxpayerName': 'muzili', 'payTaxpayerCode': '',
+                                           'payUnitAddress': '220610', 'payFixedPhoneNumber': '220610',
+                                           'businessNos': '$Req{addInvoiceToConfirm.data.businessNos}',
+                                           'mail': '220615', 'messagePhone': '220615', 'payBankName': '220610',
+                                           'payBankAccount': '220610', 'invoiceToConfirmDetailBOList': [{
+                                                                                                            'businessNo': '$Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[0].businessNo}',
+                                                                                                            'bizDetailId': '$DB{b0_bizDetailId}',
+                                                                                                            'standards': '220610',
+                                                                                                            'goodsCount': 1,
+                                                                                                            'amtContainTax': 100,
+                                                                                                            'amtNotContainTax': 88.5,
+                                                                                                            'taxAmt': 11.5,
+                                                                                                            'goodsId': 206,
+                                                                                                            'goodsCode': '17122000041283',
+                                                                                                            'goodsName': '石狮子',
+                                                                                                            'goodsUnit': '只',
+                                                                                                            'taxUnitPrice': 100,
+                                                                                                            'notTaxUnitPrice': 88.5,
+                                                                                                            'taxClassificationId': 378,
+                                                                                                            'taxCode': '1020600000000000000',
+                                                                                                            'taxRate': 0.13,
+                                                                                                            'taxName': '矿产品',
+                                                                                                            'taxFullName': '其他矿产品',
+                                                                                                            'merchantId': '0000111008',
+                                                                                                            'shortTaxCode': '10206',
+                                                                                                            'confirmId': '$DB{b0_id}',
+                                                                                                            '_X_ROW_KEY': 'row_5553'},
+                                                                                                        {
+                                                                                                            'businessNo': '$Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[1].businessNo}',
+                                                                                                            'bizDetailId': '$DB{b1_bizDetailId}',
+                                                                                                            'standards': '220610',
+                                                                                                            'goodsCount': 2,
+                                                                                                            'amtContainTax': 200,
+                                                                                                            'amtNotContainTax': 176.99,
+                                                                                                            'taxAmt': 23.01,
+                                                                                                            'goodsId': 178,
+                                                                                                            'goodsCode': '963852741',
+                                                                                                            'goodsName': '收音机',
+                                                                                                            'goodsUnit': '件',
+                                                                                                            'taxUnitPrice': 100,
+                                                                                                            'notTaxUnitPrice': 88.495,
+                                                                                                            'taxClassificationId': 999,
+                                                                                                            'taxCode': '1090604040000000000',
+                                                                                                            'taxRate': 0.13,
+                                                                                                            'taxName': '黑色金属矿石',
+                                                                                                            'taxFullName': '铁矿石',
+                                                                                                            'merchantId': '0000111008',
+                                                                                                            'shortTaxCode': '1020301',
+                                                                                                            'confirmId': '$DB{b1_id}',
+                                                                                                            '_X_ROW_KEY': 'row_5554'}],
+                                           'recTaxpayerId': 0, 'recTaxpayerName': '百鸣鸟装饰有限公司',
+                                           'recTaxpayerCode': '440001999999260', 'reviewer': '沙和尚', 'receiver': '猪八戒',
+                                           'openMan': '孙悟空', 'remarks': '2206101212', 'recUnitAddress': '中欧',
+                                           'recFixedPhoneNumber': '13688889999', 'recBankName': '中国农商银行佛山北滘支行',
+                                           'recBankAccount': '12353154656665', 'invoiceByHandFlag': '', 'amount': '',
+                                           'deviceId': '', 'deviceType': 1, 'amtNotContainTax': 265.49, 'taxAmt': 34.51,
+                                           'invoiceAmt': 300, 'blueInvoiceNo': '', 'blueInvoiceCode': '',
+                                           'redRushInfoNo': ''}}, 'check_body': {
+                     'check_json': {'check_type': 'perfect_match', 'expected_code': 200,
+                                    'expected_result': 'updateInvoiceToConfirm_response.json'}}}, 'data': {
+                 'sql': "['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}',\n'select id as b0_id, biz_detail_id as b0_bizDetailId from t_invoice_to_confirm_detail where business_no = $Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[0].businessNo}',\n'select id as b1_id, biz_detail_id as b1_bizDetailId from t_invoice_to_confirm_detail where business_no = $Req{addInvoiceToConfirm.data.invoiceToConfirmDetailBOList[1].businessNo}']"}}}},
+             {'batchConfirm': {'step_4': {'script': {
+                 'request_header': {'Method': 'post', 'path': '/mage/manual/batchConfirm', 'Connection': 'keep-alive',
+                                    'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0,
+                                    'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {
+                     'check_json': {'check_type': 'perfect_match', 'expected_code': 200,
+                                    'expected_result': 'batchConfirm_response.json'}}}, 'data': {
+                 'sql': "['select id from t_invoice_to_confirm where business_no = $Req{addInvoiceToConfirm.data.businessNos}']"}}}},
+             {'batchInvoice': {'step_5': {'script': {
+                 'request_header': {'Method': 'post', 'path': '/mage/draft/batchInvoice', 'Connection': 'keep-alive',
+                                    'Content-Type': 'application/x-www-form-urlencoded', 'timeout': 10, 'sleep_time': 0,
+                                    'is_login': True}, 'request_body': {'str': '$DB{id}'}, 'check_body': {
+                     'check_json': {'check_type': 'perfect_match', 'expected_code': 200,
+                                    'expected_result': 'batchInvoice_response.json'}}}, 'data': {
+                 'sql': "['select id from t_invoice_trans where business_no = $Req{addInvoiceToConfirm.data.businessNos}']"}}}}]
 
 
 @pytest.mark.parametrize("test_case", test_case)
@@ -30,7 +152,7 @@ def test_test_scene_1(login_manage, test_case):
     else:
         result = reqSend.requestSend(api_step, api_name, api_info)
     assert True == check_res(result, expect_data)
-    
+
 
 if __name__ == '__main__':
     pytest.main(['-v', './test_invoice_manage1_Test_scene_1'])
