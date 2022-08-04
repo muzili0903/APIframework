@@ -12,6 +12,8 @@ import os
 
 class MyLogs(object):
 
+    logger = None
+
     def __init__(self, log_path):
         # 定义日志默认路径和日志名称
         if not os.path.exists(log_path):
@@ -47,7 +49,13 @@ class MyLogs(object):
         logger.addHandler(fh)
         logger.addHandler(fh_err)
         logger.addHandler(sh)
+    
+    def get_logger(self):
+        return self.logger
 
+
+log = MyLogs()
+logger = log.get_logger()
 
 if __name__ == "__main__":
     pass
