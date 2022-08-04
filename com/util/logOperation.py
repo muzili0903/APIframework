@@ -14,7 +14,6 @@ from com.util.getFileDirs import LOGS
 
 class MyLogs(object):
 
-
     def __init__(self, log_path):
         # 定义日志默认路径和日志名称
         if not os.path.exists(log_path):
