@@ -12,7 +12,6 @@ import os
 
 class MyLogs(object):
 
-    logger = None
 
     def __init__(self, log_path):
         # 定义日志默认路径和日志名称
@@ -23,9 +22,9 @@ class MyLogs(object):
         logfile_err = os.path.join(log_path, runtime + '_error.log')
 
         # 第一步，初始化日志对象并设置日志等级
-        logger = logging.getLogger()
-        logger.setLevel(logging.DEBUG)
-        logger.handlers = []
+        self.logger = logging.getLogger()
+        self.logger.setLevel(logging.DEBUG)
+        self.logger.handlers = []
 
         # 第二步，创建一个handler，用于写入debug日志文件
         fh = logging.FileHandler(logfile, mode='a+', encoding='utf-8')
@@ -46,9 +45,9 @@ class MyLogs(object):
         sh.setFormatter(formatter)
 
         # 第六步，将logger添加到handler里面
-        logger.addHandler(fh)
-        logger.addHandler(fh_err)
-        logger.addHandler(sh)
+        self.logger.addHandler(fh)
+        self.logger.addHandler(fh_err)
+        self.logger.addHandler(sh)
     
     def get_logger(self):
         return self.logger
