@@ -9,6 +9,8 @@ import time
 import sys
 import os
 
+from com.util.getFileDirs import LOGS
+
 
 class MyLogs(object):
 
@@ -53,7 +55,7 @@ class MyLogs(object):
         return self.logger
 
 
-log = MyLogs()
+log = MyLogs(LOGS)
 logger = log.get_logger()
 
 if __name__ == "__main__":
