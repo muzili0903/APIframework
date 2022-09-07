@@ -77,6 +77,12 @@ def check_list(response_body: list, expected_body: list, checked_type) -> bool:
         if response_body.__len__() != expected_body.__len__():
             return False
     try:
+        response_body.sort()
+        expected_body.sort()
+    except Exception as e:
+        logging.info("'<' not supported between instances of 'dict' and 'int'")
+        logging.info("list排序报错：>>>{}".format(e))
+    try:
         for index, value in enumerate(expected_body):
             print(index, value)
             if isinstance(value, dict):
@@ -188,6 +194,28 @@ def check_db(checked_sql: list, expected_body: dict) -> bool:
         logging.info("数据库校验内容非dict格式: >>>{}".format(expected_body))
         return False
     if False not in res:
+        return True
+    else:
+        return False
+
+
+def check_one_to_many(response_body: list, expected_body):
+    """
+    校验预期值与实际列表值全匹配, 适用于查询结果校验
+    :param response_body:
+    :param expected_body:
+    :return:
+    """
+    logging.info("响应报文: >>>{}".format(response_body))
+    logging.info("预期结果: >>>{}".format(expected_body))
+    logging.info("校验方式: >>>perfect_match")
+
+    result = list()
+    for response in response_body:
+        if response != expected_body:
+            result.append(False)
+            break
+    if all(result):
         return True
     else:
         return False
