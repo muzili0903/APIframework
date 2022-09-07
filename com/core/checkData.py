@@ -38,7 +38,7 @@ def check_type(type: str) -> bool:
         return True
 
 
-def check_value(respone_value, expect_value):
+def check_value(respone_value, expect_value) -> bool:
     """
     校验值
     :param respone_value:
@@ -58,6 +58,7 @@ def check_value(respone_value, expect_value):
         else:
             if expect_value != respone_value:
                 return False
+        return True
     except Exception as e:
         logging.info("值校验, 预期结果: >>>{}与响应结果: >>>{}值不一致".format(expect_value, respone_value))
         logging.info("值校验报错: >>>{}".format(e))
