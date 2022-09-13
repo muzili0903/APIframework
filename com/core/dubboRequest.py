@@ -1,7 +1,7 @@
 """
 @Time ： 2022/9/13 19:45
 @Auth ： muzili
-@File ： replaceData.py
+@File ： dubboRequest.py
 @IDE  ： PyCharm
 """
 import re
@@ -171,16 +171,16 @@ class DubboRun:
 
 
 if __name__ == '__main__':
-    service = "com.midea.jr.gfp.gbep.api.bill.instruct.service.BillSaveInstructionsService"
-    dto = "com.midea.jr.gfp.gbep.api.base.Request"
+    service = "com.jr.gfp.gbep.api.bill.instruct.service.BillSaveInstructionsService"
+    dto = "com.jr.gfp.gbep.api.base.Request"
     dubboApi = "saveApproveInstruct"
     params = {
         "data": {
-            "class": "com.midea.jr.gfp.gbep.api.bill.instruct.bo.BillApproveBO",
+            "class": "com.jr.gfp.gbep.api.bill.instruct.bo.BillApproveBO",
             "acceptAmt": 80.41,
             "accepterAccNo": "0",
             "accepterCnaps": "907581000070",
-            "accepterName": "美的集团财务有限公司",
+            "accepterName": "集团财务有限公司",
             "bailRate": 0,
             "batchNo": "0000276278",
             "batchNum": 1,
@@ -191,7 +191,7 @@ if __name__ == '__main__':
             "billType": "AC01",
             "drawerAccNo": "1011100758233011",
             "drawerCnaps": "907581000070",
-            "drawerName": "广东美的制冷设备有限公司",
+            "drawerName": "广东制冷设备有限公司",
             "drawerOrgId": "72547107-X",
             "drawerType": "RC01",
             "dueDate": 1653926400000,
@@ -202,7 +202,7 @@ if __name__ == '__main__':
             "payInCautionAcctNo": "1115610075805001",
             "payeeAccNo": "1115610075701002",
             "payeeCnaps": "907581000070",
-            "payeeName": "广东美的制冷设备有限公司",
+            "payeeName": "广东制冷设备有限公司",
             "receivedKey": "3d5c1809128443ccb90af149490ed5ac",
             "sourceReceiptNo": "PKPSL07095305",
             "sourceSystemCode": "GEBL",
