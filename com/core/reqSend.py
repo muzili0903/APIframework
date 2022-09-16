@@ -56,10 +56,10 @@ def requestSend(api_step, api_name, case: dict):
 
 
 if __name__ == "__main__":
-    case = {'url': 'https://fenqitest.midea.com/invoice_sit/invoice/trans/blue', 'method': 'POST',
+    case = {'url': 'https://fenqitest.com/invoice_sit/invoice/trans/blue', 'method': 'POST',
             'data': {
-                "appId": "IBCP",
-                "appKey": "123456",
+                "appId": "",
+                "appKey": "",
                 "data": {
                     "invoiceAmt": 610.0,
                     "immediateInvoice": 1,
@@ -68,7 +68,7 @@ if __name__ == "__main__":
                     "bizId": "DZFP2022052513300771",
                     "invoiceType": 3,
                     "remarks": "票面备注：客户名称：muzili, bizId=DZFP2022052513300771",
-                    "taxpayerCode": "440002999999441",
+                    "taxpayerCode": "",
                     "businessNo": "202205251330079",
                     "detailList": [
                         {
