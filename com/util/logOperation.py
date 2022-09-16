@@ -8,6 +8,7 @@ import logging
 import time
 import sys
 import os
+from queue import Queue
 
 from com.util.getFileDirs import LOGS
 
@@ -56,6 +57,7 @@ class MyLogs(object):
 
 log = MyLogs(LOGS)
 logger = log.get_logger()
+funcQueue = Queue()
 
 if __name__ == "__main__":
     pass
