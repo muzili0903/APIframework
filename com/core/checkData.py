@@ -216,10 +216,7 @@ def check_one_to_many(response_body: list, expected_body):
         if response != expected_body:
             result.append(False)
             break
-    if all(result):
-        return True
-    else:
-        return False
+    return all(result)
 
 
 if __name__ == "__main__":
