@@ -89,7 +89,7 @@ def get_file_name(path):
 
 def make_zip(source_dir, output_filename=None):
     """
-    打包目录为zip文件（未压缩）
+    打包目录为zip文件(未压缩)
     :param source_dir:
     :param output_filename:
     :return:

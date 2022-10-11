@@ -82,7 +82,7 @@ def check_list(response_body: list, expected_body: list, checked_type) -> bool:
         expected_body.sort()
     except Exception as e:
         logging.info("'<' not supported between instances of 'dict' and 'int'")
-        logging.info("list排序报错：>>>{}".format(e))
+        logging.info("list排序报错: >>>{}".format(e))
     try:
         for index, value in enumerate(expected_body):
             print(index, value)
@@ -135,7 +135,7 @@ def check_list(response_body: list, expected_body: list, checked_type) -> bool:
 
 def check_resp(response_body: dict, expected_body: dict, checked_type) -> bool:
     """
-    校验响应报文，预期结果json文件格式
+    校验响应报文, 预期结果json文件格式
     :param response_body:
     :param expected_body:
     :param checked_type:
@@ -211,12 +211,16 @@ def check_one_to_many(response_body: list, expected_body):
     logging.info("预期结果: >>>{}".format(expected_body))
     logging.info("校验方式: >>>perfect_match")
 
-    result = list()
-    for response in response_body:
-        if response != expected_body:
-            result.append(False)
-            break
-    return all(result)
+    if isinstance(response_body, list):
+        result = list()
+        for response in response_body:
+            if response != expected_body:
+                result.append(False)
+                break
+        return all(result)
+    else:
+        logging.info("JSON校验内容非list格式: >>>{}".format(response_body))
+        return False
 
 
 if __name__ == "__main__":

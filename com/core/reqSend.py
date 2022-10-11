@@ -26,7 +26,7 @@ def requestSend(api_step, api_name, case: dict):
     logging.info("请求方法：>>>{}".format(case.get('method')))
     logging.info("请求头：>>>{}".format(case.get('headers')))
     logging.info("请求体：>>>{}".format(case.get('data')))
-    logging.info("请求cookies：>>>{}".format(case.get('cookies')))
+    logging.info("请求cookies: >>>{}".format(case.get('cookies')))
     with allure.step("请求步骤: {api_step}, 接口名: {api_name}".format(api_step=api_step, api_name=api_name)):
         allure.attach(name="请求方法", body=str(case.get('method')))
         allure.attach(name="请求地址", body=str(case.get('url')))
