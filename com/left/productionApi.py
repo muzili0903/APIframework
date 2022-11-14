@@ -12,8 +12,14 @@ from com.util.excelOperation import ReadExcel
 from com.util.getFileDirs import LEFT
 
 
-def production(path, apiname='apiname'):
-    excel = ReadExcel(path, sheet_name=apiname)
+def production(path, api_name='apiname'):
+    """
+    处理报文字段
+    :param path:
+    :param api_name: 接口名称
+    :return:
+    """
+    excel = ReadExcel(path, sheet_name='api_name')
     header = excel.get_rows(row_x=1)
     api = dict()
     for i in range(3, excel.get_max_row()):
