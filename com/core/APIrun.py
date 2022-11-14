@@ -40,6 +40,7 @@ def run():
                  '--reruns', con.get_config('pytest', 'reruns'),
                  '--reruns-delay', con.get_config('pytest', 'delay'),
                  '--maxfail', con.get_config('pytest', 'maxfail'),
+                 '--durations=0',  # 显示用例的执行时间
                  '-n', con.get_config('pytest', 'gip'),
                  '--dist=loadfile',
                  '--alluredir', REPORT + '/xml',
