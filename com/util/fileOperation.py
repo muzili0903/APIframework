@@ -87,6 +87,25 @@ def get_file_name(path):
     return os.path.split(path)[1]
 
 
+def touch_open_report(path: str) -> None:
+    """
+    创建一个打开报告的脚本
+    :param path: 文件存放的路径
+    :return:
+    """
+    cmd = f"""#!/bin/bash
+
+allure open \\html
+
+echo 按任意键继续
+read -n 1
+echo 继续运行
+    """
+    filename = ensure_path_sep(path + r'\open_report.sh')
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.writelines(cmd)
+
+
 def make_zip(source_dir, output_filename=None):
     """
     打包目录为zip文件(未压缩)
@@ -95,9 +114,12 @@ def make_zip(source_dir, output_filename=None):
     :return:
     """
     if output_filename is None:
-        output_filename = HISTORY + '\\' + fdate() + ftime() + '.zip'
+        if not os.path.exists(history):
+            os.makedirs(history)
+        output_filename = ensure_path_sep(history + '\\' + get_random_time() + '.zip')
     with zipfile.ZipFile(output_filename, 'w') as zip_file:
         pre_len = len(os.path.dirname(source_dir))
+        touch_open_report(source_dir)
         for parent, dirnames, filenames in os.walk(source_dir):
             for filename in filenames:
                 pathfile = os.path.join(parent, filename)
@@ -120,6 +142,18 @@ def un_zip(file_name):
         for names in zip_file.namelist():
             zip_file.extract(names, file_name + "_files/")
 
+
+def open_report(zip_name: str) -> None:
+    """
+    打开历史allure报告
+    :param zip_name: allure报告压缩后的zip文件名
+    :return:
+    """
+    path = ensure_path_sep(history + '\\' + zip_name)
+    un_zip(path)
+    cmd = ensure_path_sep(f'allure open {path}' + r'_files\report\html')
+    os.system(cmd)
+    
 
 if __name__ == "__main__":
     # from com.util.getConfig import Config

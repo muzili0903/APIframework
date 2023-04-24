@@ -6,6 +6,21 @@
 """
 import os
 
+
+def ensure_path_sep(path: str) -> str:
+    """
+    兼容 windows 和 linux 不同环境的操作系统路径
+    :param path: 路径
+    :return: 路径
+    """
+    if "/" in path:
+        path = os.sep.join(path.split("/"))
+
+    if "\\" in path:
+        path = os.sep.join(path.split("\\"))
+    return path
+
+
 # 基本路径
 dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # 配置文件
