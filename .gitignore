@@ -1,0 +1,11 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+./.pytest_cache
+*.iml
+out
+./report
+./logs
+./historyReport
+**/*.pyc

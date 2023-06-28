@@ -37,10 +37,6 @@ def pytest_configure(config):
     pass
 
 
-def get_P():
-    pass
-
-
 @pytest.hookimpl(tryfirst=True)
 def pytest_sessionstart(session):
     """
