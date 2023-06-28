@@ -4,6 +4,9 @@
 @time    :2023/6/28 17:32
 @file    :initializeParam.py
 """
+import re
+
+from common.core import replaceData
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
 
@@ -17,30 +20,24 @@ def ini_request_headers(request_headers: dict, test_data: dict) -> dict:
     """
     MYCONFIG = GolStatic.get_pro_var('MYCONFIG')
     try:
-        default_headers = dict(MYCONFIG.get_items('request_headers'))
-        default_project = dict(MYCONFIG.get_items('project'))
+        default_headers = dict(MYCONFIG.get_items('HEADERS'))
+        default_project = dict(MYCONFIG.get_items('PROJECT'))
     except Exception as e:
         logger.error("配置文件request_headers 或 default_project 不存在: >>>{default_headers}, {default_project}".format(
             default_headers=default_headers, default_project=default_project))
         logger.error("报错信息: >>>{}".format(e))
+        raise e
     # headers
     method = request_headers.get('Method') or default_headers.get('Method')
     content_type = request_headers.get('Content-Type') or default_headers.get('Content-Type')
     user_agent = request_headers.get('User-Agent') or default_headers.get('User-Agent')
     connection = request_headers.get('Connection') or default_headers.get('Connection')
     timeout = request_headers.get('timeout') or default_headers.get('timeout')
-    cookie = request_headers.get('cookie') or default_headers.get('cookie')
-    save_cookie = request_headers.get('save_cookie') or default_headers.get('save_cookie')
-    sleep_time = request_headers.get('sleep_time') or default_headers.get('sleep_time')
-    path = request_headers.get('path') or default_headers.get('path')
-    # project 兼容上游与管理台之间的交互
     base_url = request_headers.get('base_url') or default_project.get('base_url')
-    env = request_headers.get('env') or default_project.get('env')
     logger.info("request_headers处理前: >>>{}".format(request_headers))
     try:
         header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent, 'Connection': connection,
-                  'timeout': int(timeout), 'cookie': cookie, 'save_cookie': save_cookie, 'path': path,
-                  'base_url': base_url, 'env': env, 'sleep_time': int(sleep_time)}
+                  'timeout': int(timeout), 'base_url': base_url}
         header = eval(replaceData.replace_user_var(str(header), test_data))
         request_headers.update(header)
     except Exception as e:
@@ -119,3 +116,7 @@ def ini_package(script: dict, data: dict) -> dict:
     return {"url": url, "method": method, "data": body, "headers": header_copy, "timeout": timeout,
             "content_type": content_type, "is_login": is_login, "cookies": cookies, "save_cookie": save_cookie,
             'sleep_time': sleep_time}
+
+
+if __name__ == '__main__':
+    ...
