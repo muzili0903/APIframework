@@ -1,7 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Jun 29 10:29:45 CST 2023","Thu Jun 29 10:29:45 CST 2023","0","testCase.pro.apis","test_2","","","","test_1",""
-"passed","Thu Jun 29 10:29:45 CST 2023","Thu Jun 29 10:29:45 CST 2023","0","testCase.pro.apis","test_2","","","","test_3",""
-"passed","Thu Jun 29 10:29:45 CST 2023","Thu Jun 29 10:29:45 CST 2023","0","testCase.pro.apis","test_2","","","","test_2",""
-"passed","Thu Jun 29 10:29:45 CST 2023","Thu Jun 29 10:29:45 CST 2023","0","testCase.pro.apis","test_1","","","","test_1",""
-"passed","Thu Jun 29 10:29:45 CST 2023","Thu Jun 29 10:29:45 CST 2023","0","testCase.pro.apis","test_1","","","","test_3",""
-"passed","Thu Jun 29 10:29:45 CST 2023","Thu Jun 29 10:29:45 CST 2023","0","testCase.pro.apis","test_1","","","","test_2",""
