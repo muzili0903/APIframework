@@ -5,7 +5,7 @@
 ./.pytest_cache
 *.iml
 out
-./report
+report/
 ./logs
 ./historyReport
 **/*.pyc
