@@ -8,14 +8,11 @@ out
 ./historyReport
 **/*.pyc
 .idea
-/useless_file/
-*apiResults.json
 /history/
-!/test_case/test_demo.py
-!/apiResults.json
 **/__pycache__/
 /.pytest_cache
 /.idea!/logs/
 /report/
 /historyReport/
 /logs/
+/report/html/
