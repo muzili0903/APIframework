@@ -91,11 +91,11 @@ def ini_params(test_info: dict, test_data: dict) -> dict:
     return test_info
 
 
-def ini_package(script: dict, data: dict) -> dict:
+def ini_package(case_body: dict, body_value: dict) -> dict:
     """
     组装报文
-    :param script: 脚本文件内容
-    :param data: 脚本文件对应的数据
+    :param case_body: 用例请求体内容
+    :param body_value: 用例请求体参数化内容
     :return:
     """
     header = ini_request_headers(script.get('request_header'), data)

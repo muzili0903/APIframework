@@ -7,23 +7,27 @@
 import allure
 
 from common.core import reqMethod
+from common.core.initializeParam import ini_package
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
 
 
-def requestSend(request, api_step: str = None, api_name: str = None, case: dict = None) -> dict:
+def requestSend(request, api_step: str = None, api_name: str = None, case: dict = None,
+                request_body: dict = None) -> dict:
     """
     发送请求
     :param request:
     :param api_step: 请求步骤
     :param api_name: 接口名称
-    :param case:
+    :param case: 用例
+    :param request_body: 用例参数化
     :return:
     """
+    case_body = ini_package(case_body=case.get('data'), body_value=request_body)
     logger.info("请求地址：>>>{}".format(case.get('url')))
     logger.info("请求方法：>>>{}".format(case.get('method')))
     logger.info("请求头：>>>{}".format(case.get('headers')))
-    logger.info("请求体：>>>{}".format(case.get('data')))
+    logger.info("请求体：>>>{}".format(case_body))
     with allure.step("请求步骤: {api_step}, 接口名: {api_name}".format(api_step=api_step, api_name=api_name)):
         allure.attach(name="请求地址", body=str(case.get('url')))
         allure.attach(name="请求方法", body=str(case.get('method')))
