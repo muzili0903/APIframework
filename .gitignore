@@ -5,8 +5,6 @@
 ./.pytest_cache
 *.iml
 out
-/report/
-/logs/
 ./historyReport
 **/*.pyc
 .idea
@@ -18,3 +16,6 @@ out
 **/__pycache__/
 /.pytest_cache
 /.idea!/logs/
+/report/
+/historyReport/
+/logs/
