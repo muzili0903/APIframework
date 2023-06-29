@@ -118,5 +118,57 @@ def ini_package(case_body: dict, body_value: dict) -> dict:
             'sleep_time': sleep_time}
 
 
+def body(item, request_body):
+    """
+    处理dict字段值
+    :param item:
+    :param request_body:
+    :return:
+    """
+    try:
+        # dict为空, 直接替换
+        if len(item) == 0:
+            item.update(request_body)
+        else:
+            for key, value in request_body.items():
+                if isinstance(value, dict):
+                    body(item[key], value)
+                elif isinstance(value, list):
+                    body_list(item[key], value)
+                else:
+                    if 'case_title'.__eq__(key):
+                        pass
+                    else:
+                        item.__setitem__(key, value)
+    except KeyError as e:
+        raise e
+
+
+def body_list(item, request_body):
+    """
+    处理list字段值
+    :param item:
+    :param request_body:
+    :return:
+    """
+    for index, value in enumerate(request_body):
+        if len(item).__eq__(0):
+            # list为空, 直接替换
+            item.extend(request_body)
+            break
+        if isinstance(value, dict):
+            try:
+                body(item[index], value)
+            except IndexError:
+                item.append(value)
+        elif isinstance(value, list):
+            try:
+                body_list(item[index], value)
+            except IndexError:
+                item.append(value)
+        else:
+            item[index] = value
+
+
 if __name__ == '__main__':
     ...
