@@ -9,6 +9,7 @@ from typing import Any
 
 import yaml
 
+from common.util.fileOperation import get_all_file, get_file_name
 from common.util.logOperation import logger
 
 
@@ -30,7 +31,7 @@ def read_yaml(file: str, is_str: bool = True) -> Any:
         return content
 
 
-def write_yaml(file: str, obj: object):
+def write_yaml(file: str, obj: object) -> None:
     """
     将python对象写入yaml文件
     :param file:
@@ -47,7 +48,22 @@ def write_yaml(file: str, obj: object):
 
 
 def read_folder_case(path: str) -> dict:
-    pass
+    """
+    读取某个目录下的yaml, 以文件名为key, 文件内容为value的形式返回
+    :param path:
+    :return:
+    """
+    if not os.path.exists(path):
+        logger.error("目录不存在, 获取数据失败: >>>{}".format(path))
+        return dict()
+    path_list = get_all_file(path)
+    cases = dict()
+    for path in path_list:
+        filename = get_file_name(path).split('.')[0]
+        data = read_yaml(path, is_str=False)
+        cases.update({filename: data})
+    return cases
+
 
 if __name__ == "__main__":
     ...
