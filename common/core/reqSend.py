@@ -10,7 +10,6 @@ from common.core import reqMethod
 from common.core.initializeParam import DisposeBody
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
-from common.util.yamlOperation import read_folder_case
 
 
 def requestSend(request, api_step: str = None, api_name: str = None, case: dict = None,
@@ -56,6 +55,4 @@ def requestSend(request, api_step: str = None, api_name: str = None, case: dict 
 
 
 if __name__ == '__main__':
-    test_case = read_folder_case(r"E:\APIAutoTestModel\testData\pro\model")
-    print(requestSend(request='', case=test_case.get('riskManageList')))
     ...

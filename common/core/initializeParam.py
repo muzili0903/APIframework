@@ -8,8 +8,6 @@ import re
 from typing import Any
 
 from common.core import replaceData
-from common.util.filePath import CONFDIRENV
-from common.util.getConfig import MyConfig
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
 
@@ -17,14 +15,6 @@ from common.util.logOperation import logger
 class DisposeBody(object):
     def __init__(self):
         self.MYCONFIG = GolStatic.get_pro_var('MYCONFIG')
-        # 调试用
-        # 启动多进程跑用例时，需要重新实例化MyConfig()
-        PROCONFIG = MyConfig()
-        GolStatic.set_pro_var('PROCONFIG', PROCONFIG)
-        # PROCONFIG = GolStatic.get_pro_var('PROCONFIG')
-        # 实例化环境配置对象
-        path = CONFDIRENV + PROCONFIG.get_config('ENVIRONMENT', 'ENV')
-        self.MYCONFIG = MyConfig(path)
 
     def ini_request_headers(self, request_headers: dict) -> None:
         """
