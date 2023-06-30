@@ -8,7 +8,7 @@ import re
 
 from jsonpath import jsonpath
 
-from common.core.initializeParam import ini_db_params
+# from common.core.initializeParam import ini_db_params
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
 
@@ -24,7 +24,7 @@ def query_db(sql_list: list):
     logger.info("需要执行的sql: >>>{}".format(sql_list))
     for sql in sql_list:
         if 'where' in sql or 'WHERE' in sql:
-            sql = ini_db_params(sql)
+            # sql = ini_db_params(sql)
             logger.info("正在执行的sql: >>>{}".format(sql))
             result = mysql.query(sql, is_dict=True)
             query_result.append(result)

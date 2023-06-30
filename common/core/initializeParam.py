@@ -5,8 +5,11 @@
 @file    :initializeParam.py
 """
 import re
+from typing import Any
 
 from common.core import replaceData
+from common.util.filePath import CONFDIRENV
+from common.util.getConfig import MyConfig
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
 
@@ -14,41 +17,42 @@ from common.util.logOperation import logger
 class DisposeBody(object):
     def __init__(self):
         self.MYCONFIG = GolStatic.get_pro_var('MYCONFIG')
+        # 调试用
+        # 启动多进程跑用例时，需要重新实例化MyConfig()
+        PROCONFIG = MyConfig()
+        GolStatic.set_pro_var('PROCONFIG', PROCONFIG)
+        # PROCONFIG = GolStatic.get_pro_var('PROCONFIG')
+        # 实例化环境配置对象
+        path = CONFDIRENV + PROCONFIG.get_config('ENVIRONMENT', 'ENV')
+        self.MYCONFIG = MyConfig(path)
 
-    def ini_request_headers(self, request_headers: dict, test_data: dict) -> dict:
+    def ini_request_headers(self, request_headers: dict) -> None:
         """
         请求头处理
         :param self:
         :param request_headers:
-        :param test_data
         :return:
         """
         try:
             default_headers = dict(self.MYCONFIG.get_items('HEADERS'))
-            default_project = dict(self.MYCONFIG.get_items('PROJECT'))
         except Exception as e:
-            logger.error("配置文件request_headers 或 default_project 不存在: >>>{default_headers}, {default_project}".format(
-                default_headers=default_headers, default_project=default_project))
+            logger.error("配置文件request_headers 不存在: >>>{default_headers}".format(
+                default_headers=default_headers))
             logger.error("报错信息: >>>{}".format(e))
             raise e
         # headers
-        method = request_headers.get('Method') or default_headers.get('Method')
         content_type = request_headers.get('Content-Type') or default_headers.get('Content-Type')
         user_agent = request_headers.get('User-Agent') or default_headers.get('User-Agent')
         connection = request_headers.get('Connection') or default_headers.get('Connection')
         timeout = request_headers.get('timeout') or default_headers.get('timeout')
-        base_url = request_headers.get('base_url') or default_project.get('base_url')
         logger.info("request_headers处理前: >>>{}".format(request_headers))
         try:
-            header = {'Method': method, 'Content-Type': content_type, 'User-Agent': user_agent,
-                      'Connection': connection,
-                      'timeout': int(timeout), 'base_url': base_url}
-            header = eval(replaceData.replace_user_var(str(header), test_data))
+            header = {'Content-Type': content_type, 'User-Agent': user_agent,
+                      'Connection': connection, 'timeout': int(timeout)}
             request_headers.update(header)
         except Exception as e:
             logger.error("request_headers处理失败: >>>{}".format(e))
         logger.info("request_headers处理后: >>>{}".format(request_headers))
-        return request_headers
 
     def ini_db_params(self, sql: str):
         """
@@ -65,13 +69,16 @@ class DisposeBody(object):
             sql = replaceData.replace_resp(sql)
         return sql
 
-    def ini_params(self, case_body: dict) -> dict:
+    def ini_params(self, case_body: dict) -> Any:
         """
         初始化报文
         :param self:
         :param case_body：测试报文
         :return:
         """
+        if case_body is None or len(case_body) == 0:
+            logger.info("无需初始化报文")
+            return case_body
         logger.info("body处理前: >>>{}".format(case_body))
         """
         # 用户自定义参数化
@@ -104,9 +111,16 @@ class DisposeBody(object):
         :param body_value: 用例请求体参数化内容
         :return:
         """
+        # 处理请求头
+        self.ini_request_headers(case.get('headers'))
+        # 处理请求体
         case_body = self.ini_params(case.get('data'))
         self.body(case_body, body_value)
         case.update({'data': case_body})
+        # 处理请求url
+        base_url = self.MYCONFIG.get_config('PROJECT', case.get('proName') + '_base_url')
+        url = base_url + case.get('url')
+        case.update({'url': url})
 
     def body(self, case_body: dict, body_value: dict) -> None:
         """
@@ -116,8 +130,9 @@ class DisposeBody(object):
         :param body_value:
         :return:
         """
-        if case_body is None:
-            logger.info("body: case_body为None, 不做参数化处理")
+        if case_body is None or body_value is None:
+            logger.info("body: case_body or body_value 为None, 不做参数化处理")
+            return None
         # dict为空, 直接替换
         elif len(case_body) == 0:
             case_body.update(body_value)
@@ -138,8 +153,9 @@ class DisposeBody(object):
         :param body_value:
         :return:
         """
-        if case_body is None:
-            logger.info("body_list: case_body为None, 不做参数化处理")
+        if case_body is None or body_value is None:
+            logger.info("body_list: case_body or body_value 为None, 不做参数化处理")
+            return None
         else:
             for index, value in enumerate(body_value):
                 if len(case_body).__eq__(0):

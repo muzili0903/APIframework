@@ -144,6 +144,7 @@ class ReadExcel(object):
         # 遍历第一行之外的其他行
         for i in range(1, self.sheet_name.max_row):
             data_dict = dict(zip(title, self.get_rows(row_x=i)))
+            data_dict.update({'headers': json.loads(data_dict.get('headers'))})
             data_dict.update({'data': json.loads(data_dict.get('data'))})
             data_dict.update({'expected': json.loads(data_dict.get('expected'))})
             data_dict.update({'proName': self.proName})

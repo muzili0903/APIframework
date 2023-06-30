@@ -35,4 +35,5 @@ def single_excel_to_yaml(sheetname: str, interface: str = '',
 
 
 if __name__ == '__main__':
+    single_excel_to_yaml(sheetname='model')
     ...
