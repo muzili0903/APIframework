@@ -46,9 +46,9 @@ def pytest_sessionstart(session):
     :return:
     """
     # 启动多进程跑用例时，需要重新实例化MyConfig()
-    # PROCONFIG = MyConfig()
-    # GolStatic.set_pro_var('PROCONFIG', PROCONFIG)
-    PROCONFIG = GolStatic.get_pro_var('PROCONFIG')
+    PROCONFIG = MyConfig()
+    GolStatic.set_pro_var('PROCONFIG', PROCONFIG)
+    # PROCONFIG = GolStatic.get_pro_var('PROCONFIG')
     # 实例化环境配置对象
     path = CONFDIRENV + PROCONFIG.get_config('ENVIRONMENT', 'ENV')
     MYCONFIG = MyConfig(path)

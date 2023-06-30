@@ -133,7 +133,7 @@ def replace_user_func(case):
     return case
 
 
-def replace_resp(case):
+def replace_resp(case: str) -> str:
     """
     从其它接口的响应报文中替换请求报文中的参数值 $Resp{接口名.变量名}
     :param case:
@@ -164,7 +164,7 @@ def replace_resp(case):
     return case
 
 
-def replace_req(case):
+def replace_req(case: str) -> str:
     """
     从其它接口的请求报文中替换请求报文中的参数值 $Req{接口名.变量名}
     :param case:
@@ -190,3 +190,7 @@ def replace_req(case):
     except ValueError:
         logger.error("jsonpath表达式有误: >>>{}".format(var))
     return case
+
+
+if __name__ == '__main__':
+    pass

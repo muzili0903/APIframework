@@ -30,7 +30,7 @@ def read_yaml(file: str, is_str: bool = True) -> Any:
         return content
 
 
-def write_yaml(file: str, obj: object) -> bool:
+def write_yaml(file: str, obj: object):
     """
     将python对象写入yaml文件
     :param file:
@@ -39,13 +39,15 @@ def write_yaml(file: str, obj: object) -> bool:
     """
     # sort_keys=False字段表示不改变原数据的排序
     # allow_unicode=True 允许写入中文，必须以字节码格式写入
-    if not os.path.exists(file):
-        logger.error("文件不存在, 写入数据失败: >>>{}".format(file))
-        return False
+    path = os.path.split(file)[0]
+    if not os.path.exists(path):
+        os.makedirs(path)
     with open(file=file, mode="w", encoding='utf-8') as f:
         yaml.dump(data=obj, stream=f, sort_keys=False, allow_unicode=True)
-    return True
 
+
+def read_folder_case(path: str) -> dict:
+    pass
 
 if __name__ == "__main__":
     ...

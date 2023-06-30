@@ -7,7 +7,7 @@
 import allure
 
 from common.core import reqMethod
-from common.core.initializeParam import ini_package
+from common.core.initializeParam import DisposeBody
 from common.util.globalVars import GolStatic
 from common.util.logOperation import logger
 
@@ -23,11 +23,11 @@ def requestSend(request, api_step: str = None, api_name: str = None, case: dict 
     :param request_body: 用例参数化
     :return:
     """
-    case_body = ini_package(case_body=case.get('data'), body_value=request_body)
+    DisposeBody().ini_package(case=case, body_value=request_body)
     logger.info("请求地址：>>>{}".format(case.get('url')))
     logger.info("请求方法：>>>{}".format(case.get('method')))
     logger.info("请求头：>>>{}".format(case.get('headers')))
-    logger.info("请求体：>>>{}".format(case_body))
+    logger.info("请求体：>>>{}".format(case))
     with allure.step("请求步骤: {api_step}, 接口名: {api_name}".format(api_step=api_step, api_name=api_name)):
         allure.attach(name="请求地址", body=str(case.get('url')))
         allure.attach(name="请求方法", body=str(case.get('method')))
